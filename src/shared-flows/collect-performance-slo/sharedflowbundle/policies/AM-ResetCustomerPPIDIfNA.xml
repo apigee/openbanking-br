@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="false" name="AM-ResetCustomerPPIDIfNA">
+    <DisplayName>AM-ResetCustomerPPIDIfNA</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>customerPPId</Name>
+        <Value/>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo transport="http" createNew="false"/>
+</AssignMessage>

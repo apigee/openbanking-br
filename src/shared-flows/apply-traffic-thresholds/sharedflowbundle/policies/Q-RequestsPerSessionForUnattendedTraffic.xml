@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Quota type="flexi" async="false" continueOnError="true" enabled="false" name="Q-RequestsPerSessionForUnattendedTraffic">
+    <DisplayName>Q-RequestsPerSessionForUnattendedTraffic</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Identifier ref="sessionId"/>
+    <Allow count="100"/>
+    <AsynchronousConfiguration>
+        <SyncIntervalInSeconds>10</SyncIntervalInSeconds>
+        <SyncMessageCount>0</SyncMessageCount>
+    </AsynchronousConfiguration>
+    <Interval>1</Interval>
+    <DataStoreFailureModeOpen>false</DataStoreFailureModeOpen>
+    <Distributed>true</Distributed>
+    <PreciseAtSecondsLevel>false</PreciseAtSecondsLevel>
+    <Synchronous>false</Synchronous>
+    <TimeUnit>day</TimeUnit>
+</Quota>

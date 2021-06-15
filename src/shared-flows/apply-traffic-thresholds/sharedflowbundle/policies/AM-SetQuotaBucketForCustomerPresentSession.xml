@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="false" name="AM-SetQuotaBucketForCustomerPresentSession">
+    <DisplayName>AM-SetQuotaBucketForCustomerPresentSession</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>quotaBucketForCustomerPresentSession</Name>
+        <Template>{clientId}|{customerId}</Template>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

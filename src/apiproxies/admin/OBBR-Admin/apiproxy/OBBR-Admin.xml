@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="2" name="OBBR-Admin">
+    <Basepaths>/open-banking/admin/v1</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1622783931709</CreatedAt>
+    <CreatedBy>defaultUser</CreatedBy>
+    <Description>Admin APIs</Description>
+    <DisplayName>OBBR-Admin</DisplayName>
+    <LastModifiedAt>1622786655980</LastModifiedAt>
+    <LastModifiedBy>defaultUser</LastModifiedBy>
+    <ManifestVersion>SHA-512:5d734fd1c9924543be63ae778863295730b8a0337fd7f8a0481e0d4bc5e89a2b78a23dc2a7094faf29a8443cca5d9c02afb62dc7aeb2c01b0bd935b6981b71ee:ap-southeast-2</ManifestVersion>
+    <Policies>
+        <Policy>AM-Add-CORS-Headers</Policy>
+        <Policy>AM-InvalidScope</Policy>
+        <Policy>AM-MockFullMetrics</Policy>
+        <Policy>AM-SetMetricsPeriodAndRequestTime</Policy>
+        <Policy>AM-TokenNotVerified</Policy>
+        <Policy>EV-getErrorDetail</Policy>
+        <Policy>FC-AddFAPIInteractionId</Policy>
+        <Policy>FC-AddResponseHeaders-Link-Meta</Policy>
+        <Policy>FC-CheckRequestHeaders</Policy>
+        <Policy>FC-CollectPerformanceSLO</Policy>
+        <Policy>FC-TrafficThresholds</Policy>
+        <Policy>FC-ValidateRequestParams-Metrics</Policy>
+        <Policy>JS-FilterTransactionsListBasedOnRequestFilters</Policy>
+        <Policy>JS-SetRequestTime</Policy>
+        <Policy>LC-AllMetrics</Policy>
+        <Policy>LC-MetricsForPeriod</Policy>
+        <Policy>OA-VerifyTokenForMetrics</Policy>
+        <Policy>PC-StoreAllMetrics</Policy>
+        <Policy>PC-StoreMetricsForPeriod</Policy>
+        <Policy>RF-NotFound</Policy>
+        <Policy>RF-UnsupportedMethod</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://filterMetricsListBasedOnRequestFilters.js</Resource>
+        <Resource>jsc://setRequestTime.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+</APIProxy>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <DefaultFaultRule name="DefaultFaultRule">
+        <Step>
+            <Condition>message.status.code != "200"</Condition>
+            <FaultRules/>
+            <Name>AM-Add-CORS-Headers</Name>
+        </Step>
+        <Step>
+            <FaultRules/>
+            <Name>FC-AddFAPIInteractionId</Name>
+        </Step>
+        <Step>
+            <FaultRules/>
+            <Name>FC-CollectPerformanceSLO</Name>
+        </Step>
+        <AlwaysEnforce>true</AlwaysEnforce>
+    </DefaultFaultRule>
+    <Description/>
+    <FaultRules>
+        <FaultRule name="Invalid Scope">
+            <Condition>(fault.name = "InsufficientScope")</Condition>
+            <Step>
+                <FaultRules/>
+                <Name>AM-InvalidScope</Name>
+            </Step>
+        </FaultRule>
+        <FaultRule name="Invalid Access Token">
+            <Condition>(fault.name Matches "*access_token*") or (fault.name = "apiresource_doesnot_exist") or (fault.name = "InvalidAccessToken") or (fault.name = "InvalidAPICallAsNoApiProductMatchFound")</Condition>
+            <Step>
+                <FaultRules/>
+                <Name>EV-getErrorDetail</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>AM-TokenNotVerified</Name>
+            </Step>
+        </FaultRule>
+    </FaultRules>
+    <Flows>
+        <Flow name="getMetrics">
+            <Description>Get Metrics</Description>
+            <Request>
+                <!-- Not required for OpenBanking Phase 1 -->
+                <Step>
+                    <FaultRules/>
+                    <Name>OA-VerifyTokenForMetrics</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>FC-ValidateRequestParams-Metrics</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-SetMetricsPeriodAndRequestTime</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>LC-MetricsForPeriod</Name>
+                </Step>
+                <Step>
+                    <Condition>lookupcache.LC-MetricsForPeriod.cachehit = "false"</Condition>
+                    <FaultRules/>
+                    <Name>LC-AllMetrics</Name>
+                </Step>
+                <Step>
+                    <Condition>(lookupcache.LC-MetricsForPeriod.cachehit = "false") and (lookupcache.LC-AllMetrics.cachehit = "false")</Condition>
+                    <FaultRules/>
+                    <Name>AM-MockFullMetrics</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Condition>(lookupcache.LC-MetricsForPeriod.cachehit = "false")</Condition>
+                    <FaultRules/>
+                    <Name>JS-FilterTransactionsListBasedOnRequestFilters</Name>
+                </Step>
+                <Step>
+                    <Condition>(lookupcache.LC-MetricsForPeriod.cachehit = "false") </Condition>
+                    <FaultRules/>
+                    <Name>FC-AddResponseHeaders-Link-Meta</Name>
+                </Step>
+                <Step>
+                    <Condition>(lookupcache.LC-AllMetrics.cachehit = "false")</Condition>
+                    <FaultRules/>
+                    <Name>PC-StoreAllMetrics</Name>
+                </Step>
+                <Step>
+                    <Condition>lookupcache.LC-MetricsForPeriod.cachehit = "false"</Condition>
+                    <FaultRules/>
+                    <Name>PC-StoreMetricsForPeriod</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-SetRequestTime</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix = "/metrics") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="unsupportedMethod">
+            <Description>Method Not Allowed</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>RF-UnsupportedMethod</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix = "/register/metadata")  or (proxy.pathsuffix = "/metrics")</Condition>
+        </Flow>
+        <Flow name="notFound">
+            <Description>Not Found</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>RF-NotFound</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            <Step>
+                <FaultRules/>
+                <Name>FC-CollectPerformanceSLO</Name>
+            </Step>
+        </Response>
+    </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <FaultRules/>
+                <Name>FC-CheckRequestHeaders</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>FC-TrafficThresholds</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <HTTPProxyConnection>
+        <BasePath>/open-banking/admin/v1</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

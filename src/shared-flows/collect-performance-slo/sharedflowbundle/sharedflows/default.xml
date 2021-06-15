@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <Name>AM-SetDefaultPerformanceTierToUndetermined</Name>
+    </Step>
+    <!-- Not required in Open Banking Phase 1 -->
+    <Step>
+        <Condition>(isPublicEndpoint = "true")</Condition>
+        <FaultRules/>
+        <Name>AM-SetPerformanceTierToUnauthenticated</Name>
+    </Step>
+    <!-- Not required in Open Banking Phase 1 -->
+    <Step>
+        <Condition>true = false</Condition>
+        <FaultRules/>
+        <Name>AM-SetPerformanceTierToLargePayload</Name>
+    </Step>
+    <Step>
+        <Condition>(proxy.basepath = "/open-banking/admin/v1")</Condition>
+        <FaultRules/>
+        <Name>AM-SetPerformanceTierToUnattended</Name>
+    </Step>
+    <Step>
+        <Condition>(proxy.basepath = "/open-banking/discovery/v1")</Condition>
+        <Name>AM-SetPerformanceTierToHighPriority</Name>
+    </Step>
+    <Step>
+        <Condition>(proxy.basepath = "/open-banking/channels/v1") or (proxy.basepath = "/open-banking/products-services/v1")</Condition>
+        <FaultRules/>
+        <Name>AM-SetPerformanceTierToMediumPriority</Name>
+    </Step>
+    <Step>
+        <FaultRules/>
+        <Name>AM-SetMessageSLO</Name>
+    </Step>
+    <Step>
+        <FaultRules/>
+        <Name>JS-CheckIfRequestMeetsPerformanceSLO</Name>
+    </Step>
+    <!-- Not required in Open Banking Phase 1 -->
+    <Step>
+        <Condition>(customerPPId = "n/a")</Condition>
+        <FaultRules/>
+        <Name>AM-ResetCustomerPPIDIfNA</Name>
+    </Step>
+    <!-- Not required in Open Banking Phase 1 -->
+    <Step>
+        <Condition>(tokenOp = "n/a")</Condition>
+        <FaultRules/>
+        <Name>AM-ResetTokenOpIfNA</Name>
+    </Step>
+    <Step>
+        <FaultRules/>
+        <Name>SC-AddPerformanceTierDimension</Name>
+    </Step>
+</SharedFlow>

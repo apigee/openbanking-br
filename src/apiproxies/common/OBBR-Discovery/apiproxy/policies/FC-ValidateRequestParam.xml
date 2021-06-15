@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" continueOnError="false" enabled="true" name="FC-ValidateRequestParam">
+    <DisplayName>FC-ValidateRequestParam</DisplayName>
+    <SharedFlowBundle>validate-request-params</SharedFlowBundle>
+    <Parameters ignoreUnresolvedVariables="false">
+        <Parameter name="validateParamConfig">{ "QueryParams": [
+            {"page": {"ValueType": "PositiveInteger"}},
+            {"page-size": {"ValueType": "PositiveInteger"}}
+          ]
+        }</Parameter>
+    </Parameters>
+</FlowCallout>

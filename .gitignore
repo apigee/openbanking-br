@@ -1,0 +1,17 @@
+
+**/.DS_Store
+.DS_Store
+deb-temp/
+deb-temp/*
+node_modules/
+.vscode/settings.json
+setup/certs/
+setup/certs/*
+setup/service-accounts/
+setup/service-accounts/*
+specs/*Full.yaml
+specs/Older/
+specs/Older/*
+test/postman/*environment.json
+**/package-lock.json
+specs/Notes.txt

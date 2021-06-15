@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="OBBR-Discovery">
+    <Basepaths>/open-banking/discovery/v1</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1622604474849</CreatedAt>
+    <CreatedBy>defaultUser</CreatedBy>
+    <Description>Discovery API sets created by Open Banking Brazil</Description>
+    <DisplayName>OBBR-Discovery</DisplayName>
+    <LastModifiedAt>1622785955907</LastModifiedAt>
+    <LastModifiedBy>defaultUser</LastModifiedBy>
+    <ManifestVersion>SHA-512:12d7fc0aca09c9e2650c3c789eccb0faf560699503cd712d4bf0d8bad11f00cf063fd7a4c9bead42b8d298bde96b9ed8d0041a5e4417469b9c87dd8da7e207de:ap-southeast-2</ManifestVersion>
+    <Policies>
+        <Policy>AM-Add-CORS-Headers</Policy>
+        <Policy>AM-FormattedCurrentTime</Policy>
+        <Policy>AM-GenerateRandomIntLessThan1000</Policy>
+        <Policy>AM-MockOKStatusResponse</Policy>
+        <Policy>AM-MockOutagesResponse</Policy>
+        <Policy>AM-MockPartialFailureStatusResponse</Policy>
+        <Policy>AM-Set-Pagination-Settings</Policy>
+        <Policy>FC-AddFAPIInteractionId</Policy>
+        <Policy>FC-AddResponseHeaders-Link-Meta</Policy>
+        <Policy>FC-CheckRequestHeaders</Policy>
+        <Policy>FC-CollectPerformanceSLO</Policy>
+        <Policy>FC-PaginateResponse</Policy>
+        <Policy>FC-TrafficThresholds</Policy>
+        <Policy>FC-ValidateRequestParam</Policy>
+        <Policy>RF-NotFound</Policy>
+        <Policy>RF-TooManyRequests</Policy>
+        <Policy>RF-UnsupportedMethod</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+</APIProxy>

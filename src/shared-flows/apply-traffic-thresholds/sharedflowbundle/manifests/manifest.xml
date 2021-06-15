@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-SetQuotaBucketForCustomerPresentSession" version="SHA-512:c53eee43200547f40d86ac6fb62faaa4ed467a35b78acd42e650c828df9e98e28598154d25557d33cf43179b31ed11c430f220608776ba53be9fe5e7f1d82711"/>
+        <VersionInfo resourceName="Q-RequestsPerClientIpAddress" version="SHA-512:399f6e126916e3ceb0281c0dd1217dcf874cf7c559dd6a242b34b21e93f91f02d231fb3c35b2415bbc205167a0b27d623b1872251f808147c7f5862f5fa0b013"/>
+        <VersionInfo resourceName="Q-RequestsPerSessionForUnattendedTraffic" version="SHA-512:35a14109b750c5f39d3c1cda215ecec1cdf4cab32e46153d8a845dc6b7eda0a1220ddf6361f58a5314c291019a7c72934b118a76208b3e26ccd958bb0f561210"/>
+        <VersionInfo resourceName="RF-QuotaExceededForClientIPAddress" version="SHA-512:568170ca0dd59b200975d19fdbbcfaf4669ee219b15296d249c433ce20e9318f4c5ca85d5a212c48b4cdab97b2418210449cc1df39244cf031aca316f6841189"/>
+        <VersionInfo resourceName="RF-QuotaExceededForSessionWithUnattendedTraffic" version="SHA-512:046a315aa5f806c970e161618489e407348224e7c12db3640c4e043a47a116ec0762ea6d42f2dc18d9d8e28daf9a3977a8ad0f7aa9900332a2bd9d6082b3533b"/>
+        <VersionInfo resourceName="RF-TooManyRequests" version="SHA-512:b68aeb72ad0ef39477e735de50b3fbb4c1a282f891e54cb74dc7f0cd263efe4c6dba82cade32a6178ffe4443a59e39ed3894436b3980dd43bccd737766c33cb9"/>
+        <VersionInfo resourceName="SA-GlobalTrafficThreshold" version="SHA-512:b374c62b986117bd27b1fe1287ecaffe3303a14c48de7a70865a8f9e70c6da0a8341081415f37de11b7248e4fa9404a6aef25e14d44e6b4dbaedf41ae2eee465"/>
+        <VersionInfo resourceName="SA-ThresholdForCustomerPresentSecureTrafficPerClientId" version="SHA-512:3248055828b27cc00d203eaeb7bdca0fa486934c235c92b2e6fc5f4c5077057e0c3eda9ede55f6f50310a0f7a5f8c5a2f6a77c214222f55ee271afd1f64cae47"/>
+        <VersionInfo resourceName="SA-ThresholdForSecureTrafficPerClientId" version="SHA-512:54449a7e0729addc0c63755e798bce0e240e31157912fd005b0fd7174696fb9828add176d545a4d27d8f2fc2725116f6d7380136417d87aeb7e893ea4ec768ce"/>
+        <VersionInfo resourceName="SA-ThresholdForUnattendedSecureTrafficPerSession" version="SHA-512:2756cfe16e9f76a6db1aab21eea5fd201949a35cd654cb97b45684dfe87177a98bcb166fb0835be4e9fd32f7209bff7def1df10acd8ca52fce21aebe8527cb39"/>
+    </Policies>
+    <ProxyEndpoints/>
+    <Resources/>
+    <SharedFlows>
+        <VersionInfo resourceName="default" version="SHA-512:f662c31e0c95f404d28ce192ece15ae01be09eb80c286079c7798eea9b3d5de4bd81cce37eb0dfd360ebd98b4ece0833b781fc71d97fc8597652062991cafeec"/>
+    </SharedFlows>
+    <TargetEndpoints/>
+</Manifest>

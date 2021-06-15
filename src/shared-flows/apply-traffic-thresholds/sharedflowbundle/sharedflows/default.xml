@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <FaultRules/>
+        <Name>SA-GlobalTrafficThreshold</Name>
+    </Step>
+    <Step>
+        <Name>Q-RequestsPerClientIpAddress</Name>
+    </Step>
+    <!-- Not required for Open Banking Phase 1 -->
+    <Step>
+        <Condition>(isPublicEndpoint = "false")</Condition>
+        <FaultRules/>
+        <Name>SA-ThresholdForSecureTrafficPerClientId</Name>
+    </Step>
+    <!-- Not required for Open Banking Phase 1 -->
+    <Step>
+        <Condition>(isPublicEndpoint = "false") and (isCustomerPresent = "true")</Condition>
+        <FaultRules/>
+        <Name>AM-SetQuotaBucketForCustomerPresentSession</Name>
+    </Step>
+    <!-- Not required for Open Banking Phase 1 -->
+    <Step>
+        <Condition>(isPublicEndpoint = "false") and (isCustomerPresent = "true")</Condition>
+        <FaultRules/>
+        <Name>SA-ThresholdForCustomerPresentSecureTrafficPerClientId</Name>
+    </Step>
+    <!-- Not required for Open Banking Phase 1 -->
+    <Step>
+        <Condition>(isPublicEndpoint = "false") and (isCustomerPresent = "false") and (isAuthEndpoint = "false")</Condition>
+        <FaultRules/>
+        <Name>Q-RequestsPerSessionForUnattendedTraffic</Name>
+    </Step>
+    <!-- Not required for Open Banking Phase 1 -->
+    <Step>
+        <Condition>(isPublicEndpoint = "false") and (isCustomerPresent = "false")</Condition>
+        <FaultRules/>
+        <Name>SA-ThresholdForUnattendedSecureTrafficPerSession</Name>
+    </Step>
+    <Step>
+        <Condition>(ratelimit.SA-ThresholdForSecureTrafficPerClientId.failed = "true") or (ratelimit.SA-ThresholdForCustomerPresentSecureTrafficPerClientId.failed = "true") or (ratelimit.SA-ThresholdForUnattendedSecureTrafficPerSession.failed = "true") or (ratelimit.SA-GlobalTrafficThreshold.failed = "true")</Condition>
+        <FaultRules/>
+        <Name>RF-TooManyRequests</Name>
+    </Step>
+    <Step>
+        <Condition>ratelimit.Q-RequestsPerSessionForUnattendedTraffic.failed = "true"</Condition>
+        <FaultRules/>
+        <Name>RF-QuotaExceededForSessionWithUnattendedTraffic</Name>
+    </Step>
+    <Step>
+        <Condition>ratelimit.Q-RequestsPerClientIpAddress.failed = "true"</Condition>
+        <Name>RF-QuotaExceededForClientIPAddress</Name>
+    </Step>
+</SharedFlow>

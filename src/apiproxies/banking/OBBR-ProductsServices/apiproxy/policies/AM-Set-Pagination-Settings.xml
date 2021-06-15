@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Set-Pagination-Settings">
+    <DisplayName>AM-Set-Pagination-Settings</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <!--Disable pagination for now, until it is clarified how it is supposed to work with the current product nested structure -->
+    <!--<AssignVariable>-->
+    <!--    <Name>pagination.doPagination</Name>-->
+    <!--    <Value>true</Value>-->
+    <!--</AssignVariable>-->
+    <AssignVariable>
+        <Name>generatePaginationLinksAndMeta</Name>
+        <Value>true</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

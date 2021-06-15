@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <DefaultFaultRule name="DefaultFaultRule">
+        <Step>
+            <Condition>message.status.code != "200"</Condition>
+            <FaultRules/>
+            <Name>AM-Add-CORS-Headers</Name>
+        </Step>
+        <Step>
+            <FaultRules/>
+            <Name>FC-AddFAPIInteractionId</Name>
+        </Step>
+        <Step>
+            <FaultRules/>
+            <Name>FC-CollectPerformanceSLO</Name>
+        </Step>
+        <AlwaysEnforce>true</AlwaysEnforce>
+    </DefaultFaultRule>
+    <Description/>
+    <FaultRules/>
+    <Flows>
+        <Flow name="branches">
+            <Description>Get Branches</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-MockBranches</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/branches") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="electronicChanels">
+            <Description>Get Electronic Channels</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-MockElectronicChannels</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/electronic-channels") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="phoneChanels">
+            <Description>Get Phone Channels</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-MockPhoneChannels</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/phone-channels") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="bankingAgents">
+            <Description>Get Banking Agents</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-MockBankingAgents</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/banking-agents") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="ATMs">
+            <Description>Get ATMs</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-MockATMs</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/shared-automated-teller-machines") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="unsupportedMethod">
+            <Description>Method Not Allowed</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>RF-UnsupportedMethod</Name>
+                </Step>
+            </Request>
+            <Response>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/")  or (proxy.pathsuffix MatchesPath "/{productId}")</Condition>
+        </Flow>
+        <Flow name="notFound">
+            <Description>Not Found</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>RF-NotFound</Name>
+                </Step>
+            </Request>
+            <Response>
+            </Response>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            <Step>
+                <Name>FC-PaginateResponse</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>FC-AddResponseHeaders-Link-Meta</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>FC-CollectPerformanceSLO</Name>
+            </Step>
+        </Response>
+    </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <FaultRules/>
+                <Name>FC-TrafficThresholds</Name>
+            </Step>
+            <Step>
+                <Condition>ratelimit.SA-limitPublicTraffic.failed = "true"</Condition>
+                <FaultRules/>
+                <Name>RF-TooManyRequests</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>FC-CheckRequestHeaders</Name>
+            </Step>
+            <Step>
+                <Name>FC-ValidateRequestParams</Name>
+            </Step>
+            <Step>
+                <Name>AM-Set-Pagination-Settings</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <HTTPProxyConnection>
+        <BasePath>/open-banking/channels/v1</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

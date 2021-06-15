@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Quota async="false" continueOnError="true" enabled="true" name="Q-RequestsPerClientIpAddress">
+    <DisplayName>Q-RequestsPerClientIpAddress</DisplayName>
+    <Identifier ref="client.ip"/>
+    <!-- For testing purposes, adjust count to a higher or lower values, as required-->
+    <!--<Allow count="2"/>-->
+    <Allow count="500"/>
+    <AsynchronousConfiguration>
+        <SyncIntervalInSeconds>10</SyncIntervalInSeconds>
+        <SyncMessageCount>0</SyncMessageCount>
+    </AsynchronousConfiguration>
+    <Interval>1</Interval>
+    <Distributed>true</Distributed>
+    <PreciseAtSecondsLevel>false</PreciseAtSecondsLevel>
+    <Synchronous>false</Synchronous>
+    <TimeUnit>minute</TimeUnit>
+</Quota>

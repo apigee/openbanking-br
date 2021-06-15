@@ -1,0 +1,1275 @@
+{
+	"info": {
+		"_postman_id": "416fe100-adae-4a49-aa33-0f36177cd390",
+		"name": "OpenBankingBR",
+		"description": "Test Collection for OpenBanking APIs (AU)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products and Services",
+			"item": [
+				{
+					"name": "Personal Accounts",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/personal-accounts",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"personal-accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Business Accounts",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/business-accounts",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"business-accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Personal Loans",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/personal-loans",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"personal-loans"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Business Loans",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/business-loans",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"business-loans"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Personal Financing",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/personal-financings",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"personal-financings"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Business Financing",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/business-financings",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"business-financings"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Personal Invoice Financing",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/personal-invoice-financings",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"personal-invoice-financings"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Business Invoice Financing",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/business-invoice-financings",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"business-invoice-financings"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Personal Credit Cards",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/personal-credit-cards",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"personal-credit-cards"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Business Credit Cards",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/business-credit-cards",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"business-credit-cards"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Personal Overdrafts",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/personal-unarranged-account-overdraft",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"personal-unarranged-account-overdraft"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Business Overdrafts",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/business-unarranged-account-overdraft",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"business-unarranged-account-overdraft"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Options for Get Products for Personal Accounts",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "OPTIONS",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/products-services/v1/personal-accounts",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"products-services",
+								"v1",
+								"personal-accounts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Channels",
+			"item": [
+				{
+					"name": "Branches",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/channels/v1/branches",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"channels",
+								"v1",
+								"branches"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Electronic Channels",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/channels/v1/electronic-channels",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"channels",
+								"v1",
+								"electronic-channels"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Phone Channels",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/channels/v1/phone-channels",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"channels",
+								"v1",
+								"phone-channels"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Banking Agents",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/channels/v1/banking-agents",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"channels",
+								"v1",
+								"banking-agents"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ATMs",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/channels/v1/shared-automated-teller-machines",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"channels",
+								"v1",
+								"shared-automated-teller-machines"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Options for Branches",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "OPTIONS",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"type": "text",
+								"value": "2965365e-ab4d-4158-8eda-ca48f1f4f225",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/channels/v1/branches",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"channels",
+								"v1",
+								"branches"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Discovery",
+			"item": [
+				{
+					"name": "Get Outages",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"accept-encoding": true,
+							"connection": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/discovery/v1/outages",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"discovery",
+								"v1",
+								"outages"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Status",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"accept-encoding": true,
+							"connection": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-min-v",
+								"value": "2",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/discovery/v1/status",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"discovery",
+								"v1",
+								"status"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Options for Get Status",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"accept-encoding": true,
+							"connection": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "OPTIONS",
+						"header": [
+							{
+								"key": "x-v",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/v1/discovery/status",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"v1",
+								"discovery",
+								"status"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Get Metrics",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cdr_register_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-v",
+								"type": "text",
+								"value": "2"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/open-banking/admin/v1/metrics",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"open-banking",
+								"admin",
+								"v1",
+								"metrics"
+							],
+							"query": [
+								{
+									"key": "period",
+									"value": "CURRENT",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

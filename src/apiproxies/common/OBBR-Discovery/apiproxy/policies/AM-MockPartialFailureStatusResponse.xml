@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-MockPartialFailureStatusResponse">
+    <DisplayName>AM-MockPartialFailureStatusResponse</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/json">{
+  "data": {
+    "status":  [
+      {
+        "code": "PARTIAL_FAILURE",
+        "explanation": "Um ou mais endpoints estão indisponíveis",
+        "detectionTime": "{formattedCurrTime}",
+        "expectedResolutionTime": "{formattedCurrTime}",
+        "updateTime": "{formattedCurrTime}"
+      }
+     ]
+    }
+}</Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="response" transport="http" createNew="false"/>
+</AssignMessage>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="false" enabled="false" name="OA-VerifyTokenForMetrics">
+    <DisplayName>OA-VerifyTokenForMetrics</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Attributes/>
+    <EnforceStrictCallbackURI>false</EnforceStrictCallbackURI>
+    <ExternalAuthorization>false</ExternalAuthorization>
+    <Operation>VerifyAccessToken</Operation>
+    <ReuseRefreshToken>false</ReuseRefreshToken>
+    <Scope>admin:metrics.basic:read</Scope>
+    <SupportedGrantTypes/>
+    <Tokens/>
+</OAuthV2>

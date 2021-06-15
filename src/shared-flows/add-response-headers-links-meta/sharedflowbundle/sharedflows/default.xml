@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <Name>AM-Set-Content-Type-And-Version1-Headers</Name>
+    </Step>
+    <Step>
+        <FaultRules/>
+        <Name>FC-AddFAPIInteractionId</Name>
+    </Step>
+    <Step>
+        <FaultRules/>
+        <Name>AM-Add-CORS-Headers</Name>
+    </Step>
+    <Step>
+        <Condition>proxy.basepath != "/cds-au/v1/admin" or proxy.pathsuffix != "/register/metadata"</Condition>
+        <FaultRules/>
+        <Name>JS-Add-Links-Meta-To-Response</Name>
+    </Step>
+</SharedFlow>
