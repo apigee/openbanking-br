@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="2" name="verify-idp-id-token">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1622008161432</CreatedAt>
+    <CreatedBy>deboraelkin+cdsadmin@gmail.com</CreatedBy>
+    <Description>Verifies the JWT ID token issued by the IDP and stores the relevant claims into variables for reuse</Description>
+    <DisplayName>verify-idp-id-token</DisplayName>
+    <LastModifiedAt>1637809365418</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:948f13e07caaf74dc50162530ed6c283a8ea9e167f29eeecc88ac2354b277258d783ceb54bac776a27e0f3509f2eee8e8beb1928cf89fe5720d29ae871993416:ap-southeast-2</ManifestVersion>
+    <Policies>
+        <Policy>AM-SetIDPJWKSUri</Policy>
+        <Policy>AM-SetValidAudience</Policy>
+        <Policy>EV-CopyRelevantClaims</Policy>
+        <Policy>FC-GetIDPJWKS</Policy>
+        <Policy>JWT-VerifyIdpToken</Policy>
+        <Policy>KVM-GetIDPCredentials</Policy>
+        <Policy>RF-InvalidIdToken</Policy>
+    </Policies>
+    <Resources/>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>
