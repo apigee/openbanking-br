@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-SetErrorTypeForDynClientRegToken" version="SHA-512:1025b217a0fa9a4584313e0b926793a847bb1e2d2f20390404640fe10b82f86cd6e9dcb13a129cb02ab67b8dcd92f58515b6d3f5d6309f53941e4f3c03e8c78f"/>
+        <VersionInfo resourceName="AM-SetErrorTypeForSSAToken" version="SHA-512:6ed214cd56038bec42a513971c88d095f58242bbca4061c64cd30469f06b6fbab4de05f690b6e9fca0a61f8705c8d4cd8a73200ef6ffeabada21e2ecd58234d7"/>
+        <VersionInfo resourceName="EV-GetJTIAndExp" version="SHA-512:a6f4af2e7e0014426f9dfbf24ac66d9ef786ed1be63c47e091441d89206b94aca531433729ee29002f2025a7cbdf1f8420106902669ae1c5e6ff1857f6270899"/>
+        <VersionInfo resourceName="LC-JTIHasBeenSeen" version="SHA-512:4a780846a005cad97ffd9c7728e4fc2973817964fdc00c2e011b75ac16481e298ed5f47e7a444a65e3ed9dfffc285771fe2c93c4e4f9505676e28861883e9720"/>
+        <VersionInfo resourceName="PC-RememberJTI" version="SHA-512:fb9910289cbaa0c4f7890061a9e14d6f0a10f4cfeb64dba2d5937b6293b678f5e9382d6ff8fdec9fe05bed9eff4ff1730a4b9cf6c79b8233c51e48c34fb62fc2"/>
+        <VersionInfo resourceName="RF-MissingJTIClaimBearer" version="SHA-512:abe8625ab7ee6d0a9847e09e9c8139fc2ec27fc9834ebc4f9d508f5d58ac0e6acce8bf15987e571aaf0e933d60316caa62331b4129d723088165a12a4d172111"/>
+        <VersionInfo resourceName="RF-TokenReusedBearer" version="SHA-512:cc2371b5d9151ac20106ecdf769ab08309ff7df9250c54dfebee551a7ac616416417a8d865c9aa51e9c3c29fa14f0dc19382655e7d5c0316ab8524f358012e9e"/>
+    </Policies>
+    <ProxyEndpoints/>
+    <Resources/>
+    <SharedFlows>
+        <VersionInfo resourceName="default" version="SHA-512:738b6160cd82be9b5a3c059969445792e4ed9baabf8ffa482cfb99878c43e7a15cb4259b740f7ce27a8da94dfaf4409f21c5f0f154cbba6f46dacc0a7fc64e3d"/>
+    </SharedFlows>
+    <TargetEndpoints/>
+</Manifest>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="1" name="validate-request-params">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1622008147469</CreatedAt>
+    <CreatedBy>deboraelkin+cdsadmin@gmail.com</CreatedBy>
+    <Description>Execute a configurable set of request parameter validations (eg: type, list of allowed values)</Description>
+    <DisplayName>validate-request-params</DisplayName>
+    <LastModifiedAt>1637813827840</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:50950125d890203fc7638905c6c359a346001dbee15a1eaa1ffddfb1d0c3cf21586f9f6422a82ff3dd82e749e604a5419574584fb5b7d6fdc43e167ca0ae06e1:ap-southeast-2</ManifestVersion>
+    <Policies>
+        <Policy>JS-validateRequestParams</Policy>
+        <Policy>RF-InvalidRequestParams</Policy>
+    </Policies>
+    <Resources>
+        <Resource>jsc://validateRequestParams.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>

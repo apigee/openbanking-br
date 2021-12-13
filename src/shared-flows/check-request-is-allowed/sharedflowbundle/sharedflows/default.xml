@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <Name>OA-VerifyToken</Name>
+    </Step>
+    <Step>
+        <Name>RF-InvalidToken</Name>
+        <Condition>oauthV2.OA-VerifyToken.failed = "true"</Condition>
+    </Step>
+    <Step>
+        <Name>JS-checkScopeIsSufficient</Name>
+    </Step>
+    <Step>
+        <Name>RF-InsufficientScope</Name>
+        <Condition>isAllowed != "true"</Condition>
+    </Step>
+    <Step>
+        <Name>SC-CheckConsent</Name>
+    </Step>
+    <Step>
+        <Name>RF-ConsentCheckFailed</Name>
+        <Condition>calloutResponse.status.code != 200</Condition>
+    </Step>
+    <Step>
+        <Name>EV-ExtractConsentResources</Name>
+    </Step>
+</SharedFlow>

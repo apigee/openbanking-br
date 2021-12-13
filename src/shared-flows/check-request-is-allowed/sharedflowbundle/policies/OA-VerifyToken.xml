@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="true" enabled="true" name="OA-VerifyToken">
+    <DisplayName>OA-VerifyToken</DisplayName>
+    <Operation>VerifyAccessToken</Operation>
+    <GenerateErrorResponse enabled="true"/>
+</OAuthV2>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ExtractConsentIdFromDynamicScope">
+    <DisplayName>EV-ExtractConsentIdFromDynamicScope</DisplayName>
+    <Variable name="theDynamicScope">
+        <Pattern>{staticScopePart1} consent:urn:openbank:{theConsentId} {staticScopePart2}</Pattern>
+        <Pattern>consent::urn:openbank:{theConsentId} {staticScopePart2}</Pattern>
+        <Pattern>{staticScopePart1} consent:urn:openbank:{theConsentId}</Pattern>
+    </Variable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>
