@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<SharedFlowBundle revision="1" name="apply-traffic-thresholds">
+<SharedFlowBundle revision="2" name="apply-traffic-thresholds">
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1622008073259</CreatedAt>
-    <CreatedBy>deboraelkin+cdsadmin@gmail.com</CreatedBy>
+    <CreatedAt>1637807153629</CreatedAt>
+    <CreatedBy>deboraelkin@google.com</CreatedBy>
     <Description>Apply the traffic thresholds specified by CDS non functional requirements</Description>
     <DisplayName>apply-traffic-thresholds</DisplayName>
-    <LastModifiedAt>1622783784006</LastModifiedAt>
-    <LastModifiedBy>defaultUser</LastModifiedBy>
-    <ManifestVersion>SHA-512:520c8b1a527ed07660413ba86dbec2f2dc9ec313c0ac3dc20cc1981d8825eb6c828a453c269dab7ae6d56f70d67b1915f1232b4ca8ebf2fdb7e881d5264f9d50:ap-southeast-2</ManifestVersion>
+    <LastModifiedAt>1637807153629</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:e83482fce01c726e26f8ed972aa702c82bdc423c982f63cf47b4c5a0e276eb740c164c0baa718d7418f0f5414232af19db20dd558b102c367c1700480fbd79d2:ap-southeast-2</ManifestVersion>
     <Policies>
-        <Policy>AM-SetQuotaBucketForCustomerPresentSession</Policy>
         <Policy>Q-RequestsPerClientIpAddress</Policy>
-        <Policy>Q-RequestsPerSessionForUnattendedTraffic</Policy>
         <Policy>RF-QuotaExceededForClientIPAddress</Policy>
-        <Policy>RF-QuotaExceededForSessionWithUnattendedTraffic</Policy>
         <Policy>RF-TooManyRequests</Policy>
         <Policy>SA-GlobalTrafficThreshold</Policy>
-        <Policy>SA-ThresholdForCustomerPresentSecureTrafficPerClientId</Policy>
-        <Policy>SA-ThresholdForSecureTrafficPerClientId</Policy>
-        <Policy>SA-ThresholdForUnattendedSecureTrafficPerSession</Policy>
     </Policies>
     <Resources/>
     <Spec></Spec>

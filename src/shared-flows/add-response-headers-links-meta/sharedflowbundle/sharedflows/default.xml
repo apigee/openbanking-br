@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <SharedFlow name="default">
     <Step>
-        <Name>AM-Set-Content-Type-And-Version1-Headers</Name>
+        <Name>AM-SetAPIVersionTo1-0-2</Name>
+        <Condition>(proxy.basepath != "/consents/v1") and (proxy.basepath != "/accounts/v1/accounts")</Condition>
+    </Step>
+    <Step>
+        <Name>AM-SetAPIVersionTo1-0-3</Name>
+        <Condition>(proxy.basepath = "/consents/v1") or (proxy.basepath = "/accounts/v1/accounts")</Condition>
+    </Step>
+    <Step>
+        <Name>AM-Set-Content-Type-And-Version-Headers</Name>
     </Step>
     <Step>
         <FaultRules/>
@@ -12,8 +20,10 @@
         <Name>AM-Add-CORS-Headers</Name>
     </Step>
     <Step>
-        <Condition>proxy.basepath != "/cds-au/v1/admin" or proxy.pathsuffix != "/register/metadata"</Condition>
-        <FaultRules/>
+        <Name>AM-SetRequestDateTime</Name>
+    </Step>
+    <Step>
         <Name>JS-Add-Links-Meta-To-Response</Name>
+        <Condition>(message.content != null) and (message.content != "") </Condition>
     </Step>
 </SharedFlow>

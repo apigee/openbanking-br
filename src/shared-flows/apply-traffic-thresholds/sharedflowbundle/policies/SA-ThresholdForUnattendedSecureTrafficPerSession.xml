@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<SpikeArrest async="false" continueOnError="true" enabled="false" name="SA-ThresholdForUnattendedSecureTrafficPerSession">
-    <DisplayName>SA-ThresholdForUnattendedSecureTrafficPerSession</DisplayName>
-    <FaultRules/>
-    <Properties/>
-    <Identifier ref="sessionId"/>
-    <Rate>5ps</Rate>
-    <UseEffectiveCount>true</UseEffectiveCount>
-</SpikeArrest>

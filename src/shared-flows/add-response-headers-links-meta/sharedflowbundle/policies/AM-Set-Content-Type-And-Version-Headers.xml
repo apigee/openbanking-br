@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Set-Content-Type-And-Version1-Headers">
-    <DisplayName>AM-Set-Content-Type-And-Version1-Headers</DisplayName>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Set-Content-Type-And-Version-Headers">
+    <DisplayName>AM-Set-Content-Type-And-Version-Headers</DisplayName>
     <FaultRules/>
     <Properties/>
     <Set>
         <Headers>
-            <!-- Not required for Open Banking BR Phase 1 -->
-            <!--<Header name="x-v">1</Header>-->
+            <Header name="x-v">{apiCurrentVersion}</Header>
             <Header name="Content-Type">application/json</Header>
         </Headers>
     </Set>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<SpikeArrest async="false" continueOnError="true" enabled="false" name="SA-ThresholdForCustomerPresentSecureTrafficPerClientId">
-    <DisplayName>SA-ThresholdForCustomerPresentSecureTrafficPerClientId</DisplayName>
-    <FaultRules/>
-    <Properties/>
-    <Identifier ref="quotaBucketForCustomerPresentSession"/>
-    <Rate>10ps</Rate>
-    <UseEffectiveCount>true</UseEffectiveCount>
-</SpikeArrest>

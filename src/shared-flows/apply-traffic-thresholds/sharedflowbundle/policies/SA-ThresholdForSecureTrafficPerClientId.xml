@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<SpikeArrest async="false" continueOnError="true" enabled="false" name="SA-ThresholdForSecureTrafficPerClientId">
-    <DisplayName>SA-ThresholdForSecureTrafficPerClientId</DisplayName>
-    <FaultRules/>
-    <Properties/>
-    <Identifier ref="clientId"/>
-    <Rate>50ps</Rate>
-    <UseEffectiveCount>true</UseEffectiveCount>
-</SpikeArrest>
