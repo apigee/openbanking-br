@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="2" name="extract-consent-id-from-dynamic-scope">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1627011713472</CreatedAt>
+    <CreatedBy>defaultUser</CreatedBy>
+    <Description>In OBBR the consent id is included in a dynamic scope. Extract it to a separate variable and remove it from the scope to make it static</Description>
+    <DisplayName>extract-consent-id-from-dynamic-scope</DisplayName>
+    <LastModifiedAt>1627453458047</LastModifiedAt>
+    <LastModifiedBy>defaultUser</LastModifiedBy>
+    <ManifestVersion>SHA-512:06bbeca73a8dbf2298e3c403d6c44f516ceefcbdd406a5eac3f814a19d20de5bcb36e91d8bcf0bec56c390ffc3639a102d7738b1588e576455e9be7d089b6ff9:ap-southeast-2</ManifestVersion>
+    <Policies>
+        <Policy>AM-SetStaticScope</Policy>
+        <Policy>EV-ExtractConsentIdFromDynamicScope</Policy>
+    </Policies>
+    <Resources/>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>
