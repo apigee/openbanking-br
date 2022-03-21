@@ -12,6 +12,9 @@
     <Header name="x-fapi-interaction-id">
         <Pattern ignoreCase="true">{fapiInteractionId}</Pattern>
     </Header>
+    <Header name="x-customer-user-agent">
+        <Pattern ignoreCase="true">{customerUserAgent}</Pattern>
+    </Header>
     <Variable name="client.scheme">
         <Pattern ignoreCase="false">{selfLinkProtocol}</Pattern>
     </Variable>

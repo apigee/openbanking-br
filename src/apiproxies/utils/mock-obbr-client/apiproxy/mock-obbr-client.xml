@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="mock-obbr-client">
+    <Basepaths>/mock-cdr-register</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1647835724965</CreatedAt>
+    <CreatedBy>deboraelkin@google.com</CreatedBy>
+    <Description>Mock proxy that emulates endpoints an OBBR who wants to register a client needs to provide. Used to generate an authorization request</Description>
+    <DisplayName>mock-obbr-client</DisplayName>
+    <LastModifiedAt>1647836023049</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:3b5e10d53a3e5cfe9733f264e11fe97aa95c25c11fa9b9163f45e694327c44421bf7b62504d4c703c768024bbc1076c6d12c96e0800293ad8a378cff1357276c:ap-southeast-2</ManifestVersion>
+    <Policies>
+        <Policy>AM-AddSectorIdToSSARequest</Policy>
+        <Policy>AM-SetMockJWKSInfo</Policy>
+        <Policy>AM-SetResponse</Policy>
+        <Policy>AM-SetSSARequest</Policy>
+        <Policy>AM-SetValuesBasedOnOptionalQueryParamsOrDefaults-DCRRequest</Policy>
+        <Policy>AM-SetValuesBasedOnOptionalQueryParamsOrDefaults-PAR</Policy>
+        <Policy>AM-SetValuesBasedOnOptionalQueryParamsOrDefaults-PrivKeyJWT</Policy>
+        <Policy>JS-AddOptionalClaimsIfPresent</Policy>
+        <Policy>JS-SetRedirectURIs</Policy>
+        <Policy>JWT-GenerateDynamicClientRegistrationRequest</Policy>
+        <Policy>JWT-GeneratePARJWT</Policy>
+        <Policy>JWT-GeneratePrivateKeyJWT</Policy>
+        <Policy>KVM-GetMockADRKeys</Policy>
+        <Policy>RF-NotFound</Policy>
+        <Policy>RF-UnsupportedMethod</Policy>
+        <Policy>SC-GetSSAFromCDRRegister</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://addOptionalClaimsIfPresent.js</Resource>
+        <Resource>jsc://setRedirectURIs.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+</APIProxy>

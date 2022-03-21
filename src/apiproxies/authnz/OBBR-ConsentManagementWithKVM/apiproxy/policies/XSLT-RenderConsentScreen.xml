@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<XSL async="false" continueOnError="false" enabled="true" name="XSLT-RenderConsentScreen">
+    <DisplayName>XSLT-RenderConsentScreen</DisplayName>
+    <Properties/>
+    <Source>response</Source>
+    <ResourceURL>xsl://renderConsentScreen.xsl</ResourceURL>
+    <Parameters ignoreUnresolvedVariables="true">
+        <Parameter name="clientName">To Be Done</Parameter>
+        <Parameter name="consentCacheKey" ref="consentCacheKey"/>
+        <Parameter name="consentExpiryDate" ref="existingConsentInfo.expires_at"/>
+        <Parameter name="loggedUser" ref="existingConsentInfo.logged_user"/>
+        <Parameter name="businessEntity" ref="existingConsentInfo.businessEntity"/>
+        <Parameter name="permissionsString" ref="permissionsAsString"/>
+    </Parameters>
+</XSL>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="3" name="OBBR-Resources">
+    <Basepaths>/resources/v1</Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1635307130926</CreatedAt>
+    <CreatedBy>deboraelkin@google.com</CreatedBy>
+    <Description>Resources APIs for Open Banking Brazil - Phase 2</Description>
+    <DisplayName>OBBR-Resources</DisplayName>
+    <LastModifiedAt>1637887337570</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:f15ffd7a39483257c3693deac6523d94de40c7d5a39c0131a2cb7c89dcf1c32a5421b26df7873a46910e851df8f1eb79bfb5bd954945b84dbc69a9902c11442e:ap-southeast-2</ManifestVersion>
+    <Policies>
+        <Policy>AM-Add-CORS-Headers</Policy>
+        <Policy>AM-DisableCopyPathSuffix</Policy>
+        <Policy>AM-InvalidScope</Policy>
+        <Policy>AM-Set-Meta-Link-Settings-For-Error-Response</Policy>
+        <Policy>AM-Set-Pagination-Settings</Policy>
+        <Policy>AM-SetConsentId</Policy>
+        <Policy>AM-SetExpectedClientId</Policy>
+        <Policy>AM-SetResourcesResponse</Policy>
+        <Policy>AM-TokenNotVerified</Policy>
+        <Policy>EV-ExtractConsentResponse</Policy>
+        <Policy>EV-GetErrorDetail</Policy>
+        <Policy>FC-AddFAPIInteractionId</Policy>
+        <Policy>FC-AddResponseHeaders-Link-Meta</Policy>
+        <Policy>FC-CheckRequestHeaders</Policy>
+        <Policy>FC-CheckRequestIsAllowed</Policy>
+        <Policy>FC-CollectPerformanceSLO</Policy>
+        <Policy>FC-PaginateResponse</Policy>
+        <Policy>FC-TrafficThresholds</Policy>
+        <Policy>FC-ValidateRequestParams</Policy>
+        <Policy>FC-VerifyHoK</Policy>
+        <Policy>RF-NotFound</Policy>
+        <Policy>RF-UnsupportedMethod</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>manage-existing-consents</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

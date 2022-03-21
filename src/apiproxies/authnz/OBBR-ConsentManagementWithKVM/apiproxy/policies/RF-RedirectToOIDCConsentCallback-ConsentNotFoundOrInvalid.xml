@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-RedirectToOIDCConsentCallback-ConsentNotFoundOrInvalid">
+    <DisplayName>RF-RedirectToOIDCConsentCallback-ConsentNotFoundOrInvalid</DisplayName>
+    <FaultResponse>
+        <Remove>
+            <Payload/>
+        </Remove>
+        <Set>
+            <Headers>
+                <Header name="Location">{client.scheme}://{request.header.host}/consent-cb?{request.querystring}</Header>
+            </Headers>
+            <StatusCode>302</StatusCode>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

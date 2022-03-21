@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ExtractConsentResponse">
+    <DisplayName>EV-ExtractConsentResponse</DisplayName>
+    <JSONPayload>
+        <Variable name="consent_id">
+            <JSONPath>$.consent_id</JSONPath>
+        </Variable>
+        <Variable name="created_at">
+            <JSONPath>$.created_at</JSONPath>
+        </Variable>
+        <Variable name="status">
+            <JSONPath>$.status</JSONPath>
+        </Variable>
+        <Variable name="permissions" type="nodeset">
+            <JSONPath>$.permissions</JSONPath>
+        </Variable>
+        <Variable name="expires_at">
+            <JSONPath>$.expires_at</JSONPath>
+        </Variable>
+        <Variable name="updated_at">
+            <JSONPath>$.updated_at</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <VariablePrefix>consentResponse</VariablePrefix>
+    <Source clearPayload="false">response</Source>
+</ExtractVariables>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ExtractConsentResponse">
+    <DisplayName>EV-ExtractConsentResponse</DisplayName>
+    <JSONPayload>
+        <Variable name="consent_id">
+            <JSONPath>$.consent_id</JSONPath>
+        </Variable>
+        <Variable name="resources" type="nodeset">
+            <JSONPath>$.resources</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <VariablePrefix>consentResponse</VariablePrefix>
+    <Source clearPayload="false">response</Source>
+</ExtractVariables>

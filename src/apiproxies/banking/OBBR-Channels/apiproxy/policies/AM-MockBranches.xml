@@ -26,14 +26,14 @@
                 "additionalInfo": "Loja B",
                 "districtName": "Centro",
                 "townName": "Marília",
-                "ibgeCode": "3515890",
+                "ibgeCode": "3550308",
                 "countrySubDivision": "SP",
-                "postCode": "17500001",
+                "postCode": "17500-001",
                 "country": "Brasil",
                 "countryCode": "BRA",
-                "geograficCoordinates": {
-                  "latitude": "-90.009876543",
-                  "longitude": "-180.00986543"
+                "geographicCoordinates": {
+                  "latitude": "-90.8365180",
+                  "longitude": "-180.836519"
                 }
               },
               "availability": {

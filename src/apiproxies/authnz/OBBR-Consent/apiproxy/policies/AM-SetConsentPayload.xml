@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetConsentPayload">
+    <DisplayName>AM-SetConsentPayload</DisplayName>
+    <Set>
+        <Payload contentType="application/json">{
+    "client_id": "{apigee.client_id}",
+    "logged_user": "{requestedConsentInfo.logged_user}",
+    "business_entity": "{requestedConsentInfo.business_entity}",
+    "permissions": {requestedConsentInfo.permissions},
+    "expires_at": "{requestedConsentInfo.expires_at}"
+    }</Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="SC-VerifyExistingConsentId">
+    <DisplayName>SC-VerifyExistingConsentId</DisplayName>
+    <Request>
+        <Set>
+            <QueryParams>
+                <QueryParam name="expected_client_id" ref="oauthv2refreshtoken.OAInfo-RetrieveRefreshTokenDetails.client_id"/>
+                <QueryParam name="failifnotvalid">true</QueryParam>
+            </QueryParams>
+        </Set>
+    </Request>
+    <Response>consentResponse</Response>
+    <LocalTargetConnection>
+        <Path>/consent-mgmt-with-kvm/consents/{theConsentId}</Path>
+    </LocalTargetConnection>
+</ServiceCallout>

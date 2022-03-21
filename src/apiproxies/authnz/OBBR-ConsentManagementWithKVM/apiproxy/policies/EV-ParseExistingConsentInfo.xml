@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ParseExistingConsentInfo">
+    <DisplayName>EV-ParseExistingConsentInfo</DisplayName>
+    <JSONPayload>
+        <Variable name="client_id">
+            <JSONPath>$.client_id</JSONPath>
+        </Variable>
+        <Variable name="customer_id">
+            <JSONPath>$.customer_id</JSONPath>
+        </Variable>
+        <Variable name="permissions" type="nodeset">
+            <JSONPath>$.permissions</JSONPath>
+        </Variable>
+        <Variable name="logged_user">
+            <JSONPath>$.logged_user</JSONPath>
+        </Variable>
+        <Variable name="business_entity">
+            <JSONPath>$.business_entity</JSONPath>
+        </Variable>
+        <Variable name="status">
+            <JSONPath>$.status</JSONPath>
+        </Variable>
+        <Variable name="resources" type="nodeset">
+            <JSONPath>$.resources</JSONPath>
+        </Variable>
+        <Variable name="expires_at">
+            <JSONPath>$.expires_at</JSONPath>
+        </Variable>
+        <Variable name="created_at">
+            <JSONPath>$.created_at</JSONPath>
+        </Variable>
+        <Variable name="updated_at">
+            <JSONPath>$.updated_at</JSONPath>
+        </Variable>
+        <Variable name="status_updated_at">
+            <JSONPath>$.status_updated_at</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <VariablePrefix>existingConsentInfo</VariablePrefix>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Source>private.existingConsent</Source>
+</ExtractVariables>

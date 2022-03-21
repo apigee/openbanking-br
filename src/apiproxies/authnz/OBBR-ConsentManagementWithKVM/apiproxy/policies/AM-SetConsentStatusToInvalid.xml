@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetConsentStatusToInvalid">
+    <DisplayName>AM-SetConsentStatusToInvalid</DisplayName>
+    <AssignVariable>
+        <Name>existingConsentInfo.status</Name>
+        <Value>INVALID</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

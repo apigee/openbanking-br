@@ -25,12 +25,11 @@
 
 var doPagination = context.getVariable("pagination.doPagination");
 
-if (doPagination) {
+if (doPagination == "true") {
 	var pageNumber = parseInt(context.getVariable("pagination.page"));
 	var pageSize = parseInt(context.getVariable("pagination.page-size"));
 	var responseBody = JSON.parse(context.getVariable("response.content"));
-	var firstKey = Object.keys(responseBody.data)[0];
-	var responseArray = responseBody["data"][firstKey];
+	var responseArray = responseBody["data"];
 	var totalNumberOfEntries = responseArray.length;
 	var totalPages = Math.ceil(totalNumberOfEntries / pageSize);
 	if (totalNumberOfEntries > 0 && pageNumber > totalPages) {
@@ -43,7 +42,7 @@ if (doPagination) {
 			responseSliceEnd = totalNumberOfEntries;
 		}
 		// Now only leave this slice of the original response
-		responseBody.data[firstKey] = responseArray.slice(responseSliceStart, responseSliceEnd);
+		responseBody.data = responseArray.slice(responseSliceStart, responseSliceEnd);
 		context.setVariable("response.content", JSON.stringify(responseBody));
 
 		// Set the information necessary for generating the meta object

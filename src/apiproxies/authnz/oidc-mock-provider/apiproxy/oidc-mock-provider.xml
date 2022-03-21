@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="2" name="oidc-mock-provider">
+    <Basepaths></Basepaths>
+    <Basepaths>/</Basepaths>
+    <Basepaths>/</Basepaths>
+    <Basepaths>/</Basepaths>
+    <Basepaths>/mock-oidc</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1622008185894</CreatedAt>
+    <CreatedBy>deboraelkin+cdsadmin@gmail.com</CreatedBy>
+    <Description>Mock OIDC Provider based on node-oidc-provider open source</Description>
+    <DisplayName>oidc-mock-provider</DisplayName>
+    <HostedManifestVersion>SHA-512:a4ae9d58327bbe8374c3e75582ec55793dd5d469796b8b1addc0814b1904e65f9dfecb0709615aabe06f9d724cc9f906297c6e20e4091e04f0dbad93eef9ef3e:ap-southeast-2</HostedManifestVersion>
+    <LastModifiedAt>1637880908069</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:af52ec7e7048ca2b669ad9ec02beb9275ae994b9513cb48333308bead72173ef68190594b43192d9433073cda3f04698aa12245efcb4afc3600fdddd4c7867ba:ap-southeast-2</ManifestVersion>
+    <Policies>
+        <Policy>AM-AddBasePathToRedirectHeader</Policy>
+        <Policy>AM-AddProxyBasePathToFormAction</Policy>
+        <Policy>AM-BuildIntrospectionResponseActiveToken</Policy>
+        <Policy>EV-IsTokenActive</Policy>
+        <Policy>EV-TokenExpiryTime</Policy>
+        <Policy>JS-AddBasePathToCookiesPath</Policy>
+        <Policy>JS-ReplaceHTPrivateIPAddrWithHostname</Policy>
+        <Policy>RF-OIDCProviderError</Policy>
+        <Policy>RF-OIDCProviderError404</Policy>
+        <Policy>RF-OIDCProviderTimeout</Policy>
+        <Policy>RF-UnsupportedTokenType</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://addBasePathToCookiesPath.js</Resource>
+        <Resource>jsc://replaceHTPrivateIPAddrWithHostname.js</Resource>
+        <Resource>hosted://.DS_Store</Resource>
+        <Resource>hosted://app.js</Resource>
+        <Resource>hosted://app.yaml</Resource>
+        <Resource>hosted://package-lock.json</Resource>
+        <Resource>hosted://package.json</Resource>
+        <Resource>hosted://support/account.js</Resource>
+        <Resource>hosted://support/clients.json</Resource>
+        <Resource>hosted://support/config.json</Resource>
+        <Resource>hosted://support/routes.js</Resource>
+        <Resource>hosted://views/.DS_Store</Resource>
+        <Resource>hosted://views/consent.ejs</Resource>
+        <Resource>hosted://views/login.ejs</Resource>
+        <Resource>hosted://views/ping.ejs</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

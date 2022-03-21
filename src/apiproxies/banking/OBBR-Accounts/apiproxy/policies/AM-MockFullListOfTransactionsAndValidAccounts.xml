@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-MockFullListOfTransactionsAndValidAccounts">
+    <DisplayName>AM-MockFullListOfTransactionsAndValidAccounts</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>listOfAllTransactionsDetailsByCustomer</Name>
+        <Template>[
+    {
+        "customer": "10203040",
+        "transactions": [
+            {
+                "accountId": "0016272940883924",
+                "transactionId": "tx0001",
+                "completedAuthorisedPaymentType": "TRANSACAO_EFETIVADA",
+                "creditDebitType": "CREDITO",
+                "transactionName": "Salario",
+                "type": "PORTABILIDADE_SALARIO",
+                "amount": "3000.00",
+                "transactionCurrency": "BRL",
+                "transactionDate": "2018-12-12",
+                "partieCnpjCpf": "43908445778",
+                "partiePersonType": "PESSOA_NATURAL",
+                "partieCompeCode": "001",
+                "partieBranchCode": "6272",
+                "partieNumber": "67890854360",
+                "partieCheckDigit": "4"
+            },
+            {
+                "accountId": "0016272940883924",
+                "transactionId": "tx0002",
+                "completedAuthorisedPaymentType": "TRANSACAO_EFETIVADA",
+                "creditDebitType": "DEBITO",
+                "transactionName": "Pago emprestimo",
+                "type": "TRANSFERENCIA_MESMA_INSTITUICAO",
+                "amount": "-1000.00",
+                "transactionCurrency": "BRL",
+                "transactionDate": "2018-12-12",
+                "partieCnpjCpf": "43908445778",
+                "partiePersonType": "PESSOA_NATURAL",
+                "partieCompeCode": "001",
+                "partieBranchCode": "6272",
+                "partieNumber": "67890854360",
+                "partieCheckDigit": "4"
+            },
+            {
+                "accountId": "0016272940883924",
+                "transactionId": "tx0003",
+                "completedAuthorisedPaymentType": "TRANSACAO_EFETIVADA",
+                "creditDebitType": "DEBITO",
+                "transactionName": "Pago cena Joao",
+                "type": "PIX",
+                "amount": "-100.00",
+                "transactionCurrency": "BRL",
+                "transactionDate": "2018-12-13",
+                "partieCnpjCpf": "43908445778",
+                "partiePersonType": "PESSOA_NATURAL",
+                "partieCompeCode": "001",
+                "partieBranchCode": "6272",
+                "partieNumber": "67890854360",
+                "partieCheckDigit": "4"
+            },
+            {
+                "accountId": "0016272940883924",
+                "transactionId": "tx0008",
+                "completedAuthorisedPaymentType": "TRANSACAO_EFETIVADA",
+                "creditDebitType": "DEBITO",
+                "transactionName": "Pago servico gas",
+                "type": "PIX",
+                "amount": "-50.00",
+                "transactionCurrency": "BRL",
+                "transactionDate": "2018-12-14",
+                "partieCnpjCpf": "43908445778",
+                "partiePersonType": "PESSOA_NATURAL",
+                "partieCompeCode": "001",
+                "partieBranchCode": "6272",
+                "partieNumber": "67890854360",
+                "partieCheckDigit": "4"
+            },
+            {
+                "accountId": "21128159000166",
+                "transactionId": "tx0004",
+                "creditDebitType": "CREDITO",
+                "completedAuthorisedPaymentType": "TRANSACAO_EFETIVADA",
+                "transactionName": "Salario",
+                "type": "PORTABILIDADE_SALARIO",
+                "amount": "3000.00",
+                "transactionCurrency": "BRL",
+                "transactionDate": "2018-12-12",
+                "partieCnpjCpf": "43908445778",
+                "partiePersonType": "PESSOA_NATURAL",
+                "partieCompeCode": "001",
+                "partieBranchCode": "6272",
+                "partieNumber": "67890854360",
+                "partieCheckDigit": "4"
+            },
+            {
+                "accountId": "21128159000166",
+                "transactionId": "tx0005",
+                "completedAuthorisedPaymentType": "TRANSACAO_EFETIVADA",
+                "creditDebitType": "DEBITO",
+                "transactionName": "Pago a Marcela",
+                "type": "PIX",
+                "amount": "-20.00",
+                "transactionCurrency": "BRL",
+                "transactionDate": "2018-12-13",
+                "partieCnpjCpf": "43908445778",
+                "partiePersonType": "PESSOA_NATURAL",
+                "partieCompeCode": "001",
+                "partieBranchCode": "6272",
+                "partieNumber": "67890854360",
+                "partieCheckDigit": "4"
+            },
+            {
+                "accountId": "21128159000166",
+                "transactionId": "tx0007",
+                "completedAuthorisedPaymentType": "TRANSACAO_EFETIVADA",
+                "creditDebitType": "DEBITO",
+                "transactionName": "Retiro dinheiro",
+                "type": "SAQUE",
+                "amount": "-1900.00",
+                "transactionCurrency": "BRL",
+                "transactionDate": "2018-12-14",
+                "partieCnpjCpf": "43908445778",
+                "partiePersonType": "PESSOA_NATURAL",
+                "partieCompeCode": "001",
+                "partieBranchCode": "6272",
+                "partieNumber": "67890854360",
+                "partieCheckDigit": "4"
+            }
+        ]
+    }
+]</Template>
+    </AssignVariable>
+    <!-- The next variable holds the list of all valid accounts by customer. Note that an account could be valid, but have no transactions (So it's not enough to check in the list of transactions to determine
+         if an account is valid -->
+    <AssignVariable>
+        <Name>listOfAllAccountsByCustomer</Name>
+        <Template>[{
+    "customer": "10203040",
+    "accounts": ["0016272940883924", "21128159000166"]
+}]</Template>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

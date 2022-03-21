@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-AddBasePathToRedirectHeader" version="SHA-512:1cd041efc8fdb29f44ab03dadd0326fb22a633d2aa1bc20babb5048b96204f52baea1e9ed4d616c84fbac1ee5b5d0f678fd488a1b24dafd61ad44877c3abae43"/>
+        <VersionInfo resourceName="AM-AddProxyBasePathToFormAction" version="SHA-512:ca5df24c83f1c119d7fefa630f73fc98509b58a2b862c89ba9636bfaf2dd0b618f9d267824828f6d3992af9b7ccb7529606e6e4c5e409982f4fb68a76a5b7121"/>
+        <VersionInfo resourceName="AM-BuildIntrospectionResponseActiveToken" version="SHA-512:d29f3f0cd1ec5dd81ff469d334e2b4cb40ccdfdd58484c293ff1c0b558887731a6360e7f3e57c5943176cbbf2e6798ce3352399a06e0b96bbae6627dfe456789"/>
+        <VersionInfo resourceName="EV-IsTokenActive" version="SHA-512:7b0ab5a38ac17f0604ab99aec1c5c2ee8bac1556782134a997755d9c9ac8fb80442fb5075a94c9ff58d1a5ef5df2d20b865c6954c909f62a37f9c9213318a990"/>
+        <VersionInfo resourceName="EV-TokenExpiryTime" version="SHA-512:40c8a9a2331acf1a1a0c924289e6e1f123b309a8536d438a590b713cc63c6ac5ed16675d4303c7510efb64f0c355101301efb4a338504d06d33eb63419854412"/>
+        <VersionInfo resourceName="JS-AddBasePathToCookiesPath" version="SHA-512:a76f2ae038d82cf74951968f0ae32a1b778d50144dda456a4f9ba7c6bf9b04b75043554cf58b53d50854fdda7695c878e7b250caeb95ab715ca0a2193d9d727a"/>
+        <VersionInfo resourceName="JS-ReplaceHTPrivateIPAddrWithHostname" version="SHA-512:7d2a6cb81c2f8867086824c91fb1949e948b6950d0f81001852be22b6bd353b7ce4c53dc3f0476e01167ecf2daab841e11926cafcd8f68e0115aaa01a0e6e7f1"/>
+        <VersionInfo resourceName="RF-OIDCProviderError" version="SHA-512:269f86c7c4e855d32e87e4bf3e9527eeec7eab231b8609757472b1a37c207833d3c45073f8817f474c1e3b8cc3a5a29fdae2ab747e46fdfc970619f93743a082"/>
+        <VersionInfo resourceName="RF-OIDCProviderError404" version="SHA-512:d6968f3dd78a4e8f55cae4a4d4f4b900ad4e637709f882277f27ce1790c2fc4e90373fe7a60eda790d90a1a8580010dc5f5edcf6249597507e9b50caef548a57"/>
+        <VersionInfo resourceName="RF-OIDCProviderTimeout" version="SHA-512:74200803a8e1998b09ab571a7f3b73b7b02255bdd4329580bdb4a48a4e6f88b679847c8b697b607e3219058f989bd11630a3716c106e5a454c72a632b2797b30"/>
+        <VersionInfo resourceName="RF-UnsupportedTokenType" version="SHA-512:9cbd933c08b65d80b0cb0052244d18578bc0c3b4c263794912a997e4baad6edf07ff93494f7c1ff30891cc9facc060c1112cbb3950e69feccfe2ed1629f93cf8"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:1ba3dbfe5ae2be6208e31adfb1a49b00222e85234437801b31e2ff2b3eca29084da31e9d2800f94a2c091a227819ebc46cc39cd1a1c2ec934400e062a06a180e"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="hosted://.DS_Store" version="SHA-512:de296eaba6120fb7fb89bee5543e46ecd9988d49bb8c88a9f890151bf7be8a0c567c8d1e176de64b7b79f0f7555472827e5a1f05d5a3d993dee02d36f8432446"/>
+        <VersionInfo resourceName="hosted://app.js" version="SHA-512:ef41dcb92c07b1591788bff2e3bc8762304bf0633c7ac6fb09b604827ee4302503fdfe76b909fd36d1cca1bf76c2da38d32865b5db9df774f301a48d40751654"/>
+        <VersionInfo resourceName="hosted://app.yaml" version="SHA-512:9c9839d9149feff032950c3ff3ec5d9804099138b2f7ffc73c601b730b596991afd17ab86bee4d2f4d0487088f4472b8711f18533356a55030d376646f2cacb0"/>
+        <VersionInfo resourceName="hosted://package-lock.json" version="SHA-512:079e167c17d8361145689119e6da9c4a0d64777386faeb73a8aae5dddd6344c9147fd658a8eebb9f9c0d97ee4f0c4b756cfc0152d4d5fab9b21a7a5d9da1b12f"/>
+        <VersionInfo resourceName="hosted://package.json" version="SHA-512:0cab5250ed3e349816c1af7fe8fa2d95ceae4e421bfccf4793f1a0b96cefb8d23664d6a726232c2da7965a2b7086edabb39ff282f516e22e280e4b1624551584"/>
+        <VersionInfo resourceName="hosted://support/account.js" version="SHA-512:27ff224992a30780324070b876a433cb308d10feb81d9485950f142a643524a256e00cb1225809a645c09c4942415d6623c3b975b4e538c4cc70545312275061"/>
+        <VersionInfo resourceName="hosted://support/clients.json" version="SHA-512:cfbd8c6db401f83e71117b0b3a18e6895e1f1e1bebf71c2f3f8a3f829ab27a38acdc38ac3616ff8ff7f91900e36dcfb1936a6b5b1c46833354fcb318257cb9a2"/>
+        <VersionInfo resourceName="hosted://support/config.json" version="SHA-512:c0195601a3646a985a161d884a58a715008e6324abe50527b3a49c6b4ecab635b7b39ae0b13ea2c0179e8b45cfdaa7f5eb43ba91d66426f94677fdcb587af6dc"/>
+        <VersionInfo resourceName="hosted://support/routes.js" version="SHA-512:c25195438735573b1f904f91f940fa21d3695295ff5d87e2bb24cd14602e6b799d08210079984b35967711480bbb7c51cad47a4a0ff1011f3c24d05fb370a0aa"/>
+        <VersionInfo resourceName="hosted://views/.DS_Store" version="SHA-512:58941214a8334331e52114aab851fc3d8d5da5dd14983f933da8735c24b0ddcac134e8f13692553199c4d9a14a4b3188b62878a30b9d696edda1204666b60837"/>
+        <VersionInfo resourceName="hosted://views/consent.ejs" version="SHA-512:c80acebc9f556fb4bf9d88e25a534064c261e6772371d8c900434c641145ffd45c71d951b46593dd4bd55a84474daa435a9207beb7ddf159e4bfe27f9f3878c6"/>
+        <VersionInfo resourceName="hosted://views/login.ejs" version="SHA-512:ee770c0f56553630dccb8752c48c3c7702b269f20fbad8d8c54d86727ed68486cdd98c059cd7cda1eade59f1627be406b42f397a533d7065fd1fd7b2c5369fca"/>
+        <VersionInfo resourceName="hosted://views/ping.ejs" version="SHA-512:52d70887c62c54d1a4115900a302c4474dc0ac4f194b4b5e9e7de3ba46c3f27158251c2d0974f6b0cd1c63a272ee745eae4451baf2d3b253ed311111c005fda7"/>
+        <VersionInfo resourceName="jsc://addBasePathToCookiesPath.js" version="SHA-512:97fceb3a5ce4984a4d9db1b82bbe3bc3751c0291bb3754c98adced3caae2547ee4441671616289dd74eae827e15063c42a99203bebc00e36601fe83e48e129fb"/>
+        <VersionInfo resourceName="jsc://replaceHTPrivateIPAddrWithHostname.js" version="SHA-512:14f43ffc92420b62156ba482cc37ce7876d412459759361f051628f48b9e293cc53299da925ca8e4eaf3bc842184a6d04552c0f15ddbc664060d4be5507ef9c7"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:3fd4af04db55b2667381b407482b2b87978ea362d866262be9f92bc8a37f6ac08d7b7ff32d33049be6430401e96df66983b847ae09b63b6476174cca822f535b"/>
+    </TargetEndpoints>
+</Manifest>

@@ -3,14 +3,14 @@
     <DisplayName>AM-MockATMs</DisplayName>
     <Set>
         <Payload contentType="application/json">{
- "data": {
+  "data": {
     "brand": {
       "name": "Organização A",
       "companies": [
         {
-          "name": "Empresa A1",
-          "cnpjNumber": "45086338000178",
+          "name": "Empresa da Organização A",
           "urlComplementaryList": "https://empresadaorganizacaoa.com/complementarylist",
+          "cnpjNumber": "50685362000135",
           "sharedAutomatedTellerMachines": [
             {
               "identification": {
@@ -27,9 +27,9 @@
                 "country": "Brasil",
                 "countryCode": "BRA",
                 "geographicCoordinates": {
-                   "latitude": "-90.8365180",
-                   "longitude": "-180.836519"
-                 }
+                  "latitude": "-90.8365180",
+                  "longitude": "-180.836519"
+                }
               },
               "availability": {
                 "standards": [
@@ -37,68 +37,12 @@
                     "weekday": "SEGUNDA_FEIRA",
                     "openingTime": "10:00:57Z",
                     "closingTime": "16:00:57Z"
-                  },
-                  {
-                    "weekday": "TERCA_FEIRA",
-                    "openingTime": "10:00:57Z",
-                    "closingTime": "16:00:57Z"
-                  },
-                  {
-                    "weekday": "QUARTA_FEIRA",
-                    "openingTime": "10:00:57Z",
-                    "closingTime": "16:00:57Z"
-                  },
-                  {
-                    "weekday": "QUINTA_FEIRA",
-                    "openingTime": "10:00:57Z",
-                    "closingTime": "16:00:57Z"
-                  },
-                  {
-                    "weekday": "SEXTA_FEIRA",
-                    "openingTime": "10:00:57Z",
-                    "closingTime": "16:00:57Z"
                   }
                 ],
                 "exception": "Exceto feriados municipais, nacionais e estaduais",
-                "isPublicAccessAllowed": true
+                "isPublicAccessAllowed": false
               },
               "services": [
-                {
-                  "name": "ABERTURA_CONTAS_DEPOSITOS_OU_PAGAMENTO_PRE_PAGA",
-                  "code": "ABRE_CONTA_DEPOSITO_OU_PRE_PAGA"
-                },
-                {
-                  "name": "SAQUE_MOEDA_EM_ESPECIE",
-                  "code": "SAQUE_MOEDA_ESPECIE"
-                },
-                {
-                  "name": "RECEBIMENTOS_PAGAMENTOS_QUALQUER_NATUREZA",
-                  "code": "RECEBE_PAGA_QUALQUER_NATUREZA"
-                },
-                {
-                  "name": "TRANSFERENCIAS_ELETRONICAS_VISANDO_MOVIMENTACAO",
-                  "code": "TRANSFERENCIAS_ELETRONICAS_MOVIMENTA_CONTAS_DEPOSITOS_OU_PAGA_TITULARES_CLIENTES"
-                },
-                {
-                  "name": "CONSULTA_SALDOS_EXTRATOS_CONTAS_DEPOSITOS_E_CONTAS",
-                  "code": "CONSULTA_SALDOS_EXTRATOS_CONTAS_DEPOSITOS"
-                },
-                {
-                  "name": "APLICACOES_RESGATES_INVESTIMENTOS",
-                  "code": "APLICA_RESGATA_INVESTIMENTOS"
-                },
-                {
-                  "name": "CARTAO_CREDITO",
-                  "code": "CARTAO_CREDITO"
-                },
-                {
-                  "name": "SEGUROS",
-                  "code": "SEGUROS"
-                },
-                {
-                  "name": "OPERACOES_ARRENDAMENTO_MERCANTIL",
-                  "code": "OPERACOES_ARRENDAMENTO_MERCANTIL"
-                },
                 {
                   "name": "OUTROS_PRODUTOS_SERVICOS",
                   "code": "OUTROS_PRODUTOS_SERVICOS",
@@ -110,7 +54,7 @@
         }
       ]
     }
-  }        
+  }      
 }</Payload>
     </Set>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>

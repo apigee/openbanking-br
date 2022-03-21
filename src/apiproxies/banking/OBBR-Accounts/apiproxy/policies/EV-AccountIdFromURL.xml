@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-AccountIdFromURL">
+    <DisplayName>EV-AccountIdFromURL</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <URIPath>
+        <Pattern ignoreCase="false">/accounts/{theAccountId}</Pattern>
+        <Pattern ignoreCase="false">/accounts/{theAccountId}/balances</Pattern>
+        <Pattern ignoreCase="false">/accounts/{theAccountId}/transactions</Pattern>
+        <Pattern ignoreCase="false">/accounts/{theAccountId}/overdraft-limits</Pattern>
+    </URIPath>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+</ExtractVariables>

@@ -7,6 +7,9 @@
         <Set>
             <Headers>
                 <Header name="Retry-After">1</Header>
+                <Header name="x-rate-limit">300</Header>
+                <Header name="x-rate-limit-remaining">0</Header>
+                <Header name="x-rate-limit-time">second</Header>
             </Headers>
             <Payload contentType="application/json">{
   "errors": [

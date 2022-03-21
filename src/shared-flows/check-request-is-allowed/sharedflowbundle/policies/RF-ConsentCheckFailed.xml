@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-ConsentCheckFailed">
+    <DisplayName>RF-ConsentCheckFailed</DisplayName>
+    <FaultResponse>
+        <Set>
+            <Payload contentType="application/json">{calloutResponse.content}</Payload>
+            <StatusCode>{calloutResponse.status.code}</StatusCode>
+            <ReasonPhrase>{calloutResponse.reason.phrase}</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

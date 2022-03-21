@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="true" enabled="true" name="SC-CheckConsent">
+    <DisplayName>SC-CheckConsent</DisplayName>
+    <Properties/>
+    <Request>
+        <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+        <Set>
+            <QueryParams>
+                <QueryParam name="expected_client_id">{client_id}</QueryParam>
+                <QueryParam name="required_permission">{theRequiredPermission}</QueryParam>
+                <QueryParam name="required_resource">{theRequiredResource}</QueryParam>
+            </QueryParams>
+        </Set>
+    </Request>
+    <Response>calloutResponse</Response>
+    <LocalTargetConnection>
+        <Path>/consent-mgmt-with-kvm/consents/{accesstoken.consentId}/authorisation</Path>
+    </LocalTargetConnection>
+</ServiceCallout>

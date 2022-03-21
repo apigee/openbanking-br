@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" continueOnError="false" enabled="true" name="FC-CheckRequestIsAllowed">
+    <DisplayName>FC-CheckRequestIsAllowed</DisplayName>
+    <SharedFlowBundle>check-request-is-allowed</SharedFlowBundle>
+    <Parameters ignoreUnresolvedVariables="true">
+        <Parameter name="theRequiredScope">resources</Parameter>
+        <Parameter name="theRequiredPermission">RESOURCES_READ</Parameter>
+        <Parameter name="theRequiredResource"/>
+    </Parameters>
+    <SharedFlowBundle>check-request-is-allowed</SharedFlowBundle>
+</FlowCallout>

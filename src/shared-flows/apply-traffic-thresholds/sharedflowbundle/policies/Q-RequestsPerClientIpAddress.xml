@@ -3,7 +3,6 @@
     <DisplayName>Q-RequestsPerClientIpAddress</DisplayName>
     <Identifier ref="client.ip"/>
     <!-- For testing purposes, adjust count to a higher or lower values, as required-->
-    <!--<Allow count="2"/>-->
     <Allow count="500"/>
     <AsynchronousConfiguration>
         <SyncIntervalInSeconds>10</SyncIntervalInSeconds>

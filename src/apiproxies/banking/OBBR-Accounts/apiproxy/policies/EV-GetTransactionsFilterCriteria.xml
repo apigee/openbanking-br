@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-GetTransactionsFilterCriteria">
+    <DisplayName>EV-GetTransactionsFilterCriteria</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <QueryParam name="fromBookingDate">
+        <Pattern ignoreCase="true">{fromBookingDate}</Pattern>
+    </QueryParam>
+    <QueryParam name="toBookingDate">
+        <Pattern ignoreCase="true">{toBookingDate}</Pattern>
+    </QueryParam>
+    <QueryParam name="creditDebitIndicator">
+        <Pattern ignoreCase="true">{creditDebitIndicator}</Pattern>
+    </QueryParam>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix>transactionsFilter</VariablePrefix>
+</ExtractVariables>

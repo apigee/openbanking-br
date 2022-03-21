@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetUpdatedConsentInfo">
+    <DisplayName>AM-SetUpdatedConsentInfo</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>nowVar</Name>
+        <Ref>system.timestamp</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>formatStrDate</Name>
+        <Value>yyyy-MM-dd</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>formatStrTime</Name>
+        <Value>HH:mm:ss</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>nowFormattedDate</Name>
+        <Template>{timeFormatUTCMs(formatStrDate,nowVar)}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>nowFormattedTime</Name>
+        <Template>{timeFormatUTCMs(formatStrTime,nowVar)}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>nowFormatted</Name>
+        <Template>{nowFormattedDate}T{nowFormattedTime}Z</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>newConsentInfo</Name>
+        <Template>{ 
+    "consent_id": "{theConsentId}",
+    "client_id": "{requestedConsentInfo.client_id}",
+    "customer_id": "{firstnonnull(requestedConsentInfo.customer_id,existingConsentInfo.customer_id)}",
+    "permissions": {firstnonnull(requestedConsentInfo.permissions,existingConsentInfo.permissions)},
+    "resources": {firstnonnull(requestedConsentInfo.resources,existingConsentInfo.resources)},
+    "logged_user": "{firstnonnull(requestedConsentInfo.logged_user,existingConsentInfo.logged_user)}",
+    "business_entity": "{firstnonnull(requestedConsentInfo.business_entity,existingConsentInfo.business_entity)}",
+    "status": "{firstnonnull(requestedConsentInfo.status,existingConsentInfo.status)}",
+    "expires_at": "{firstnonnull(requestedConsentInfo.expires_at,existingConsentInfo.expires_at)}",
+    "created_at": "{existingConsentInfo.created_at}",
+    "updated_at": "{nowFormatted}",
+    "status_updated_at": "{firstnonnull(status_update_time,existingConsentInfo.status_updated_at)}"
+}</Template>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo transport="http" type="request"/>
+</AssignMessage>

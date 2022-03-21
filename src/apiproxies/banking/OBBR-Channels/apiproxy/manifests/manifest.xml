@@ -2,37 +2,25 @@
 <Manifest name="manifest">
     <Policies>
         <VersionInfo resourceName="AM-Add-CORS-Headers" version="SHA-512:137c9e693b4cf876950521cf5678622976ae5f993f37ae9980dde5c04fd360c729829f2cc97360c34e9044ca876001a8b7192b1a67a3b1580fbb1fa056389091"/>
-        <VersionInfo resourceName="AM-MockATMs" version="SHA-512:0dce0e8b90e95d1c4f8548de803e86efee833396b137a4cfb78da4ff495183bd0f756598afbcf391f9a8d637715bc493de3e48de748daf9177a97a8c8713bd7b"/>
-        <VersionInfo resourceName="AM-MockBankingAgents" version="SHA-512:57fce45e88821c64425b1612ab4d15f35f8dcb55a2864a0544d2330efa0b051a82ca61fb670dfd91d780ababb5548d3f5174fa47becd404c91d080d3c90b5541"/>
-        <VersionInfo resourceName="AM-MockBranches" version="SHA-512:2b8bc98e6589d47a6d393e1cbab1c877a0450836a3a0d8c6084b4bcc663373c2482d34690c1eddce6cb9c27013adc17c0d9952fb7331899cafeda10ea62449d5"/>
-        <VersionInfo resourceName="AM-MockBusinessAccountsProducts" version="SHA-512:226aac0daeb21bd7e856fef52ce55d0a0976c1d4733f3322b74053988c6c31f7e747056f64c5e523e1939cf8dfa6c9d332af59f0fb5982d947d4881749d98025"/>
-        <VersionInfo resourceName="AM-MockBusinessCreditCardProducts" version="SHA-512:c10dcc7ee9e9afbd98a553835c334f6869df3ae43e7f8ed5ebf06cb2cd8d7079b54f7a314b88ddf44543524eacbf963ee33824e156682be174469602f36e199f"/>
-        <VersionInfo resourceName="AM-MockBusinessFinancingProducts" version="SHA-512:02780561cbfdffa2d2b59ddb34c87633866af29144f86d2f62e3b384b50cb2e73996a38ab8fda672ed1443e45b288e12ed9df944d7743e6bb90c5e0f572a40ed"/>
-        <VersionInfo resourceName="AM-MockBusinessInvoiceFinancingProducts" version="SHA-512:75f9b83d85ab55636a340d6e896380ec132098dc649de44d4b43dc9765c8c5fc8d266637fb95669753546be94bf749836173ef43890fddb22ecbe09c83d0d6c0"/>
-        <VersionInfo resourceName="AM-MockBusinessLoansProducts" version="SHA-512:beda11ab1af18c715d1997bc120ac039882a1edda6cbf47d88c53cd35c2106b9c92c6714e4c42b119f2e7ca79fc3c8a6644cc9430f353625a8ed2f8b98e82e8c"/>
-        <VersionInfo resourceName="AM-MockBusinessUnarrangedAccountOverdraft" version="SHA-512:82f2020efa21eb85d885c9dff2f8dc3bf65012e1d1b7f3bb25f1243a405ebce0e00053fcdc1351ff169c217e54b320bb84c85762bc2ad31e4a187774aed4b78d"/>
-        <VersionInfo resourceName="AM-MockElectronicChannels" version="SHA-512:7e8c9b094d3cc8d11402869ad7ca867a055f3c94088b5208a844fd070af66280879a3974221a5cc79c3c3b203b89b3630be65f39d46fd897422ca06e13282b3d"/>
-        <VersionInfo resourceName="AM-MockPersonalAccountsProducts" version="SHA-512:0f7692f9bb231dc0ad1ce2b118cb6a9417aa3a3edc82e69836f53c2109de7c4e6f453f5179504bafc17264a610a5d858bcacda512517fa4b09f910c241fd0739"/>
-        <VersionInfo resourceName="AM-MockPersonalCreditCardProducts" version="SHA-512:19cc27236c886af32c3701de5c8c3455574dc2cd7f11428e051e3a39bed2ca344b396655fe5fcd24982d2e53eda250b9c30596c9f15755ab6fad41deb341fb71"/>
-        <VersionInfo resourceName="AM-MockPersonalFinancingProducts" version="SHA-512:a41b44fe76e90764c40be7015efdbb8ac2da7f4dc627a0fb4b01fa6867c4d9994e0f2e4d345fa74dca60afb73561c1a480f49e6ad074da75a5f96f624f3f13fa"/>
-        <VersionInfo resourceName="AM-MockPersonalInvoiceFinancingProducts" version="SHA-512:29ba145855e4d5d206893ef85d5b2040ba60a9c4ce650f81c52ab274bad25a71e6a1a552e7fd09ded422d70c9ff9a52df080efe8327f708cc1a1a29a3110156d"/>
-        <VersionInfo resourceName="AM-MockPersonalLoansProducts" version="SHA-512:6a302d123e28c176abf00970cd889aa797f39cc02ff1dad69123da827d968621e4d9b970c263e9aa8cbccc4a0ab3ddba52e297ec2c6e678c8e76f34f57f69a42"/>
-        <VersionInfo resourceName="AM-MockPersonalUnarrangedAccountOverdraft" version="SHA-512:3a2aa4db67b2bdfe0088d87d6ac4475d3282d50ad60f4cc652e47b53c8c160f21db96d57f803583ee5df771dd2935c5b9f22dff7776f9c9da7c4c7fa6a080901"/>
-        <VersionInfo resourceName="AM-MockPhoneChannels" version="SHA-512:332674f51ac890486c599e0a6f68ade26263e449fe7858bb0fbf8fbb173a17189b10389b80432d4bc3e99ed189a4a5538c5d790be84736287b13b6f4c2bc36f2"/>
+        <VersionInfo resourceName="AM-MockATMs" version="SHA-512:427ec9057876f7c122f14392ad52488514b5c2f61b086311f11770185e0be3cec81a957a602b37180f49fb85dd696b3e51a53d7c2ce711c417a88130c91ecc04"/>
+        <VersionInfo resourceName="AM-MockBankingAgents" version="SHA-512:4a011147136e9d77215dd7e52d50f1c26f71dd4c1fa0a6e95c5b68dbe29ddde3a503b08fa170689932cb473017ff756068c9e83e51a97f66055bef2e75e0ec31"/>
+        <VersionInfo resourceName="AM-MockBranches" version="SHA-512:b931d40df7a6e6cd04dfcf763a83e931b3fda51cebae979a29bbcb33a7d70a1d1c5cddd1750bf7ff956ce58a47168e69e6fb99989552aff46f2e36b946266c56"/>
+        <VersionInfo resourceName="AM-MockElectronicChannels" version="SHA-512:fccf3113163ea4aefcc599596fbe6a02b5ddd0dfc44ee477e0a059081025301ed7e24cf72bc17376654c2860e680f741b69b89f54604487a9a942585871d7b50"/>
+        <VersionInfo resourceName="AM-MockPhoneChannels" version="SHA-512:dbaf15b298a55b001e94625ff759f9c884f86962e470daa4cc7cc382ae348510d1085a6e0f09d6c03029da9e1891596b37b2dc0d2d8455de9bc44997627373c1"/>
+        <VersionInfo resourceName="AM-Set-Meta-Link-Settings-For-Error-Response" version="SHA-512:4155e4c8318748c3f992769b55f85a6b79a28e5a7e2f154fd47f5fd4308d2aec130cafdf602d76e7aa2ca6efdded7ec835620cb48edf2b7c5f751f9f5858be77"/>
         <VersionInfo resourceName="AM-Set-Pagination-Settings" version="SHA-512:5106568ffc2b2c44de89e23d411ee103c1f1aa500e61c8cb334349489cbe7e7d6e7f5e3a35ce06ba3a7c32dbc522d417a3532f13e64b951a4562a008afd81c4d"/>
         <VersionInfo resourceName="FC-AddFAPIInteractionId" version="SHA-512:cac97c501811601f3305b67997dbb38b2e5d7631b0372cf4ba2622ea28459810fedb798b657f5f2407bf2c3af7ca9c24403e7620cecef3bd8ea6a1b8e68c7b43"/>
         <VersionInfo resourceName="FC-AddResponseHeaders-Link-Meta" version="SHA-512:78f3541fc8a112fc73bb0d09d5b767a554d34dfdfed6962232388e454a15f6d18499aa6f158e74ab4895fbe53f098aecc92f6c1e29750e2caaa61724343bc612"/>
         <VersionInfo resourceName="FC-CheckRequestHeaders" version="SHA-512:5b2ad6beed370945c3f80cbbfe381ba5f4210637a358598c032049cd2c9f360c133b64ded5be5f9be5b5b7272af3ed743abbcedbb324e5a406e81140680bebb6"/>
         <VersionInfo resourceName="FC-CollectPerformanceSLO" version="SHA-512:a9b222146542fbfaf60ca59259f4e95151124f18a64d2f4f10cafdeb80166773c3d8ed29c40125ff4dc347e9f63a9e9dba2e14563f50cb5956821a6598411229"/>
         <VersionInfo resourceName="FC-PaginateResponse" version="SHA-512:8c19e55d5eb9514aa0990d2e5dce46d944880ddd89c6339f9d76270a6800a2ca8255e9ea062e3910e8ffb51d8bf68fce49f14042d78be7dfa2ff39eb532a5406"/>
-        <VersionInfo resourceName="FC-TrafficThresholds" version="SHA-512:06b26c2a4f540a1f5d7a4e5d016097146e9265eafe8cd87246327c0dfcaa8b9ab8d6efb632c877aecac06f78064c54a855b544de1ced5fc806a4a2c903b17018"/>
+        <VersionInfo resourceName="FC-TrafficThresholds" version="SHA-512:e455afc8efb7834fc23670b78fa9b555369ad612c3386a781b1cf0d872d73bac4c9d97ae6aa5faa358317998edbc56f8639249aa5cb229f10fea682f37ff507a"/>
         <VersionInfo resourceName="FC-ValidateRequestParams" version="SHA-512:33ff31c43ffc0e0c647aa16351049d46cbe1bf6691de871f9434c7b59c5221b0befea8555a86944d75b5046079053ca9f9b6ea451fb1e3956483f4375cbca61f"/>
         <VersionInfo resourceName="RF-NotFound" version="SHA-512:dd8c233ed6dd3ee535323424b9a23a9814a67b806688179cb68f1f6d05a7269489074030dccccbc8cbba1504fb41d01b2bd68ca4df314d0ff07472df82f58d42"/>
-        <VersionInfo resourceName="RF-TooManyRequests" version="SHA-512:c62d853b5402af48bb129cc0587eaddd5ef0e6469e2dc9ef42fa51863acbf00cb697f84ea30a0717e931e562b57d65cc0c55c4156ac884f22fee06b184f768da"/>
         <VersionInfo resourceName="RF-UnsupportedMethod" version="SHA-512:07e6655bc3c0a7514fbce38ead742f8fb8a069a0aa4f18fe65a3c24490e7e0664a24f2714ebe5e4f733eda7a076ee049a67f3a028f2892d766b49d5db849d36f"/>
     </Policies>
     <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:2fe00d5a01ab3233296e79621071bd251336a954788a3afbf012e15446f5bc9ad26de4f6ea93ef7eb8f3729124cebc7ce2c386c9fd9a1f1c2704f7a76d0d7b19"/>
+        <VersionInfo resourceName="default" version="SHA-512:bf73008206e15e6a7703d76bd12cef239fc623b8ad1c94540883631f99330b3226ce01a8cea5c8e01f81ecec5b5db672dd02f6e8f2cdff16cb11fbb9a8591ef7"/>
     </ProxyEndpoints>
     <Resources/>
     <SharedFlows/>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-CheckIfCNPJMatchesExpectedValue">
+    <DisplayName>AM-CheckIfCNPJMatchesExpectedValue</DisplayName>
+    <!-- Treat the array of expected cnpjs as a string and remove the cnpj found in token 
+         If it remains the same as the original array, it means the cnpj is not found in the array-->
+    <AssignVariable>
+        <Name>requested_cnpj_value_without_the_cnpj_in_token</Name>
+        <Template>{replaceAll(requested_cnpj_value,IDPTokenClaims.cnpj,'')}</Template>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

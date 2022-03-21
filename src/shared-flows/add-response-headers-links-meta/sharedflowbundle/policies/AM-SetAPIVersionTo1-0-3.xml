@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetAPIVersionTo1-0-3">
+    <DisplayName>AM-SetAPIVersionTo1-0-3</DisplayName>
+    <AssignVariable>
+        <Name>apiCurrentVersion</Name>
+        <Value>1.0.3</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

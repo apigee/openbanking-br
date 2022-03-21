@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" continueOnError="false" enabled="true" name="FC-ValidateTxRequestParams">
+    <DisplayName>FC-ValidateTxRequestParams</DisplayName>
+    <SharedFlowBundle>validate-request-params</SharedFlowBundle>
+    <Parameters ignoreUnresolvedVariables="false">
+        <Parameter name="validateParamConfig">{ "QueryParams": [
+            {"fromBookingDate": {"ValueType": "Date"}},
+            {"toBookingDate": {"ValueType": "Date"}},
+            {"creditDebitIndicator": {"ValueList": ["CREDITO","DEBITO"]}},
+            {"page": {"ValueType": "PositiveInteger"}},
+            {"page-size": {"ValueType": "PositiveInteger"}}
+          ]
+        }</Parameter>
+    </Parameters>
+</FlowCallout>

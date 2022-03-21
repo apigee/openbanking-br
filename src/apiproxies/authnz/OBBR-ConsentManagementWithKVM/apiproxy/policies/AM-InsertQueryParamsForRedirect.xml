@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-InsertQueryParamsForRedirect">
+    <DisplayName>AM-InsertQueryParamsForRedirect</DisplayName>
+    <Set>
+        <QueryParams>
+            <QueryParam name="consent_id">{firstnonnull(requestedConsentInfo.consent_id,request.queryparam.consent_id)}</QueryParam>
+            <QueryParam name="state">{firstnonnull(requestedConsentInfo.state,request.queryparam.state)}</QueryParam>
+            <QueryParam name="scope">{firstnonnull(requestedConsentInfo.scope,request.queryparam.scope)}</QueryParam>
+            <QueryParam name="consent-status">{firstnonnull(requestedConsentInfo.status,existingConsentInfo.status)}</QueryParam>
+            <QueryParam name="consent_expires_in">{consentExpiryInSeconds}</QueryParam>
+        </QueryParams>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

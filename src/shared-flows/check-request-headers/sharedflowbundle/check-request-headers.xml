@@ -1,32 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<SharedFlowBundle revision="1" name="check-request-headers">
+<SharedFlowBundle revision="2" name="check-request-headers">
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1622008088923</CreatedAt>
-    <CreatedBy>deboraelkin+cdsadmin@gmail.com</CreatedBy>
+    <CreatedAt>1637808194878</CreatedAt>
+    <CreatedBy>deboraelkin@google.com</CreatedBy>
     <Description>Check headers and their values required in every request. Stores headers that may need to be included in the response</Description>
     <DisplayName>check-request-headers</DisplayName>
-    <LastModifiedAt>1622786194886</LastModifiedAt>
-    <LastModifiedBy>defaultUser</LastModifiedBy>
-    <ManifestVersion>SHA-512:9f8832fea4c37ada97e47b5a51a4f5e5d9ec891215d0b63a018fd75a252a6eea6ae4c7b16039dd6938a6179ae781dd0d75122bdf2e0d18d365fc14851dab0e45:ap-southeast-2</ManifestVersion>
+    <LastModifiedAt>1637808194878</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:9c479fa289ac4ff06899d60987c034bf62a33f19d18f06796da9acae350a9400e4adec4a78ebfc110982970157cf1454c37fdc5e9b0aaf4e449efbd71ccaaa6d:ap-southeast-2</ManifestVersion>
     <Policies>
         <Policy>AM-Extract-Pagination-Params</Policy>
         <Policy>AM-ExtractContentTypeAndAcceptHeaders</Policy>
-        <Policy>AM-SetEndpointVersionTo1</Policy>
-        <Policy>AM-SetEndpointVersionTo2</Policy>
-        <Policy>AM-SetEndpointVersionTo3</Policy>
         <Policy>EV-Preserve-Request-Headers</Policy>
         <Policy>FC-DecideIfCustomerIsPresent</Policy>
-        <Policy>JS-CheckVersionHeaders</Policy>
         <Policy>RF-Invalid-Accept-Header</Policy>
         <Policy>RF-Invalid-Content-Type-Header</Policy>
-        <Policy>RF-Invalid-Version</Policy>
-        <Policy>RF-Missing-Authdate-Header</Policy>
-        <Policy>RF-Missing-Invalid-cdsClientHeaders-Header</Policy>
         <Policy>RF-Return-CORS-Headers</Policy>
     </Policies>
-    <Resources>
-        <Resource>jsc://checkVersionHeaders.js</Resource>
-    </Resources>
+    <Resources/>
     <Spec></Spec>
     <subType>SharedFlow</subType>
     <SharedFlows>

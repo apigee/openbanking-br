@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="7" name="OBBR-Consent">
+    <Basepaths>/consents/v1/consents</Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1637886959807</CreatedAt>
+    <CreatedBy>deboraelkin@google.com</CreatedBy>
+    <Description>Consent Management APIs for Open Banking Brazil - Phase 2</Description>
+    <DisplayName>OBBR-Consent</DisplayName>
+    <LastModifiedAt>1637886959807</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:5dbfe74b28f51587764112f90e975b9faa142e4ffcdc26c72ebb7fbe12b198c4b7e52244180dda95b6bedef969dbbdfae7d94a7779779ebfb1e05ec39de64553:ap-southeast-2</ManifestVersion>
+    <Policies>
+        <Policy>AM-Add-CORS-Headers</Policy>
+        <Policy>AM-DisableCopyPathSuffix</Policy>
+        <Policy>AM-InvalidScope</Policy>
+        <Policy>AM-Set-Meta-Link-Settings-For-Error-Response</Policy>
+        <Policy>AM-Set-Pagination-Settings</Policy>
+        <Policy>AM-SetConsentPayload</Policy>
+        <Policy>AM-SetConsentResponse</Policy>
+        <Policy>AM-SetExpectedClientId</Policy>
+        <Policy>AM-TokenNotVerified</Policy>
+        <Policy>EV-ConsentIdFromURL</Policy>
+        <Policy>EV-ExtractConsentRequest</Policy>
+        <Policy>EV-ExtractConsentResponse</Policy>
+        <Policy>EV-GetErrorDetail</Policy>
+        <Policy>FC-AddFAPIInteractionId</Policy>
+        <Policy>FC-AddResponseHeaders-Link-Meta</Policy>
+        <Policy>FC-CheckRequestHeaders</Policy>
+        <Policy>FC-CollectPerformanceSLO</Policy>
+        <Policy>FC-TrafficThresholds</Policy>
+        <Policy>FC-VerifyHoK</Policy>
+        <Policy>OA-VerifyToken</Policy>
+        <Policy>RF-NotFound</Policy>
+        <Policy>RF-UnsupportedMethod</Policy>
+        <Policy>SC-RevokeTokensBoundToConsent</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>create-new-consent</TargetEndpoint>
+        <TargetEndpoint>manage-existing-consents</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

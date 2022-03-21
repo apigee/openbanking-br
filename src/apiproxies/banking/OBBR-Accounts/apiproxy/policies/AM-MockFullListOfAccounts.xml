@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-MockFullListOfAccounts">
+    <DisplayName>AM-MockFullListOfAccounts</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AssignVariable>
+        <Name>listOfAllAccountDetailsByCustomer</Name>
+        <Template>[
+    {
+        "customer": "10203040",
+        "accounts": [
+            {
+                "brandName": "Organização A",
+                "companyCnpj": "21128159000166",
+                "type": "CONTA_DEPOSITO_A_VISTA",
+                "subtype": "INDIVIDUAL",
+                "currency": "BRL",
+                "compeCode": "001",
+                "branchCode": "6272",
+                "number": "94088392",
+                "checkDigit": "4",
+                "accountId": "0016272940883924"
+            },
+            {
+                "brandName": "Organização A",
+                "companyCnpj": "21128159000166",
+                "type": "CONTA_POUPANCA",
+                "subtype": "INDIVIDUAL",
+                "currency": "BRL",
+                "compeCode": "001",
+                "branchCode": "6272",
+                "number": "83085311",
+                "checkDigit": "6",
+                "accountId": "0016272830853116"
+            }
+        ]
+    }
+]</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>listOfAllResultsByCustomer</Name>
+        <Ref>listOfAllAccountDetailsByCustomer</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>resultsType</Name>
+        <Value>accounts</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

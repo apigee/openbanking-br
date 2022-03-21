@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GetOAuthV2Info async="false" continueOnError="true" enabled="true" name="OAInfo-RetrieveRefreshTokenDetails">
+    <DisplayName>OAInfo-RetrieveRefreshTokenDetails</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <IgnoreAccessTokenStatus>false</IgnoreAccessTokenStatus>
+    <RefreshToken ref="theRefreshToken"></RefreshToken>
+</GetOAuthV2Info>

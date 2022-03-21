@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="SC-RevokeTokensBoundToConsent">
+    <DisplayName>SC-RevokeTokensBoundToConsent</DisplayName>
+    <Properties/>
+    <Request clearPayload="true">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <Set>
+            <FormParams>
+                <FormParam name="consent_id">{theConsentId}</FormParam>
+            </FormParams>
+            <Verb>POST</Verb>
+        </Set>
+    </Request>
+    <Response>calloutResponse</Response>
+    <LocalTargetConnection>
+        <Path>/internal/revoke/tokens</Path>
+    </LocalTargetConnection>
+</ServiceCallout>

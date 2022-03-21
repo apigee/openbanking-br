@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" continueOnError="false" enabled="true" name="FC-ValidateRequestParams">
+    <DisplayName>FC-ValidateRequestParams</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Parameters ignoreUnresolvedVariables="false">
+        <Parameter name="validateParamConfig">{ "QueryParams": [
+            {"accountType": {"ValueList": ["CONTA_DEPOSITO_A_VISTA","CONTA_POUPANCA","CONTA_PAGAMENTO_PRE_PAGA"]}},
+            {"page": {"ValueType": "PositiveInteger"}},
+            {"page-size": {"ValueType": "PositiveInteger"}}
+          ]
+        }</Parameter>
+    </Parameters>
+    <SharedFlowBundle>validate-request-params</SharedFlowBundle>
+</FlowCallout>

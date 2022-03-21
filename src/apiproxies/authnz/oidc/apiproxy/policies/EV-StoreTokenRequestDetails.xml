@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-StoreTokenRequestDetails">
+    <DisplayName>EV-StoreTokenRequestDetails</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <FormParam name="grant_type">
+        <Pattern ignoreCase="false">{grant_type}</Pattern>
+    </FormParam>
+    <FormParam name="code">
+        <Pattern ignoreCase="false">{code}</Pattern>
+    </FormParam>
+    <FormParam name="redirect_uri">
+        <Pattern ignoreCase="false">{redirect_uri}</Pattern>
+    </FormParam>
+    <Header name="Authorization">
+        <Pattern ignoreCase="false">{authorization_header}</Pattern>
+    </Header>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix>TokenRequestParams</VariablePrefix>
+</ExtractVariables>

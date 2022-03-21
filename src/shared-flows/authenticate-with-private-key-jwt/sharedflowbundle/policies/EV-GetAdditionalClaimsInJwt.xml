@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-GetAdditionalClaimsInJwt">
+    <DisplayName>EV-GetAdditionalClaimsInJwt</DisplayName>
+    <JSONPayload>
+        <Variable name="cnpj" type="nodeset">
+            <JSONPath>$.claims.userinfo.cnpj</JSONPath>
+        </Variable>
+        <Variable name="cpf" type="nodeset">
+            <JSONPath>$.claims.userinfo.cpf</JSONPath>
+        </Variable>
+        <Variable name="cnpj_expected_value" type="string">
+            <JSONPath>$.claims.userinfo.cnpj.value</JSONPath>
+        </Variable>
+        <Variable name="cnpj_is_requested" type="boolean">
+            <JSONPath>$.claims.userinfo.cnpj.essential</JSONPath>
+        </Variable>
+        <Variable name="cpf_expected_value" type="string">
+            <JSONPath>$.claims.userinfo.cpf.value</JSONPath>
+        </Variable>
+        <Variable name="cpf_is_requested" type="boolean">
+            <JSONPath>$.claim.userinfo.cpf.essential</JSONPath>
+        </Variable>
+        <Variable name="acr" type="string">
+            <JSONPath>$.claims.id_token.acr.values[0]</JSONPath>
+        </Variable>
+        <Variable name="redirect_uri" type="string">
+            <JSONPath>$.redirect_uri</JSONPath>
+        </Variable>
+        <Variable name="nonce" type="string">
+            <JSONPath>$.nonce</JSONPath>
+        </Variable>
+        <Variable name="scope" type="string">
+            <JSONPath>$.scope</JSONPath>
+        </Variable>
+        <Variable name="state" type="string">
+            <JSONPath>$.state</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <VariablePrefix>PKJwtAdditionalClaims</VariablePrefix>
+    <Source clearPayload="false">jwt.JWT-VerifyPrivateKeyJWT.payload-json</Source>
+</ExtractVariables>

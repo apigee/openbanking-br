@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="SC-CreateUpdateCDRArrangement">
+    <DisplayName>SC-CreateUpdateCDRArrangement</DisplayName>
+    <Properties/>
+    <Request>
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <Set>
+            <Payload contentType="application/json">{
+                "client_id": "{apigee.client_id}",
+                "customer_id": "{firstnonnull(oauthv2authcode.OAInfo-RetrieveOIDCAuthCode.customerId,oauthv2refreshtoken.OAInfo-RetrieveRefreshTokenDetails.accesstoken.customerId)}",
+                "status": "AUTHORISED",
+                "expires_at": "{refreshTokenExpiryDate}"
+            }</Payload>
+            <Verb>PUT</Verb>
+        </Set>
+    </Request>
+    <Response>calloutResponse</Response>
+    <LocalTargetConnection>
+        <Path>/consent-mgmt-with-kvm/consents/{theConsentId}</Path>
+    </LocalTargetConnection>
+</ServiceCallout>

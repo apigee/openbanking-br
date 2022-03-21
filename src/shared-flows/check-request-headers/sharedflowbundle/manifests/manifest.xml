@@ -3,25 +3,16 @@
     <Policies>
         <VersionInfo resourceName="AM-Extract-Pagination-Params" version="SHA-512:efef6ef409caa6df073d2cb968fcc0f21162b538d23d9eadb4398fbbc5d388190483a654dab4e3a207af669a5de03d5c5139d59969aa5cb0e17609cae9380e90"/>
         <VersionInfo resourceName="AM-ExtractContentTypeAndAcceptHeaders" version="SHA-512:da369d85d0b1bc1c70e9746fff034c52c96b7cb10e8b9cb267de53b53b15b21563d6c7d52aac1455b174a65839d5d7a5a5f34a53911b3b968591da749df16a04"/>
-        <VersionInfo resourceName="AM-SetEndpointVersionTo1" version="SHA-512:83224a6a7a35aafc35ca82e58f1f6bbb98f07acbf37dd1069eb0a1809a233e7e60c35fc3391ff4a21301353bc28d5ebae40be86dfc7104dcd99926b04fc9f867"/>
-        <VersionInfo resourceName="AM-SetEndpointVersionTo2" version="SHA-512:00a95d1254e543059bb2a7c6fdb2ff56760c22a01d0bf0ad6838e83817a4b6eb3ff02432d5aab6279bdc8eaa1734be12cf9a63125eb29a627024fb7de42a868f"/>
-        <VersionInfo resourceName="AM-SetEndpointVersionTo3" version="SHA-512:c4f86a48e80c32d0e8bd520c88680093dfbee26a7bc803f07a442c77dbf02485615eb586f2dfd27d3a2bc57969083f648bf9725b762e5af374d038ea5d57a152"/>
-        <VersionInfo resourceName="EV-Preserve-Request-Headers" version="SHA-512:d9c82bcc3e1f0d8039ea721818b7dcec6d4944306ac34b9014d8d4f730bfd75ce415c78fc07da0d73ad11901359dc770483b9bc223738a59bdb90b1e2246ad8b"/>
+        <VersionInfo resourceName="EV-Preserve-Request-Headers" version="SHA-512:82605cef5316e5a935e5d38392b9d59e89a2aa9d50282440b2b40a339817b5607ad9b5aa4c0a98ceed6a598a5800543a4fc7177bdc4e753c2bcac83bc5e32386"/>
         <VersionInfo resourceName="FC-DecideIfCustomerIsPresent" version="SHA-512:4e4c1d1fda4c95f19b50029f5463bd8ace2bd182a7d9f779614e583b6c3999f261f19e81cb00cea7fd8045d4e941cac67bfec71cbc99df6e9bdf5bd6f95a38d1"/>
-        <VersionInfo resourceName="JS-CheckVersionHeaders" version="SHA-512:c18e89a564067d9630a85481182ceaeac5dbadd2ec105c8d7b0554e4346de37c11a58fa79e6e8738b5a3edc903c14ee642d109aa3b69fe712210e1599dc35d34"/>
         <VersionInfo resourceName="RF-Invalid-Accept-Header" version="SHA-512:20a2d5e93f39cef0660e9ae6f80e459d14337ad0d8af5546869619fa9b9f546538c78b7adff5199f9eebb50b8ddf5c184712d5925881f67c68e105fbd8c4bdc1"/>
         <VersionInfo resourceName="RF-Invalid-Content-Type-Header" version="SHA-512:6aeda52742ce5fad5fb2b1245318b49b78275f1b35e09daef56cc823207640774d5e3d9a17ab6eb83d2a0aab6e42177396890ca10baf56afcf1d385816c5d367"/>
-        <VersionInfo resourceName="RF-Invalid-Version" version="SHA-512:252552f5f35166c71ce45a11b659d4b27bed6a718e672208dd738f8fca2ccff4003b8c5e149b6f6df236db918200c8b12afc5f2928c0b632ba1b001131b756c8"/>
-        <VersionInfo resourceName="RF-Missing-Authdate-Header" version="SHA-512:2816474e8ff17e6d6b21783b3c13d9b5ba019d6ed60477cae499b952a85f509385aad3c266aa2893c18587b4b105772dc18c99e7f79e671db16a3090cb1656cd"/>
-        <VersionInfo resourceName="RF-Missing-Invalid-cdsClientHeaders-Header" version="SHA-512:6ecb508e9e5be366868a2b98e9bd5dc53870c1dfc88a311fe55f6c4a0c18605c1282e0acbfc65cb01f43f83dba34c0cc9bc32d5a37bc645c8532bfa3aa622bed"/>
-        <VersionInfo resourceName="RF-Return-CORS-Headers" version="SHA-512:ab413652ae4d69d72d74009bafd780cc52521da5b335c08f11a6e08c7fb57a4f2df9bd97510c73220b8774105fd87c10d2f69fbeac92f77b060b6d16a6d18640"/>
+        <VersionInfo resourceName="RF-Return-CORS-Headers" version="SHA-512:c49d14f0ee554a579f2193b55ceda3a0c935d442ba10eeda5755c52d9f9f277179034175b15c07802148afe9f6eb25c2fb4f9e1d063f68590d240fef4c5bfb16"/>
     </Policies>
     <ProxyEndpoints/>
-    <Resources>
-        <VersionInfo resourceName="jsc://checkVersionHeaders.js" version="SHA-512:cf1ae4195ecd1c8a1e3caa6ec5eb953101df9f885b3beac5de67ea680d9690487af23d72d881278c61fc539474b88790400e139e1f661530a9ca9675a5266982"/>
-    </Resources>
+    <Resources/>
     <SharedFlows>
-        <VersionInfo resourceName="default" version="SHA-512:27a867c8b4c3a701d00b86f4b036c260ca65bb7c9d3f352aefbe063bebc21ea9af51bf3199a7297f467b450416b40cbc9fe7300179438c1959ff9856ba6345dd"/>
+        <VersionInfo resourceName="default" version="SHA-512:d5e937b9a0e3d6d4c736bdc8e9d7f3d9f9a6fcfac5e745c767c3466c4e90b7e4ea8d44d075e495ef6a79451ec55af21dce16eb7280ec4a325b212b19449de886"/>
     </SharedFlows>
     <TargetEndpoints/>
 </Manifest>

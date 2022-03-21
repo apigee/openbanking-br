@@ -19,20 +19,6 @@
     </Step>
     <Step>
         <FaultRules/>
-        <Name>AM-SetEndpointVersionTo1</Name>
-    </Step>
-    <!-- Not required for OpenData phase. Policy disabled -->
-    <Step>
-        <FaultRules/>
-        <Name>JS-CheckVersionHeaders</Name>
-    </Step>
-    <Step>
-        <Condition>hdrError = "true"</Condition>
-        <FaultRules/>
-        <Name>RF-Invalid-Version</Name>
-    </Step>
-    <Step>
-        <FaultRules/>
         <Name>AM-ExtractContentTypeAndAcceptHeaders</Name>
     </Step>
     <Step>
@@ -44,15 +30,5 @@
         <Condition>( (request.verb = "POST") or (request.verb = "PUT") ) and ( (request.header.Content-type == null) or (not (content-header-lc JavaRegex "application\/json(\s*;\s*charset=(.)+)?") ) ) </Condition>
         <FaultRules/>
         <Name>RF-Invalid-Content-Type-Header</Name>
-    </Step>
-    <Step>
-        <Condition>( (not (proxy.basepath MatchesPath "/open-banking/products-services/v1")) and (proxy.basepath != "/open-banking/admin/v1") and (proxy.basepath != "/open-banking/discovery/v1") and (proxy.basepath != "/open-banking/channels/v1")) and (request.header.x-fapi-auth-date = null)</Condition>
-        <FaultRules/>
-        <Name>RF-Missing-Authdate-Header</Name>
-    </Step>
-    <Step>
-        <Condition>( (not (proxy.basepath MatchesPath "/open-banking/products-services/v1")) and (proxy.basepath != "/open-banking/admin/v1") and (proxy.basepath != "/open-banking/discovery/v1") and (proxy.basepath != "/open-banking/channels/v1"))  and (request.header.x-fapi-customer-ip-address != null) and ( (request.header.x-cds-client-headers = null) or (not (request.header.x-cds-client-headers JavaRegex "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$")))</Condition>
-        <FaultRules/>
-        <Name>RF-Missing-Invalid-cdsClientHeaders-Header</Name>
     </Step>
 </SharedFlow>

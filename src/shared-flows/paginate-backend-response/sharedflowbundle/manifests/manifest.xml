@@ -6,7 +6,7 @@
     </Policies>
     <ProxyEndpoints/>
     <Resources>
-        <VersionInfo resourceName="jsc://DoPagination.js" version="SHA-512:9ec191dfac7303262409b29e5c59b0ad99966b6c504a091471d9e8efdfe5bbc5e930cadb980a4df0651e3c6ff4ae20ca80d7c08c07cf80abce31122a9e2bff15"/>
+        <VersionInfo resourceName="jsc://DoPagination.js" version="SHA-512:e8265d2e13ed602bfaa289bf5cadf8fd93243e0c263e9842726f63fe7860f352baa46583fd25622a4ca87d2e3ddf59ce75d03453243efc52bd2431943356adba"/>
     </Resources>
     <SharedFlows>
         <VersionInfo resourceName="default" version="SHA-512:ddc0254962e7f4af45d8251ba710d44182fe8ef54fbca24a261ad5fa3cd360f93fb76597ae1403ea5c2e538fe0c8e9b276735e3ada1827273aa887cd8bd9310d"/>

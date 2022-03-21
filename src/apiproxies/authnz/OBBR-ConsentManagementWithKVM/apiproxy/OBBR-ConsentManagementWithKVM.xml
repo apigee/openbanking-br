@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="OBBR-ConsentManagementWithKVM">
+    <Basepaths>/consent</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1647835276335</CreatedAt>
+    <CreatedBy>deboraelkin@google.com</CreatedBy>
+    <Description>Provides basic consent management functionality (Get, Create, Update, Revoke) using KVMs. The key to a consent is always a consent_id (So no functionality to retrieve all consents associated with a given end user or client). Displays consent screen to end user and manages response</Description>
+    <DisplayName>OBBR-ConsentMgmtWithKVM</DisplayName>
+    <LastModifiedAt>1647836611098</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:7d62e60a648450150db00aa5992f66bda22a651ef497293363092b7fa8b5a7b977d52aa372ea4d91fc30ce5a639615a41651b3e5c60acf5456796e086ba614d9:ap-southeast-2</ManifestVersion>
+    <Policies>
+        <Policy>AM-AssignConsentId</Policy>
+        <Policy>AM-InsertQueryParamsForRedirect</Policy>
+        <Policy>AM-RedirectToOIDCConsentCallback</Policy>
+        <Policy>AM-SetConsentCacheKeyAndValue</Policy>
+        <Policy>AM-SetConsentStatus</Policy>
+        <Policy>AM-SetConsentStatusToInactive</Policy>
+        <Policy>AM-SetConsentStatusToInvalid</Policy>
+        <Policy>AM-SetConsentStatusToNotFound</Policy>
+        <Policy>AM-SetCreateResponseBody</Policy>
+        <Policy>AM-SetGetConsentResponse</Policy>
+        <Policy>AM-SetMockListOfAccounts</Policy>
+        <Policy>AM-SetNewConsentInfo</Policy>
+        <Policy>AM-SetResponse204NoContent</Policy>
+        <Policy>AM-SetStatusUpdateTime</Policy>
+        <Policy>AM-SetUpdateResponseBody</Policy>
+        <Policy>AM-SetUpdatedConsentInfo</Policy>
+        <Policy>EV-ExtractConsentCacheKeyFromURIParam</Policy>
+        <Policy>EV-ExtractConsentIdFromURIParam</Policy>
+        <Policy>EV-ParseCachedConsentState</Policy>
+        <Policy>EV-ParseExistingConsentInfo</Policy>
+        <Policy>EV-ParseRequestedConsentInfo</Policy>
+        <Policy>IC-RemoveFromCacheToPreventReplays</Policy>
+        <Policy>JS-CheckIfConsentExpired</Policy>
+        <Policy>JS-CheckPermissionIsAllowed</Policy>
+        <Policy>JS-ConvertPermissionsArrayToFlatString</Policy>
+        <Policy>JS-SetResourcesFromFormValues</Policy>
+        <Policy>KVM-GetExistingConsent</Policy>
+        <Policy>KVM-PutNewOrUpdatedConsent</Policy>
+        <Policy>LC-RetrieveCachedConsentState</Policy>
+        <Policy>PC-CacheConsentState</Policy>
+        <Policy>RF-BadRequest</Policy>
+        <Policy>RF-InvalidCachedConsent</Policy>
+        <Policy>RF-InvalidConsent</Policy>
+        <Policy>RF-OperationNotAllowed</Policy>
+        <Policy>RF-RedirectToOIDCConsentCallback-ConsentNotFoundOrInvalid</Policy>
+        <Policy>XSLT-RenderConsentScreen</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>xsl://renderConsentScreen.xsl</Resource>
+        <Resource>jsc://checkIfConsentExpired.js</Resource>
+        <Resource>jsc://checkPermissionIsAllowed.js</Resource>
+        <Resource>jsc://convertArrayToFlatString.js</Resource>
+        <Resource>jsc://setResourcesFromFormValues.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+</APIProxy>

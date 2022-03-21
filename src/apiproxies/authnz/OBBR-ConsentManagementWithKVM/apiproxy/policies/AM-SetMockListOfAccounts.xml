@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetMockListOfAccounts">
+    <DisplayName>AM-SetMockListOfAccounts</DisplayName>
+    <Properties/>
+    <Set>
+        <!-- To do: Obtain account list dynamically -->
+        <!-- This should be implemented as an internal call to GET /resources -->
+        <Payload contentType="application/xml">
+            <resources>
+                <resource>
+                    <type>ACCOUNT</type>
+                    <description>Conta Deposito a Vista xxxx8392</description>
+                    <id>0016272940883924</id>
+                </resource>
+                <resource>
+                    <type>ACCOUNT</type>
+                    <description>Conta Poupanca xxxx5311</description>
+                    <id>0016272830853116</id>
+                </resource>
+                <resource>
+                    <type>CREDIT_CARD_ACCOUNT</type>
+                    <description>Visa xxxx1199</description>
+                    <id>00102398551199</id>
+                </resource>
+            </resources>
+        </Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

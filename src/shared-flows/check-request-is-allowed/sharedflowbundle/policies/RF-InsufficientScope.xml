@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-InsufficientScope">
+    <DisplayName>RF-InsufficientScope</DisplayName>
+    <FaultResponse>
+        <Set>
+            <Payload contentType="application/json">{ "errors": [
+        {
+          "code": "403",
+          "title": "Invalid Access Token",
+          "detail": "Insufficent scope for requested operation"
+        }
+      ]
+    }</Payload>
+            <StatusCode>403</StatusCode>
+            <ReasonPhrase>Forbidden</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

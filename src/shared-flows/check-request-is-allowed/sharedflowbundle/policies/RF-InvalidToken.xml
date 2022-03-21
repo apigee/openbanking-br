@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-InvalidToken">
+    <DisplayName>RF-InvalidToken</DisplayName>
+    <FaultResponse>
+        <Set>
+            <Payload contentType="application/json">{ "errors": [
+        {
+          "code": "401",
+          "title": "Invalid Access Token",
+          "detail": "{oauthV2.OA-VerifyToken.fault.cause}"
+        }
+      ]
+    }</Payload>
+            <StatusCode>401</StatusCode>
+            <ReasonPhrase>Unauthorized</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

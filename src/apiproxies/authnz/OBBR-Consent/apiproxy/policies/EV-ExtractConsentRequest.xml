@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ExtractConsentRequest">
+    <DisplayName>EV-ExtractConsentRequest</DisplayName>
+    <JSONPayload>
+        <Variable name="logged_user">
+            <JSONPath>$.data.loggedUser.document.identification</JSONPath>
+        </Variable>
+        <Variable name="business_entity">
+            <JSONPath>$.data.businessEntity.document.identification</JSONPath>
+        </Variable>
+        <Variable name="permissions" type="nodeset">
+            <JSONPath>$.data.permissions</JSONPath>
+        </Variable>
+        <Variable name="expires_at">
+            <JSONPath>$.data.expirationDateTime</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <VariablePrefix>requestedConsentInfo</VariablePrefix>
+    <Source clearPayload="false">request</Source>
+</ExtractVariables>

@@ -1,0 +1,18 @@
+[{
+    "client_id": "ToBeGenerated",
+    "client_secret": "ToBeGenerated",
+    "redirect_uris": ["https://CallBackURLToBeAdded"],
+    "response_modes": ["form_post"],
+    "response_types": ["code id_token"],
+    "grant_types": ["authorization_code", "client_credentials", "refresh_token", "implicit"],
+    "token_endpoint_auth_method": "client_secret_basic",
+    "jwks": {
+        "keys": [{
+            "kty": "RSA",
+            "n": "ydJeKfYK80ucy7hJS9GXrhE-q4LLhXxiaWIElPcF-xXCU8O1WBj-VW7xAmUc4itww6ZHCPG7fGUD1XFiCiu0guN60ok4B1stPkWIOMG3K1yR71eP_cU_ZKcxjKuMzZK0O18c483BLBPbv82RUEOO-QUU2mUIDK66pHtb9lqwBhaCmi1yEzAq_kQFkPXzfTPdVh7Z1XzoyTgTHTnyQeF2dBimpahh8tX-caQ98ELmLpSxKdYdM56idnUK0Sd3Ed8TH2viv5cG7G_Ep5-C7hZ3CwRvjkcOo8K3EM_9jgh3w6zOF0LJzZ5wHucW6_0ViffDeHIf38qsuL6K7GY0_3XtIQ",
+            "e": "AQAB",
+            "kid": "CDSRefImpl",
+            "use": "sig"
+        }]
+    }
+}]
