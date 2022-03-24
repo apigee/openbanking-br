@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ParseCachedStateWithIdPAuthCodeAndIdToken">
+    <DisplayName>EV-ParseCachedStateWithIdPAuthCodeAndIdToken</DisplayName>
+    <Variable name="cachedStateVal">
+        <Pattern>{requested_client_id}||{requested_redirect_uri}||{requested_scope}||{requested_nonce}||{requested_response_type} id_token||{requested_sector_id}||{cpf_is_requested}||{requested_cpf_value}||{cnpj_is_requested}||{requested_cnpj_value}||{IDP_auth_code}||{IDP_id_token}</Pattern>
+    </Variable>
+</ExtractVariables>

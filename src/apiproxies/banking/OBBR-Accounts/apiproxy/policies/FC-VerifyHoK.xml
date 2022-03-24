@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" continueOnError="false" enabled="true" name="FC-VerifyHoK">
+    <DisplayName>FC-VerifyHoK</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Parameters ignoreUnresolvedVariables="true">
+        <Parameter name="certFingerprintBoundToToken" ref="accesstoken.certFingerprint"></Parameter>
+        <Parameter name="verifyHok">true</Parameter>
+    </Parameters>
+    <SharedFlowBundle>verify-mtls-and-hok</SharedFlowBundle>
+</FlowCallout>

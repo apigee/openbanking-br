@@ -11,6 +11,12 @@
             <Name>FC-AddFAPIInteractionId</Name>
         </Step>
         <Step>
+            <Name>AM-Set-Meta-Link-Settings-For-Error-Response</Name>
+        </Step>
+        <Step>
+            <Name>FC-AddResponseHeaders-Link-Meta</Name>
+        </Step>
+        <Step>
             <FaultRules/>
             <Name>FC-CollectPerformanceSLO</Name>
         </Step>
@@ -96,11 +102,6 @@
                 <Name>FC-TrafficThresholds</Name>
             </Step>
             <Step>
-                <Condition>ratelimit.SA-limitPublicTraffic.failed = "true"</Condition>
-                <FaultRules/>
-                <Name>RF-TooManyRequests</Name>
-            </Step>
-            <Step>
                 <Name>FC-ValidateRequestParam</Name>
             </Step>
             <Step>
@@ -119,7 +120,7 @@
         </Response>
     </PreFlow>
     <HTTPProxyConnection>
-        <BasePath>/open-banking/discovery/v1</BasePath>
+        <BasePath>/discovery/v1</BasePath>
         <Properties/>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <DefaultFaultRule name="DefaultFaultRule">
+        <Step>
+            <Condition>message.status.code != "200"</Condition>
+            <FaultRules/>
+            <Name>AM-Add-CORS-Headers</Name>
+        </Step>
+        <Step>
+            <FaultRules/>
+            <Name>FC-AddFAPIInteractionId</Name>
+        </Step>
+        <Step>
+            <Name>AM-Set-Meta-Link-Settings-For-Error-Response</Name>
+        </Step>
+        <Step>
+            <Name>FC-AddResponseHeaders-Link-Meta</Name>
+        </Step>
+        <Step>
+            <FaultRules/>
+            <Name>FC-CollectPerformanceSLO</Name>
+        </Step>
+        <AlwaysEnforce>true</AlwaysEnforce>
+    </DefaultFaultRule>
+    <Description/>
+    <FaultRules>
+        <FaultRule name="Invalid Scope">
+            <Condition>(fault.name = "InsufficientScope")</Condition>
+            <Step>
+                <FaultRules/>
+                <Name>AM-InvalidScope</Name>
+            </Step>
+        </FaultRule>
+        <FaultRule name="Invalid Access Token">
+            <Condition>(fault.name Matches "*access_token*") or (fault.name = "apiresource_doesnot_exist") or (fault.name = "InvalidAccessToken") or (fault.name = "InvalidAPICallAsNoApiProductMatchFound")</Condition>
+            <Step>
+                <FaultRules/>
+                <Name>EV-GetErrorDetail</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>AM-TokenNotVerified</Name>
+            </Step>
+        </FaultRule>
+    </FaultRules>
+    <Flows>
+        <Flow name="Get Accounts">
+            <Description>Obtém a lista de contas consentidas pelo cliente.</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>FC-ValidateRequestParams</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-GetAccountsFilterCriteria</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-Set-Pagination-Settings</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-CopyListOfAllAccountsToAllResults</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-FilterAccountsListBasedOnRequestFilters</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-FilterResults</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix = "/accounts") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Get Account details">
+            <Description>Obtém os dados de identificação da conta identificada por accountId.</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-CopyListOfAllAccountsToAllResults</Name>
+                </Step>
+                <Step>
+                    <Name>AM-Set-Pagination-Settings-AccountDetails</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-ResultsForAccountId</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-BuildDetailsResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Get Account balances">
+            <Description>Obtém os saldos da conta identificada por accountId.</Description>
+            <Request>
+                <Step>
+                    <Name>AM-MockFullListOfBalances</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-GetAllBalancesForCustomer</Name>
+                </Step>
+                <Step>
+                    <Name>AM-Set-Pagination-Settings-AccountDetails</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-ResultsForAccountId</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-BuildDetailsResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/balances") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Get Account transactions">
+            <Description>Obtém a lista de transações da conta identificada por accountId.</Description>
+            <Request>
+                <Step>
+                    <Name>FC-ValidateTxRequestParams</Name>
+                </Step>
+                <Step>
+                    <Name>AM-MockFullListOfTransactionsAndValidAccounts</Name>
+                </Step>
+                <Step>
+                    <Name>EV-GetAllTransactionsForCustomer</Name>
+                </Step>
+                <Step>
+                    <Name>JS-ModifyDatesInMockTransactions</Name>
+                </Step>
+                <Step>
+                    <Name>EV-GetTransactionsFilterCriteria</Name>
+                </Step>
+                <Step>
+                    <Name>AM-Set-Pagination-Settings</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>JS-FilterTransactionsListBasedOnRequestFilters</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/transactions") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Get Account limits">
+            <Description>Obtém os limites da conta identificada por accountId.</Description>
+            <Request>
+                <Step>
+                    <Name>AM-MockFullListOfLimits</Name>
+                </Step>
+                <Step>
+                    <Name>EV-GetAllLimitsForCustomer</Name>
+                </Step>
+                <Step>
+                    <Name>AM-Set-Pagination-Settings-AccountDetails</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-ResultsForAccountId</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-BuildDetailsResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/overdraft-limits") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="unsupportedMethod">
+            <Description>Method Not Allowed</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>RF-UnsupportedMethod</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>((proxy.pathsuffix MatchesPath "/balances") and (request.verb != "POST") ) or   (((proxy.pathsuffix MatchesPath "/")  or (proxy.pathsuffix MatchesPath "/{theAccountId}") or (proxy.pathsuffix MatchesPath "/{theAccountId}/balance") ) and (request.verb != "GET"))</Condition>
+        </Flow>
+        <Flow name="notFound">
+            <Description>Not Found</Description>
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>RF-NotFound</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            <Step>
+                <Name>FC-PaginateResponse</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>FC-AddResponseHeaders-Link-Meta</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>FC-CollectPerformanceSLO</Name>
+            </Step>
+        </Response>
+    </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <FaultRules/>
+                <Name>FC-CheckRequestHeaders</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>AM-MockFullListOfAccounts</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>FC-VerifyHoK</Name>
+            </Step>
+            <Step>
+                <Name>AM-SetReqPermissionToRead</Name>
+                <Condition>((proxy.pathsuffix = "/accounts") or (proxy.pathsuffix MatchesPath "/accounts/{theAccountId}") ) and (request.verb = "GET")</Condition>
+            </Step>
+            <Step>
+                <Name>AM-SetReqPermissionToBalancesRead</Name>
+                <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/balances") and (request.verb = "GET")</Condition>
+            </Step>
+            <Step>
+                <Name>AM-SetReqPermissionToTransactionsRead</Name>
+                <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/transactions") and (request.verb = "GET")</Condition>
+            </Step>
+            <Step>
+                <Name>AM-SetReqPermissionToLimitsRead</Name>
+                <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/overdraft-limits") and (request.verb = "GET")</Condition>
+            </Step>
+            <Step>
+                <Name>EV-AccountIdFromURL</Name>
+                <Condition>(proxy.pathsuffix != "/accounts")</Condition>
+            </Step>
+            <Step>
+                <Name>FC-CheckRequesIsAllowed</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>AM-SetCustomerId</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>FC-TrafficThresholds</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>EV-GetAllAcountsForCustomer</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <HTTPProxyConnection>
+        <BasePath>/accounts/v1</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

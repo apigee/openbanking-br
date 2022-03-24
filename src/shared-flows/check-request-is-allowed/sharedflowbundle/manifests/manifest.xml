@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest name="manifest">
     <Policies>
-        <VersionInfo resourceName="EV-ExtractConsentResources" version="SHA-512:964bd3b18893ed5d44d3dc473890486a7b16ebdf1972c38f026407e51b288c3b199f7e55bb5e8102c512a32c053be96e4ab76729ab93e3954afe941cb67c8192"/>
         <VersionInfo resourceName="JS-checkScopeIsSufficient" version="SHA-512:40e7b6ccf2e97e5ad76065577977732ba3a114d7fd02aaa7ffcd5e91e29291af80b4b2e0876d7c65ee8e8645a3678e790f83763d4fe0c8b184b41e972c7be056"/>
         <VersionInfo resourceName="OA-VerifyToken" version="SHA-512:5fcf13b2eea577ebbc16698ee298d80f43ffa598242e7140b0cc8279e59a79caa2d940972f829a8a2e3b858a4d25caa6c69de6a8ec12669c743cf6de34a008fd"/>
         <VersionInfo resourceName="RF-ConsentCheckFailed" version="SHA-512:7e2a5e396b50149e3d3277cae369db060dc85f4ffe094ac2dbaa2d7a06bd3061e71f2458195291d8cbb52b7926750b40bea9f1b634f036b32870e5594c0c03b1"/>
@@ -14,7 +13,7 @@
         <VersionInfo resourceName="jsc://checkScopeIsSufficient.js" version="SHA-512:fde5f725900be14ad909e12383e6d3acea4af6340a726d2f98a7f0b9bd45ed67eb0718ec0dbd94ac47d42e06bcdc80b09a76ad791020a140308a9ef730ef80ae"/>
     </Resources>
     <SharedFlows>
-        <VersionInfo resourceName="default" version="SHA-512:4e1fd39b3d7db5fddcd8b231eeac4d85d0615894829aa17d2ccbad512ba62a3718ed71840131b16d10ad8d38e2eff48a267a2acf442679e437c833e80c2ce986"/>
+        <VersionInfo resourceName="default" version="SHA-512:9e059c4e7117b48854b604717cbb695e93123f8cce5fc78c9217fbb377b26f34333faba46f16ca2c13ba3ecce8b2cb58a779c8ef7784cc03802cf65c32003e19"/>
     </SharedFlows>
     <TargetEndpoints/>
 </Manifest>

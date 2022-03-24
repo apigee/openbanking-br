@@ -12,7 +12,8 @@
         "explanation": "Um ou mais endpoints estão indisponíveis",
         "detectionTime": "{formattedCurrTime}",
         "expectedResolutionTime": "{formattedCurrTime}",
-        "updateTime": "{formattedCurrTime}"
+        "updateTime": "{formattedCurrTime}",
+        "unavailableEndpoints" : ["https://{request.header.host}/channels/v1/branches"]
       }
      ]
     }

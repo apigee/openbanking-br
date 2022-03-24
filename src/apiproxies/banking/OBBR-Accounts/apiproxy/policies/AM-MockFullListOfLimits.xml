@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-MockFullListOfLimits">
+    <DisplayName>AM-MockFullListOfLimits</DisplayName>
+    <AssignVariable>
+        <Name>listOfAllResultsByCustomer</Name>
+        <Template>[
+    {
+        "customer": "10203040",
+        "overdraft-limits": [
+            {
+                "accountId": "0016272940883924",
+                "overdraftContractedLimit": 99.9999,
+                "overdraftContractedLimitCurrency": "BRL",
+                "overdraftUsedLimit": 10000.9999,
+                "overdraftUsedLimitCurrency": "BRL",
+                "unarrangedOverdraftAmount": 99.9999,
+                "unarrangedOverdraftAmountCurrency": "BRL"
+            },
+            {
+                "accountId": "0016272830853116",
+                "overdraftContractedLimit": 88.8888,
+                "overdraftContractedLimitCurrency": "BRL",
+                "overdraftUsedLimit": 10000.8888,
+                "overdraftUsedLimitCurrency": "BRL",
+                "unarrangedOverdraftAmount": 88.8888,
+                "unarrangedOverdraftAmountCurrency": "BRL"
+            }
+        ]
+    }
+]</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>resultsType</Name>
+        <Value>overdraft-limits</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" transport="http" createNew="false"/>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

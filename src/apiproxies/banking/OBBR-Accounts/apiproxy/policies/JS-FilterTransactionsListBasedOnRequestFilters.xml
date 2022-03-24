@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JS-FilterTransactionsListBasedOnRequestFilters">
+    <DisplayName>JS-FilterTransactionsListBasedOnRequestFilters</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://filterTransactionsListBasedOnRequestFilters.js</ResourceURL>
+</Javascript>

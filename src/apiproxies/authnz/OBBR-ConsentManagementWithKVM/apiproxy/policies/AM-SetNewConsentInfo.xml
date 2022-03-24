@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetNewConsentInfo">
+    <DisplayName>AM-SetNewConsentInfo</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>nowVar</Name>
+        <Ref>system.timestamp</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>formatStrDate</Name>
+        <Value>yyyy-MM-dd</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>formatStrTime</Name>
+        <Value>HH:mm:ss</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>nowFormattedDate</Name>
+        <Template>{timeFormatUTCMs(formatStrDate,nowVar)}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>nowFormattedTime</Name>
+        <Template>{timeFormatUTCMs(formatStrTime,nowVar)}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>nowFormatted</Name>
+        <Template>{nowFormattedDate}T{nowFormattedTime}Z</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>theConsentId</Name>
+        <Template>{createUuid()}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>newConsentInfo</Name>
+        <Template>{ 
+    "consent_id": "{theConsentId}",
+    "client_id": "{requestedConsentInfo.client_id}",
+    "permissions": {requestedConsentInfo.permissions},
+    "logged_user": "{requestedConsentInfo.logged_user}",
+    "business_entity": "{requestedConsentInfo.business_entity}",
+    "status": "AWAITING_AUTHORISATION",
+    "expires_at": "{requestedConsentInfo.expires_at}",
+    "created_at": "{nowFormatted}",
+    "updated_at": "{nowFormatted}",
+    "status_updated_at": "{nowFormatted}"
+}</Template>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo transport="http" type="request"/>
+</AssignMessage>

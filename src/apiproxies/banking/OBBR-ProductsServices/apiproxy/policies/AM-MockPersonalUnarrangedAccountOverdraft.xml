@@ -3,13 +3,13 @@
     <DisplayName>AM-MockPersonalUnarrangedAccountOverdraft</DisplayName>
     <Set>
         <Payload contetType="application/json">{
-"data": {
+  "data": {
     "brand": {
       "name": "Organização A",
       "companies": [
         {
-          "name": "Empresa A1",
           "cnpjNumber": "50685362000135",
+          "name": "Empresa A1",
           "urlComplementaryList": "https://empresadaorganizacaoa.com/complementarylist",
           "personalUnarrangedAccountOverdraft": [
             {

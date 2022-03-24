@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetStatusUpdateTime">
+    <DisplayName>AM-SetStatusUpdateTime</DisplayName>
+    <AssignVariable>
+        <Name>nowVar</Name>
+        <Ref>system.timestamp</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>formatStrDate</Name>
+        <Value>yyyy-MM-dd</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>formatStrTime</Name>
+        <Value>HH:mm:ss</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>nowFormattedDate</Name>
+        <Template>{timeFormatUTCMs(formatStrDate,nowVar)}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>nowFormattedTime</Name>
+        <Template>{timeFormatUTCMs(formatStrTime,nowVar)}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>nowFormatted</Name>
+        <Template>{nowFormattedDate}T{nowFormattedTime}Z</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>status_update_time</Name>
+        <Ref>nowFormatted</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo transport="http" type="request"/>
+</AssignMessage>

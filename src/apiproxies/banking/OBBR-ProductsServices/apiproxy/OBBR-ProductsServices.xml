@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="2" name="OBBR-ProductsServices">
-    <Basepaths>/open-banking/products-services/v1</Basepaths>
+<APIProxy revision="3" name="OBBR-ProductsServices">
+    <Basepaths>/products-services/v1</Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1623023990564</CreatedAt>
     <CreatedBy>defaultUser</CreatedBy>
     <Description>Products and Services APIs - Open Banking BR Phase 1</Description>
     <DisplayName>OBBR-ProductsServices</DisplayName>
-    <LastModifiedAt>1623043256442</LastModifiedAt>
-    <LastModifiedBy>defaultUser</LastModifiedBy>
-    <ManifestVersion>SHA-512:d46eb294f7596b3a9bb006b5e0ec0bc6b78c41b352b689cd6ea817d8f114ad588d00868f8497904c826951eee06c2fd89efdfae4a0d44acbdb0ab0ac50ed9d3d:ap-southeast-2</ManifestVersion>
+    <LastModifiedAt>1637886477102</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:9d907f32cdd3d6c70a7148ad0d061901ad47fbe9fba5dae63f8175539da83565aa9a1b91327067312ad1fba7ddfc6c50e64eaa72e3dbe9ad38fbee03442e4a28:ap-southeast-2</ManifestVersion>
     <Policies>
         <Policy>AM-Add-CORS-Headers</Policy>
         <Policy>AM-MockBusinessAccountsProducts</Policy>
@@ -23,6 +28,7 @@
         <Policy>AM-MockPersonalInvoiceFinancingProducts</Policy>
         <Policy>AM-MockPersonalLoansProducts</Policy>
         <Policy>AM-MockPersonalUnarrangedAccountOverdraft</Policy>
+        <Policy>AM-Set-Meta-Link-Settings-For-Error-Response</Policy>
         <Policy>AM-Set-Pagination-Settings</Policy>
         <Policy>FC-AddFAPIInteractionId</Policy>
         <Policy>FC-AddResponseHeaders-Link-Meta</Policy>
@@ -32,7 +38,6 @@
         <Policy>FC-TrafficThresholds</Policy>
         <Policy>FC-ValidateRequestParams</Policy>
         <Policy>RF-NotFound</Policy>
-        <Policy>RF-TooManyRequests</Policy>
         <Policy>RF-UnsupportedMethod</Policy>
     </Policies>
     <ProxyEndpoints>

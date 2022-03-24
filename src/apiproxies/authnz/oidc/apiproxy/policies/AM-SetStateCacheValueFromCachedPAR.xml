@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetStateCacheValueFromCachedPAR">
+    <DisplayName>AM-SetStateCacheValueFromCachedPAR</DisplayName>
+    <AssignVariable>
+        <Name>stateCacheVal</Name>
+        <Template>{requested_client_id}||{requested_redirect_uri}||{requested_scope}||{requested_nonce}||{requested_response_type}||{verifyapikey.VAK-VerifyClientId.app.SectorIdentifier}||{par_second_segment}</Template>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

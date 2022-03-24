@@ -14,7 +14,7 @@
         <VersionInfo resourceName="jsc://AddLinksMetaToResponse.js" version="SHA-512:212f7696a62aaa1be45250b5af0b480ce94fe325ff3d02228a06c7094cf159716441d97710954ed4fc3dcae0a4a63286e3dc80e93543d63a236a472e2186ee47"/>
     </Resources>
     <SharedFlows>
-        <VersionInfo resourceName="default" version="SHA-512:ef795c006472faaf47c0668e35abe6aa1e24f5e2114e28f1ef2a406b8963f1c3d0a6d40d5b867962c027d4843e0f23a305245daa8cf2b0e5e3ca851e029d10cb"/>
+        <VersionInfo resourceName="default" version="SHA-512:9942ccff7c1df7b6b3cc4c65cae0de121e6ec6678fc5a80c73011979953fc3cfa002d6923a00986cad018f38b27868f34f57109d0237668296091f5391e662e1"/>
     </SharedFlows>
     <TargetEndpoints/>
 </Manifest>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Set-Meta-Link-Settings-For-Error-Response">
+    <DisplayName>AM-Set-Meta-Link-Settings-For-Error-Response</DisplayName>
+    <AssignVariable>
+        <Name>generateMetaOnly</Name>
+        <Value>true</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>generatePaginationLinksAndMeta</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="message" transport="http" createNew="false"/>
+</AssignMessage>

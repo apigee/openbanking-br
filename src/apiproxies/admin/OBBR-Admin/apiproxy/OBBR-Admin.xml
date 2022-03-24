@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <APIProxy revision="2" name="OBBR-Admin">
-    <Basepaths>/open-banking/admin/v1</Basepaths>
+    <Basepaths>/cds-au/v1/admin</Basepaths>
+    <Basepaths>/cds-au/v1/banking/products</Basepaths>
+    <Basepaths>/cds-au/v1/banking/accounts</Basepaths>
+    <Basepaths>/cds-au/v1/banking/accounts</Basepaths>
+    <Basepaths>/cds-au/v1/banking/accounts/*/transactions</Basepaths>
+    <Basepaths>/cds-au/v1/banking/accounts/*/transactions</Basepaths>
+    <Basepaths>/cds-au/v1/banking/accounts/*/transactions</Basepaths>
+    <Basepaths>/cds-au/v1/admin</Basepaths>
+    <Basepaths>/cds-au/v1/admin</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1622783931709</CreatedAt>
     <CreatedBy>defaultUser</CreatedBy>
     <Description>Admin APIs</Description>
     <DisplayName>OBBR-Admin</DisplayName>
-    <LastModifiedAt>1622786655980</LastModifiedAt>
-    <LastModifiedBy>defaultUser</LastModifiedBy>
-    <ManifestVersion>SHA-512:5d734fd1c9924543be63ae778863295730b8a0337fd7f8a0481e0d4bc5e89a2b78a23dc2a7094faf29a8443cca5d9c02afb62dc7aeb2c01b0bd935b6981b71ee:ap-southeast-2</ManifestVersion>
+    <LastModifiedAt>1637878334203</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:c85d8178ada19852ee08e21997ff3d578f0ead5ca4bcc9c8c61b49bc70ab6ad0160cfdf2084afef6e13d45a57d25927dd173a275623cf50a13e1de3169ce3b95:ap-southeast-2</ManifestVersion>
     <Policies>
         <Policy>AM-Add-CORS-Headers</Policy>
         <Policy>AM-InvalidScope</Policy>
         <Policy>AM-MockFullMetrics</Policy>
+        <Policy>AM-Set-Meta-Link-Settings-For-Error-Response</Policy>
+        <Policy>AM-Set-Pagination-Settings</Policy>
         <Policy>AM-SetMetricsPeriodAndRequestTime</Policy>
         <Policy>AM-TokenNotVerified</Policy>
         <Policy>EV-getErrorDetail</Policy>

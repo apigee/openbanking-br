@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" continueOnError="false" enabled="true" name="FC-ExtractConsentIdFromDynamicScope">
+    <DisplayName>FC-ExtractConsentIdFromDynamicScope</DisplayName>
+    <Parameters ignoreUnresolvedVariables="true">
+        <Parameter name="theDynamicScope" ref="requested_scope"/>
+    </Parameters>
+    <SharedFlowBundle>extract-consent-id-from-dynamic-scope</SharedFlowBundle>
+</FlowCallout>

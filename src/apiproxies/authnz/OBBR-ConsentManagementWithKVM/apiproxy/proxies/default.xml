@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="Create consent">
+            <Description>Creates a new consent entry with state = AWAITING_AUTHORIZATION</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ParseRequestedConsentInfo</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetNewConsentInfo</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-PutNewOrUpdatedConsent</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AM-SetCreateResponseBody</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/consents") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="Update consent">
+            <Description>Updates an existing consent entry. Main purpose is to update its state and/or expiry.</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ParseRequestedConsentInfo</Name>
+                </Step>
+                <Step>
+                    <Name>RF-BadRequest</Name>
+                    <Condition>(requestedConsentInfo.status != null) and (requestedConsentInfo.status != "") and (requestedConsentInfo.status != "AUTHORISED") and (requestedConsentInfo.status != "REJECTED") and (requestedConsentInfo.status != "EXPIRED")</Condition>
+                </Step>
+                <Step>
+                    <Name>EV-ExtractConsentIdFromURIParam</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-GetExistingConsent</Name>
+                </Step>
+                <Step>
+                    <Name>EV-ParseExistingConsentInfo</Name>
+                    <Condition>(private.existingConsent != null) and (private.existingConsent != "")</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-CheckIfConsentExpired</Name>
+                </Step>
+                <Step>
+                    <Name>RF-InvalidConsent</Name>
+                    <Condition>(existingConsentInfo.client_id = null) or (existingConsentInfo.client_id = "") or (existingConsentInfo.client_id != requestedConsentInfo.client_id) or (existingConsentInfo.status = "EXPIRED") or (existingConsentInfo.status = "REJECTED")</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetStatusUpdateTime</Name>
+                    <Condition>(requestedConsentInfo.status != null) and (requestedConsentInfo.status != "")</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetUpdatedConsentInfo</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-PutNewOrUpdatedConsent</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AM-SetUpdateResponseBody</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/consents/{consentId}") and (request.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="Get consent">
+            <Description>Returns the consentId. Validates that the consent is associated with the given client_id and, optionally, that it is still active and hasn't expired</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractConsentIdFromURIParam</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-GetExistingConsent</Name>
+                </Step>
+                <Step>
+                    <Name>EV-ParseExistingConsentInfo</Name>
+                    <Condition>(private.existingConsent != null) and (private.existingConsent != "")</Condition>
+                </Step>
+                <Step>
+                    <Name>RF-InvalidConsent</Name>
+                    <Condition>(existingConsentInfo.client_id = null) or (existingConsentInfo.client_id = "") and (existingConsentInfo.client_id != request.queryparam.expected_client_id)</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-CheckIfConsentExpired</Name>
+                </Step>
+                <Step>
+                    <Name>RF-InvalidConsent</Name>
+                    <Condition>(request.queryparam.failifnotvalid = "true") and ((existingConsentInfo.status = "REJECTED") or (existingConsentInfo.status = "EXPIRED"))</Condition>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AM-SetGetConsentResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/consents/{consentId}") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Revoke consent">
+            <Description>Logically deletes a consent (by setting its status to inactive). Checks that it is bound to the expected client_id</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractConsentIdFromURIParam</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-GetExistingConsent</Name>
+                </Step>
+                <Step>
+                    <Name>EV-ParseExistingConsentInfo</Name>
+                    <Condition>(private.existingConsent != null) and (private.existingConsent != "")</Condition>
+                </Step>
+                <Step>
+                    <Name>RF-InvalidConsent</Name>
+                    <Condition>(existingConsentInfo.client_id = null) or (existingConsentInfo.client_id = "")</Condition>
+                </Step>
+                <Step>
+                    <Name>RF-InvalidConsent</Name>
+                    <Condition>(existingConsentInfo.client_id != request.queryparam.expected_client_id)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetConsentStatusToInactive</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-PutNewOrUpdatedConsent</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AM-SetResponse204NoContent</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/consents/{theConsentId}") and (request.verb = "DELETE")</Condition>
+        </Flow>
+        <Flow name="Authorization">
+            <Description>Return whether a certain operation is authorised under the terms of a specific consent</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractConsentIdFromURIParam</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-GetExistingConsent</Name>
+                </Step>
+                <Step>
+                    <Name>EV-ParseExistingConsentInfo</Name>
+                    <Condition>(private.existingConsent != null) and (private.existingConsent != "")</Condition>
+                </Step>
+                <Step>
+                    <Name>RF-InvalidConsent</Name>
+                    <Condition>(existingConsentInfo.client_id = null) or (existingConsentInfo.client_id = "") or (existingConsentInfo.client_id != request.queryparam.expected_client_id)</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-CheckIfConsentExpired</Name>
+                </Step>
+                <Step>
+                    <Name>RF-InvalidConsent</Name>
+                    <Condition>(existingConsentInfo.status != "AUTHORISED")</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-CheckPermissionIsAllowed</Name>
+                </Step>
+                <Step>
+                    <Name>RF-OperationNotAllowed</Name>
+                    <Condition>(isAllowed != "true")</Condition>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AM-SetGetConsentResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/consents/{theConsentId}/authorisation") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Initiate Consent Flow">
+            <Description>Caches consent parameters (state, client_id, cdr_arrangement_id, etc) and renders consent screen for end user</Description>
+            <Request>
+                <Step>
+                    <Name>AM-SetConsentCacheKeyAndValue</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-GetExistingConsent</Name>
+                </Step>
+                <Step>
+                    <Name>EV-ParseExistingConsentInfo</Name>
+                    <Condition>(private.existingConsent != null) and (private.existingConsent != "")</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetConsentStatusToNotFound</Name>
+                    <Condition>(existingConsentInfo.client_id = null) or (existingConsentInfo.client_id = "")</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetConsentStatusToInvalid</Name>
+                    <Condition>(existingConsentInfo.client_id != null) and (existingConsentInfo.client_id != "") and (existingConsentInfo.client_id != request.queryparam.client_id)</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-InsertQueryParamsForRedirect</Name>
+                    <Condition>existingConsentInfo.status != "AWAITING_AUTHORISATION"</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-CheckIfConsentExpired</Name>
+                </Step>
+                <Step>
+                    <Name>RF-RedirectToOIDCConsentCallback-ConsentNotFoundOrInvalid</Name>
+                    <Condition>existingConsentInfo.status != "AWAITING_AUTHORISATION"</Condition>
+                </Step>
+                <Step>
+                    <Name>PC-CacheConsentState</Name>
+                    <Condition>existingConsentInfo.status = "AWAITING_AUTHORISATION"</Condition>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AM-SetMockListOfAccounts</Name>
+                </Step>
+                <Step>
+                    <Name>JS-ConvertPermissionsArrayToFlatString</Name>
+                </Step>
+                <Step>
+                    <Name>XSLT-RenderConsentScreen</Name>
+                    <Condition>existingConsentInfo.status = "AWAITING_AUTHORISATION"</Condition>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/consents") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Process Consent Form">
+            <Description>Processes the consent form submitted by the end user</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractConsentCacheKeyFromURIParam</Name>
+                </Step>
+                <Step>
+                    <Name>LC-RetrieveCachedConsentState</Name>
+                </Step>
+                <Step>
+                    <Name>RF-InvalidCachedConsent</Name>
+                    <Condition>lookupcache.LC-RetrieveCachedConsentState.cachehit = "false"</Condition>
+                </Step>
+                <Step>
+                    <Name>IC-RemoveFromCacheToPreventReplays</Name>
+                </Step>
+                <Step>
+                    <Name>EV-ParseCachedConsentState</Name>
+                </Step>
+                <Step>
+                    <Name>AM-AssignConsentId</Name>
+                </Step>
+                <Step>
+                    <Name>KVM-GetExistingConsent</Name>
+                    <Condition>requestedConsentInfo.consent_id != "none"</Condition>
+                </Step>
+                <Step>
+                    <Name>EV-ParseExistingConsentInfo</Name>
+                    <Condition>(requestedConsentInfo.consent_id != "none") and (private.existingConsent != null) and (private.existingConsent != "")</Condition>
+                </Step>
+                <!-- Double check the consent has not expired while waiting for end user confirmation -->
+                <Step>
+                    <Name>JS-CheckIfConsentExpired</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetConsentStatus</Name>
+                    <Condition>existingConsentInfo.status = "AWAITING_AUTHORISATION"</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-SetResourcesFromFormValues</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetStatusUpdateTime</Name>
+                    <Condition>existingConsentInfo.status = "AWAITING_AUTHORISATION"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetUpdatedConsentInfo</Name>
+                    <Condition>existingConsentInfo.status = "AWAITING_AUTHORISATION"</Condition>
+                </Step>
+                <Step>
+                    <Name>KVM-PutNewOrUpdatedConsent</Name>
+                </Step>
+                <Step>
+                    <Name>AM-InsertQueryParamsForRedirect</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AM-RedirectToOIDCConsentCallback</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/consents/interaction/{consentCacheKey}") and (request.verb = "POST")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/consent-mgmt-with-kvm</BasePath>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

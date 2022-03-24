@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-AddCNPJClaimToIdToken">
+    <DisplayName>AM-AddCNPJClaimToIdToken</DisplayName>
+    <AssignVariable>
+        <Name>cnpjToIncludeInIdToken</Name>
+        <Template>{firstnonnull(jwt.JWT-DecodeOIDCIdToken.decoded.claim.cnpj,jwt.JWT-VerifyIdpToken.decoded.claim.cnpj)}</Template>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

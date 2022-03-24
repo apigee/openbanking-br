@@ -3,29 +3,19 @@
     <Step>
         <Name>AM-SetDefaultPerformanceTierToUndetermined</Name>
     </Step>
-    <!-- Not required in Open Banking Phase 1 -->
+    <!-- There is a discrepancy between performance tiers in NFRs specification and the response message specification of
+         Admin APIs, specifically for AdminAPIs. For now we will classify Admin APIs as Unattended -->
     <Step>
-        <Condition>(isPublicEndpoint = "true")</Condition>
-        <FaultRules/>
-        <Name>AM-SetPerformanceTierToUnauthenticated</Name>
-    </Step>
-    <!-- Not required in Open Banking Phase 1 -->
-    <Step>
-        <Condition>true = false</Condition>
-        <FaultRules/>
-        <Name>AM-SetPerformanceTierToLargePayload</Name>
-    </Step>
-    <Step>
-        <Condition>(proxy.basepath = "/open-banking/admin/v1")</Condition>
+        <Condition>(proxy.basepath = "/admin/v1")</Condition>
         <FaultRules/>
         <Name>AM-SetPerformanceTierToUnattended</Name>
     </Step>
     <Step>
-        <Condition>(proxy.basepath = "/open-banking/discovery/v1")</Condition>
+        <Condition>(proxy.basepath = "/discovery/v1")</Condition>
         <Name>AM-SetPerformanceTierToHighPriority</Name>
     </Step>
     <Step>
-        <Condition>(proxy.basepath = "/open-banking/channels/v1") or (proxy.basepath = "/open-banking/products-services/v1")</Condition>
+        <Condition>(proxy.basepath = "/channels/v1") or (proxy.basepath = "/products-services/v1") or (proxy.basepath = "/consents/v1") or (proxy.basepath = "/resources/v1") or (proxy.basepath = "/accounts/v1")</Condition>
         <FaultRules/>
         <Name>AM-SetPerformanceTierToMediumPriority</Name>
     </Step>
@@ -36,18 +26,6 @@
     <Step>
         <FaultRules/>
         <Name>JS-CheckIfRequestMeetsPerformanceSLO</Name>
-    </Step>
-    <!-- Not required in Open Banking Phase 1 -->
-    <Step>
-        <Condition>(customerPPId = "n/a")</Condition>
-        <FaultRules/>
-        <Name>AM-ResetCustomerPPIDIfNA</Name>
-    </Step>
-    <!-- Not required in Open Banking Phase 1 -->
-    <Step>
-        <Condition>(tokenOp = "n/a")</Condition>
-        <FaultRules/>
-        <Name>AM-ResetTokenOpIfNA</Name>
     </Step>
     <Step>
         <FaultRules/>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" continueOnError="false" enabled="true" name="FC-AuthenticateWithPrivateKeyJWT">
+    <DisplayName>FC-AuthenticateWithPrivateKeyJWT</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <SharedFlowBundle>authenticate-with-private-key-jwt</SharedFlowBundle>
+    <Parameters ignoreUnresolvedVariables="true">
+        <Parameter name="theClientId" ref="theClientId"/>
+        <Parameter name="thePrivateKeyJWT" ref="thePrivateKeyJWT"/>
+        <Parameter name="injectBasicAuth">true</Parameter>
+        <Parameter name="checkAuthSpecificClaims" ref="verifyPrivKeyJwtAuthClaims">false</Parameter>
+    </Parameters>
+</FlowCallout>

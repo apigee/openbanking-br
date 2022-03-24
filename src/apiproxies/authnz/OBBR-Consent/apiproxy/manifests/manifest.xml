@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-Add-CORS-Headers" version="SHA-512:137c9e693b4cf876950521cf5678622976ae5f993f37ae9980dde5c04fd360c729829f2cc97360c34e9044ca876001a8b7192b1a67a3b1580fbb1fa056389091"/>
+        <VersionInfo resourceName="AM-DisableCopyPathSuffix" version="SHA-512:e1f947899d30c51a22acc6f683af4507478b1de3c70b1980dd6aba042d3e18d54c65167a4319b9cf62e7c6438ade4ed1863560f166326f3c0d1a0f19b55e4401"/>
+        <VersionInfo resourceName="AM-InvalidScope" version="SHA-512:2118c07e3ba1eab946e83329646c6fdb5ed020e61db22adae4541ed1d800930d44e8a29f6ebc29a0d9d3d0849282b4cea206e886f9b0faf44b4efc93c9fcf06f"/>
+        <VersionInfo resourceName="AM-Set-Meta-Link-Settings-For-Error-Response" version="SHA-512:4155e4c8318748c3f992769b55f85a6b79a28e5a7e2f154fd47f5fd4308d2aec130cafdf602d76e7aa2ca6efdded7ec835620cb48edf2b7c5f751f9f5858be77"/>
+        <VersionInfo resourceName="AM-Set-Pagination-Settings" version="SHA-512:c66e59f80643018541f187511523f57ae82e257bde0a315195505c62dd05803b019dada4687832b1632974d3bcdf0ab49cc2bc8c22a5bad15b774bfbdd2b7d16"/>
+        <VersionInfo resourceName="AM-SetConsentPayload" version="SHA-512:73be138d51325cf633f1e6e08ec9e3c77479c5e8fd57153671906c7c977d03cebaa596722a1b015731443a6c5113bca068965b2495eec59e43b17625f0217ded"/>
+        <VersionInfo resourceName="AM-SetConsentResponse" version="SHA-512:324582694c513ffad6f4d79cbe503f7fd10182c8581cb8fa9f6dec240ff68ea8ae0fae9ff0bc0b4897c8b63cf46c468e24c958b4d7035c98619d47d2da6a74e4"/>
+        <VersionInfo resourceName="AM-SetExpectedClientId" version="SHA-512:b492c67ca37f034bebec0ceb594a7e08511b91e8c910331bbf472fa7ae22fcff7531c0d2fb82ca7517c67fe8c38da03c5b1dc89880e5b4ec338c25eef8173567"/>
+        <VersionInfo resourceName="AM-TokenNotVerified" version="SHA-512:5d519b41e0b290dae3c5e016cf538f6e44574abc42f6d942036ddb5a856cf33d034882ff35da88771884b4bb7279b687913934246cb387d823f26c2e26c7b599"/>
+        <VersionInfo resourceName="EV-ConsentIdFromURL" version="SHA-512:eba884b565ae72615547abc6f0f121b594787a59fad39aa242ed0d5b3af8e4c356c47e823ec24104b56e204a6486dd335f1d578e7b08eea3442ffa60f7bdb77a"/>
+        <VersionInfo resourceName="EV-ExtractConsentRequest" version="SHA-512:d0e3fbaf749a1d2a90d1a2c83d6a7d71150d14160524e2a6a9a3ceccf9e32497eeaab96d1ee9947aa7910f8f1c759f468f7054d6b1c23bcb6c30f6dfe1a7af53"/>
+        <VersionInfo resourceName="EV-ExtractConsentResponse" version="SHA-512:421ffe7b4cd72d9273ca174a32dbe2f23ec043cdd1ff52c3824b46daf40b40cbc54a48d50346b9cb7bb2cbb2231906bb9f9ac591eeacf7c7b0d3c181482bbb9d"/>
+        <VersionInfo resourceName="EV-GetErrorDetail" version="SHA-512:c25a7bd19a943bc963b4b18b98c2e4ddc138ef76c469cc69e44fcbb647330f8011b89c69a7ad96da2e3ccebdcb7f853ad3cd50095b3fb617438fac3c794c843e"/>
+        <VersionInfo resourceName="FC-AddFAPIInteractionId" version="SHA-512:cac97c501811601f3305b67997dbb38b2e5d7631b0372cf4ba2622ea28459810fedb798b657f5f2407bf2c3af7ca9c24403e7620cecef3bd8ea6a1b8e68c7b43"/>
+        <VersionInfo resourceName="FC-AddResponseHeaders-Link-Meta" version="SHA-512:78f3541fc8a112fc73bb0d09d5b767a554d34dfdfed6962232388e454a15f6d18499aa6f158e74ab4895fbe53f098aecc92f6c1e29750e2caaa61724343bc612"/>
+        <VersionInfo resourceName="FC-CheckRequestHeaders" version="SHA-512:5b2ad6beed370945c3f80cbbfe381ba5f4210637a358598c032049cd2c9f360c133b64ded5be5f9be5b5b7272af3ed743abbcedbb324e5a406e81140680bebb6"/>
+        <VersionInfo resourceName="FC-CollectPerformanceSLO" version="SHA-512:cd5e47bf925897be1eb8671379721788b09896e76b38ded2b890ad9c186cf7dcb233565ca83687f50feb6aef3da0bf63adf3489821bd54dcbff077c8cb1e264f"/>
+        <VersionInfo resourceName="FC-TrafficThresholds" version="SHA-512:568634f68a0c31e1c794c130e8d25550d7828134dd7bcace372c44338d19cd94571174dd393c1988868487f413f88aae9b3b973f82a50c56fd23a966c403c46d"/>
+        <VersionInfo resourceName="FC-VerifyHoK" version="SHA-512:372824d3f30215cec8e2f1555d2af7d315f87d7078d1c96d76141c9a087f4804f8be8f0f8e89e0706b4354420ab672d65f313e8361bec5b1e3fbb5ab36d156ec"/>
+        <VersionInfo resourceName="OA-VerifyToken" version="SHA-512:e02c0c0e4bf9859b00b0530e760d3c0fd3f829c7e20da8660ea026cc490bc7818880253a85bb2edf3aad12bb0d1b94a90a1a9e5d23106ab9c15789e07a17ff22"/>
+        <VersionInfo resourceName="RF-NotFound" version="SHA-512:ee8b1b452846c40d858bc0f9dc289f2fa73cd5ca12e76cd17661a63b01a60465bff857ded1788f390ba01fc3e8af0589e471c2e714b532324cbdb6fa251a9dc0"/>
+        <VersionInfo resourceName="RF-UnsupportedMethod" version="SHA-512:fd39a8b1e91fbf4a7a99310707059a5a911f715861e6d0cc6204aea9fa9eda0b0d94856410fde501d89903aaaced4b4e482f5ebdc3666fc592a64b95499b3c3f"/>
+        <VersionInfo resourceName="SC-RevokeTokensBoundToConsent" version="SHA-512:55f9b2931eee18a0964c7b371fb9275a74bc2ce8645c1341d5377021a2b30264b67deb20736021190699e9c8023873eb232459b0064302a37986de0b4bc700ac"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:c7d4a8581156871242f916b9390d3ca1aa61f6e082bd630176eda2d76f7ee6132f804adb567e56f037c8c8fb37429f4e7b860e9ac3e3a59e55f625e6fbb2b0e3"/>
+    </ProxyEndpoints>
+    <Resources/>
+    <SharedFlows/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="create-new-consent" version="SHA-512:480a4ac4a1fbfb5da55eae85c10c51dd675f120e5a654bb03859ccc12af6d661a806e3860500c0a4baff32977d6d9fe62a356b1a15896321880d100f41436a48"/>
+        <VersionInfo resourceName="manage-existing-consents" version="SHA-512:7bffbbe3ddab0999d9a8d43883a3f52d3accf7a6026e1febb04b8e25b0cf67a2df194282ebc71e00013836ea9a2645685e0e29ffb9fca2ca52130f79bb3eeb3f"/>
+    </TargetEndpoints>
+</Manifest>

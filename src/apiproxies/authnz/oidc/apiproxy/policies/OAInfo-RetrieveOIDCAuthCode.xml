@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GetOAuthV2Info async="false" continueOnError="false" enabled="true" name="OAInfo-RetrieveOIDCAuthCode">
+    <DisplayName>OAInfo-RetrieveOIDCAuthCode</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AuthorizationCode ref="request.formparam.code"/>
+</GetOAuthV2Info>

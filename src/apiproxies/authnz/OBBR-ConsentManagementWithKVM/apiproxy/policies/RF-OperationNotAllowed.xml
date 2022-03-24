@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-OperationNotAllowed">
+    <DisplayName>RF-OperationNotAllowed</DisplayName>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">{
+ "errors": [
+    {
+      "code": "Operation not Allowed",
+      "title": "Insufficient permissions",
+      "detail": "Consent does not allow required permission: {request.queryparam.required_permission} or does not include required resource"
+    }
+  ]
+}</Payload>
+            <StatusCode>422</StatusCode>
+            <ReasonPhrase>Unprocessable Entity</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <ShortFaultReason>false</ShortFaultReason>
+</RaiseFault>

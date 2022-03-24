@@ -5,9 +5,9 @@
     <CreatedBy>deboraelkin+cdsadmin@gmail.com</CreatedBy>
     <Description>Paginates the response returned by the backend, so that only entries in the requested page are returned to the client. TO DO: Add caching for backend response</Description>
     <DisplayName>paginate-backend-response</DisplayName>
-    <LastModifiedAt>1623028958835</LastModifiedAt>
+    <LastModifiedAt>1633495048293</LastModifiedAt>
     <LastModifiedBy>defaultUser</LastModifiedBy>
-    <ManifestVersion>SHA-512:127a5a368768f510ce7a7b11782d0290de01e17bb3e32da3302aff5f4d9e3292073f9c029112c4f11997b21d3377e606d511c9baea419b903cfe77baea608975:ap-southeast-2</ManifestVersion>
+    <ManifestVersion>SHA-512:9165bacc3172af596194538ca6d89197b399202725f83e5fe63d4cbea81ebc342c65a06b5da0746157ed97f4d6e5fdab4a240ab75a285cc77d0f335f28a5f59f:ap-southeast-2</ManifestVersion>
     <Policies>
         <Policy>JS-Do-Pagination</Policy>
         <Policy>RF-Pagination-Error</Policy>

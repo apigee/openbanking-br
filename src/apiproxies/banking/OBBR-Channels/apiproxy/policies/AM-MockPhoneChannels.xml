@@ -129,13 +129,13 @@
                     "countryCallingCode": "55",
                     "areaCode": "NA",
                     "number": "40043277",
-                    "additionalInfo": "DDI ' ', DDD ' ', 40043277', 'Para regiões metropolitanas'"
+                    "additionalInfo": "DDI '55'; DDD '11', 40043277, 'Para clientes no metropolitanas'"
                   },
                   {
                     "countryCallingCode": "NA",
                     "areaCode": "NA",
                     "number": "40043277",
-                    "additionalInfo": "DDI ' ', DDD ' ', 40043277', 'Para demais localidades'"
+                    "additionalInfo": "DDI ' ', DDD ' ', 40043277, 'Para regiões localidades'"
                   }
                 ]
               },

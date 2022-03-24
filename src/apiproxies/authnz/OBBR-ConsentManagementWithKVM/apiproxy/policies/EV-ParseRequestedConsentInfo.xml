@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ParseRequestedConsentInfo">
+    <DisplayName>EV-ParseRequestedConsentInfo</DisplayName>
+    <JSONPayload>
+        <Variable name="client_id">
+            <JSONPath>$.client_id</JSONPath>
+        </Variable>
+        <Variable name="expires_at">
+            <JSONPath>$.expires_at</JSONPath>
+        </Variable>
+        <Variable name="logged_user">
+            <JSONPath>$.logged_user</JSONPath>
+        </Variable>
+        <Variable name="business_entity">
+            <JSONPath>$.business_entity</JSONPath>
+        </Variable>
+        <Variable name="permissions" type="nodeset">
+            <JSONPath>$.permissions</JSONPath>
+        </Variable>
+        <!-- The following parameters are only found in update requests -->
+        <Variable name="customer_id">
+            <JSONPath>$.customer_id</JSONPath>
+        </Variable>
+        <Variable name="status">
+            <JSONPath>$.status</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix>requestedConsentInfo</VariablePrefix>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

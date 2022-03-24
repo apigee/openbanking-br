@@ -5,9 +5,9 @@
     <CreatedBy>deboraelkin+cdsadmin@gmail.com</CreatedBy>
     <Description>Add mandatory headers to response - Meta Information - Links (If applicable)</Description>
     <DisplayName>add-response-headers-links-meta</DisplayName>
-    <LastModifiedAt>1637879168848</LastModifiedAt>
+    <LastModifiedAt>1637813109566</LastModifiedAt>
     <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:460ddb9ebc9c650d19689508614beb9feb22274c6390e5fee7feed2d2ef92f35d36a536e19cc33366c8329db04affe9d84a7266d055cfb27d052883f83f6bf4f:ap-southeast-2</ManifestVersion>
+    <ManifestVersion>SHA-512:ee0a81d8e5cc1a3efaeeba1e989942ce47586db24c6b5f3a94b40229cde25c08764ab775d9b75ae9609ac3c795eb2ed37cde66ca533cb6cf0e2a66a64c0669e6:ap-southeast-2</ManifestVersion>
     <Policies>
         <Policy>AM-Add-CORS-Headers</Policy>
         <Policy>AM-Set-Content-Type-And-Version-Headers</Policy>

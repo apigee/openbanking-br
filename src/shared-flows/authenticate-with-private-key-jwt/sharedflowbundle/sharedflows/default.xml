@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <Name>AE-GetAppDetails</Name>
+    </Step>
+    <Step>
+        <Name>RF-UnknownClientId</Name>
+        <Condition>(AccessEntity.AE-GetAppDetails = null) or (AccessEntity.AE-GetAppDetails = "")</Condition>
+    </Step>
+    <Step>
+        <Name>EV-ExtractAppRegInfoAndClientSecret</Name>
+    </Step>
+    <Step>
+        <Name>EV-ExtractClientJWKSURIFromRegoInfo</Name>
+    </Step>
+    <Step>
+        <Name>FC-GetClientJWKS</Name>
+    </Step>
+    <Step>
+        <Name>JWT-VerifyPrivateKeyJWT</Name>
+    </Step>
+    <Step>
+        <Name>RF-InvalidJWT</Name>
+        <Condition>JWT.failed = true</Condition>
+    </Step>
+    <Step>
+        <Name>RF-MissingEXPClaim</Name>
+        <Condition>(jwt.JWT-VerifyPrivateKeyJWT.decoded.claim.exp == "") or (jwt.JWT-VerifyPrivateKeyJWT.decoded.claim.exp == null)</Condition>
+    </Step>
+    <Step>
+        <Name>FC-ValidateAudience</Name>
+    </Step>
+    <Step>
+        <Name>FC-CheckTokenNotReused</Name>
+    </Step>
+    <Step>
+        <Name>BA-GenerateBasicEquivalentAuthHeader</Name>
+        <Condition>injectBasicAuth = "true"</Condition>
+    </Step>
+    <Step>
+        <Name>EV-GetAdditionalClaimsInJwt</Name>
+    </Step>
+    <Step>
+        <Name>FR-InvalidACR</Name>
+        <Condition>(checkAuthSpecificClaims = "true") and (PKJwtAdditionalClaims.acr != "urn:brasil:openbanking:loa2") and (PKJwtAdditionalClaims.acr != "urn:brasil:openbanking:loa3")</Condition>
+    </Step>
+    <Step>
+        <Name>JS-CheckIfCPFRequestedAndValueExpected</Name>
+    </Step>
+    <Step>
+        <Name>JS-CheckIfCNPJRequestedAndValueExpected</Name>
+    </Step>
+</SharedFlow>

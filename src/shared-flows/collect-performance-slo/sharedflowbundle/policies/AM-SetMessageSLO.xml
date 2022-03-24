@@ -6,7 +6,6 @@
     <AssignVariable>
         <Name>performanceSLOByTier</Name>
         <Value>{
-            "unauthenticated": 1500,
             "highPriority": 1000,
             "mediumPriority": 1500,
             "unattended": 4000,

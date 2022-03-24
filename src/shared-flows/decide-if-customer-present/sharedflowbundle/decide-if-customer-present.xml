@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<SharedFlowBundle revision="1" name="decide-if-customer-present">
+<SharedFlowBundle revision="2" name="decide-if-customer-present">
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1622008112336</CreatedAt>
     <CreatedBy>deboraelkin+cdsadmin@gmail.com</CreatedBy>
     <Description>Sets isCustomerPresent variable, based on inspection of x-fapi-customer-ip-address header</Description>
     <DisplayName>decide-if-customer-present</DisplayName>
-    <LastModifiedAt>1622008112336</LastModifiedAt>
-    <LastModifiedBy>deboraelkin+cdsadmin@gmail.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:067e1b78bc26b4c6111ed5f77b26e194f04c538bec008841fff6df60402b42bec7baf190afbbf78fb9ed395676a0cab2dd2813c49e6fb160ab10632e7b0a40c9:ap-southeast-2</ManifestVersion>
+    <LastModifiedAt>1632286508085</LastModifiedAt>
+    <LastModifiedBy>defaultUser</LastModifiedBy>
+    <ManifestVersion>SHA-512:a2281852d88183dd37e1dc050fdbd684ddd966a73970bf046e93f1907aa33e30e2df35ceb17272ab5224e6c1769258f4243dac37e000ed7f1443681c8939058e:ap-southeast-2</ManifestVersion>
     <Policies>
         <Policy>AM-SetIsCustomerPresentToFalse</Policy>
         <Policy>JS-ValidateX-Fapi-Customer-IP-AdddressAndSetIsCustomerPresent</Policy>

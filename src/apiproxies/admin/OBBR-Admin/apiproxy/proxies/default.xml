@@ -11,6 +11,12 @@
             <Name>FC-AddFAPIInteractionId</Name>
         </Step>
         <Step>
+            <Name>AM-Set-Meta-Link-Settings-For-Error-Response</Name>
+        </Step>
+        <Step>
+            <Name>FC-AddResponseHeaders-Link-Meta</Name>
+        </Step>
+        <Step>
             <FaultRules/>
             <Name>FC-CollectPerformanceSLO</Name>
         </Step>
@@ -138,11 +144,14 @@
                 <FaultRules/>
                 <Name>FC-TrafficThresholds</Name>
             </Step>
+            <Step>
+                <Name>AM-Set-Pagination-Settings</Name>
+            </Step>
         </Request>
         <Response/>
     </PreFlow>
     <HTTPProxyConnection>
-        <BasePath>/open-banking/admin/v1</BasePath>
+        <BasePath>/admin/v1</BasePath>
         <Properties/>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>

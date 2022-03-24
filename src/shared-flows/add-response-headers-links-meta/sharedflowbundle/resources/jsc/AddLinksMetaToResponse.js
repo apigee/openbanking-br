@@ -21,99 +21,98 @@
    * Adds necessary pagination information to them, if proxy endpoints requires it
    **/
 
-   var doPaginationLinksAndMeta = context.getVariable("generatePaginationLinksAndMeta");
-   var doMetaOnly = context.getVariable("generateMetaOnly");  // Should be set to true only in case of error messages, which require a meta object but not links object
- 
- 
-   var metaObj = getObjectFromResponse("meta");
-   var linksObj = getObjectFromResponse("links");
-   
-   if (doMetaOnly != "true") { 
-     // Add self link
-     var linkBase = context.getVariable("selfLinkProtocol") + "://" + context.getVariable("selfLinkHost") + context.getVariable("selfLinkBasePath");
-     selfLink = (context.getVariable("selfLinkQueryString") === null || context.getVariable("selfLinkQueryString") === "" ) ? linkBase : linkBase + "?" + context.getVariable("selfLinkQueryString");
-     
-     linksObj.self = selfLink;
-   }
-   
-   // Always add total records, total pages and request dateTime to meta
-   const totalPagesAsStr = context.getVariable("pagination.totalPages");
-   var totalPages = ( (totalPagesAsStr !== null) && (totalPagesAsStr !== "") ) ? parseInt(totalPagesAsStr) : 1;
-   const totalRecorsAsStr = context.getVariable("pagination.totalRecords");
-   metaObj.totalRecords = ( (totalRecorsAsStr !== null) && (totalRecorsAsStr !== "") ) ? totalRecorsAsStr : 1;
-   metaObj.totalPages = totalPages;
-   metaObj.requestDateTime = context.getVariable("requestDateTime");
-   
-   
-   if (doPaginationLinksAndMeta == "true") {
-     // Add links to prev, next, first and last pages
-     // Convert the original query string back into an array
-     var qryParams = splitQueryParams(context.getVariable("selfLinkQueryString"));
-     var pageNumber = parseInt(context.getVariable("pagination.page"),10);
-     if (pageNumber > 1) {
-       // Generate first and prev links
-       linksObj.first = generateLinkForPage(linkBase, qryParams, 1);
-       linksObj.prev = generateLinkForPage(linkBase, qryParams, pageNumber - 1);
-     }
-     if (pageNumber < totalPages) {
-       // Generate next and last links
-       linksObj.next = generateLinkForPage(linkBase, qryParams, pageNumber + 1);
-       linksObj.last = generateLinkForPage(linkBase, qryParams, totalPages);
-     }
-   }
-   var messageBody = JSON.parse(context.getVariable("message.content"));
-   messageBody.meta = metaObj;
-   if (doMetaOnly != "true") { 
-     messageBody.links = linksObj;
-   }
-   context.setVariable("message.content", JSON.stringify(messageBody));
- 
- 
- 
-   // Utility function. Get  object from response, create new if it doesn't exist
- 
-   function getObjectFromResponse(objName) {
-     var messageBody = JSON.parse(context.getVariable("message.content"));
-     if (messageBody === null) {
-         return {}
-     }
-     var theObj = messageBody[objName];
-     theObj = (theObj && (theObj !== null)) ? theObj : {};
-     return theObj;
- 
-   }
- 
-   // Utility funcion generate link for a given page (using the original query parameters, replacing "page param")
- 
-   function generateLinkForPage(linkBase, qryParams, newPageNumber) {
-     qryParams.page = newPageNumber;
-     var theLink = linkBase + "?" + toQueryString(qryParams);
-     return theLink;
-   }
-   
-   
- // Utility function that splits a query string into an object 
- function splitQueryParams(queryString) {
-     if ( (queryString === null) || (queryString === "") ) {
-         return {};
-     }
-     var obj = queryString.split("&").reduce(function(prev, curr, i, arr) {
-         var p = curr.split("=");
-         prev[decodeURIComponent(p[0])] = decodeURIComponent(p[1]);
-         return prev;
-     }, {});
- 
-     return obj;
- }
- 
- // Utility function that composes a query string from an object
- function toQueryString(qryParams) {
-   var strArray = [];
-   for (var p in qryParams)
-     if (qryParams.hasOwnProperty(p)) {
-       strArray.push(encodeURIComponent(p) + "=" + encodeURIComponent(qryParams[p]));
-     }
-   return strArray.join("&");
- }
-     
- 
+  var doPaginationLinksAndMeta = context.getVariable("generatePaginationLinksAndMeta");
+  var doMetaOnly = context.getVariable("generateMetaOnly");  // Should be set to true only in case of error messages, which require a meta object but not links object
+
+
+  var metaObj = getObjectFromResponse("meta");
+  var linksObj = getObjectFromResponse("links");
+  
+  if (doMetaOnly != "true") { 
+    // Add self link
+    var linkBase = context.getVariable("selfLinkProtocol") + "://" + context.getVariable("selfLinkHost") + context.getVariable("selfLinkBasePath");
+    selfLink = (context.getVariable("selfLinkQueryString") === null || context.getVariable("selfLinkQueryString") === "" ) ? linkBase : linkBase + "?" + context.getVariable("selfLinkQueryString");
+    
+    linksObj.self = selfLink;
+  }
+  
+  // Always add total records, total pages and request dateTime to meta
+  const totalPagesAsStr = context.getVariable("pagination.totalPages");
+  var totalPages = ( (totalPagesAsStr !== null) && (totalPagesAsStr !== "") ) ? parseInt(totalPagesAsStr) : 1;
+  const totalRecorsAsStr = context.getVariable("pagination.totalRecords");
+  metaObj.totalRecords = ( (totalRecorsAsStr !== null) && (totalRecorsAsStr !== "") ) ? totalRecorsAsStr : 1;
+  metaObj.totalPages = totalPages;
+  metaObj.requestDateTime = context.getVariable("requestDateTime");
+  
+  
+  if (doPaginationLinksAndMeta == "true") {
+  	// Add links to prev, next, first and last pages
+  	// Convert the original query string back into an array
+  	var qryParams = splitQueryParams(context.getVariable("selfLinkQueryString"));
+  	var pageNumber = parseInt(context.getVariable("pagination.page"),10);
+  	if (pageNumber > 1) {
+  		// Generate first and prev links
+  		linksObj.first = generateLinkForPage(linkBase, qryParams, 1);
+  		linksObj.prev = generateLinkForPage(linkBase, qryParams, pageNumber - 1);
+  	}
+  	if (pageNumber < totalPages) {
+  		// Generate next and last links
+  		linksObj.next = generateLinkForPage(linkBase, qryParams, pageNumber + 1);
+  		linksObj.last = generateLinkForPage(linkBase, qryParams, totalPages);
+  	}
+  }
+  var messageBody = JSON.parse(context.getVariable("message.content"));
+  messageBody.meta = metaObj;
+  if (doMetaOnly != "true") { 
+    messageBody.links = linksObj;
+  }
+  context.setVariable("message.content", JSON.stringify(messageBody));
+
+
+
+  // Utility function. Get  object from response, create new if it doesn't exist
+
+  function getObjectFromResponse(objName) {
+    var messageBody = JSON.parse(context.getVariable("message.content"));
+    if (messageBody === null) {
+        return {}
+    }
+  	var theObj = messageBody[objName];
+  	theObj = (theObj && (theObj !== null)) ? theObj : {};
+  	return theObj;
+
+  }
+
+  // Utility funcion generate link for a given page (using the original query parameters, replacing "page param")
+
+  function generateLinkForPage(linkBase, qryParams, newPageNumber) {
+  	qryParams.page = newPageNumber;
+  	var theLink = linkBase + "?" + toQueryString(qryParams);
+  	return theLink;
+  }
+  
+  
+// Utility function that splits a query string into an object 
+function splitQueryParams(queryString) {
+    if ( (queryString === null) || (queryString === "") ) {
+        return {};
+    }
+    var obj = queryString.split("&").reduce(function(prev, curr, i, arr) {
+        var p = curr.split("=");
+        prev[decodeURIComponent(p[0])] = decodeURIComponent(p[1]);
+        return prev;
+    }, {});
+
+    return obj;
+}
+
+// Utility function that composes a query string from an object
+function toQueryString(qryParams) {
+  var strArray = [];
+  for (var p in qryParams)
+    if (qryParams.hasOwnProperty(p)) {
+      strArray.push(encodeURIComponent(p) + "=" + encodeURIComponent(qryParams[p]));
+    }
+  return strArray.join("&");
+}
+    

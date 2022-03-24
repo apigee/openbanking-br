@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetPARCacheValueAndKey">
+    <DisplayName>AM-SetPARCacheValueAndKey</DisplayName>
+    <AssignVariable>
+        <Name>PARCacheVal</Name>
+        <Template>{PKJwtAdditionalClaims.state}||{jwt.JWT-DecodePAR.decoded.claim.client_id}||{PKJwtAdditionalClaims.redirect_uri}||{PKJwtAdditionalClaims.scope}||{PKJwtAdditionalClaims.nonce}||{jwt.JWT-DecodePAR.decoded.claim.response_type}||SectorIdToBeAddedLater||{PKJwtAdditionalClaims.cpf_is_requested}||{PKJwtAdditionalClaims.cpf_expected_value}||{PKJwtAdditionalClaims.cnpj_is_requested}||{PKJwtAdditionalClaims.cnpj_expected_value}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>PARCacheKey</Name>
+        <Template>urn:ietf:params:oauth:request_uri:{createUuid()}</Template>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

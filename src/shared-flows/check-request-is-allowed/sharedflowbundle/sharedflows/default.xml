@@ -19,9 +19,6 @@
     </Step>
     <Step>
         <Name>RF-ConsentCheckFailed</Name>
-        <Condition>calloutResponse.status.code != 200</Condition>
-    </Step>
-    <Step>
-        <Name>EV-ExtractConsentResources</Name>
+        <Condition>calloutResponse.status.code != 204</Condition>
     </Step>
 </SharedFlow>

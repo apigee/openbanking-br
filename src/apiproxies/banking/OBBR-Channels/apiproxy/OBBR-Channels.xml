@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="1" name="OBBR-Channels">
-    <Basepaths>/open-banking/channels/v1</Basepaths>
+<APIProxy revision="3" name="OBBR-Channels">
+    <Basepaths>/channels/v1</Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
+    <Basepaths></Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1623045665825</CreatedAt>
     <CreatedBy>defaultUser</CreatedBy>
     <Description>Channels APIs - Open Banking BR Phase 1</Description>
     <DisplayName>OBBR-Channels</DisplayName>
-    <LastModifiedAt>1623047050127</LastModifiedAt>
-    <LastModifiedBy>defaultUser</LastModifiedBy>
-    <ManifestVersion>SHA-512:0cd38408902299326602e8ee07a3209a313c194fd7ac3e6314113f206a141e29359f2154b649461414da4865eda3d4f7ab12b495949a4810065cb36e7f64ef59:ap-southeast-2</ManifestVersion>
+    <LastModifiedAt>1637885622810</LastModifiedAt>
+    <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:63c90b5479426422aa4dc82669bbbbfab6276b0bbe487c6445ec4580f8366cb527851c4640c9afa37a7c00d096609640a02f03c4c18b3655adbb7c12634bf844:ap-southeast-2</ManifestVersion>
     <Policies>
         <Policy>AM-Add-CORS-Headers</Policy>
         <Policy>AM-MockATMs</Policy>
         <Policy>AM-MockBankingAgents</Policy>
         <Policy>AM-MockBranches</Policy>
-        <Policy>AM-MockBusinessAccountsProducts</Policy>
-        <Policy>AM-MockBusinessCreditCardProducts</Policy>
-        <Policy>AM-MockBusinessFinancingProducts</Policy>
-        <Policy>AM-MockBusinessInvoiceFinancingProducts</Policy>
-        <Policy>AM-MockBusinessLoansProducts</Policy>
-        <Policy>AM-MockBusinessUnarrangedAccountOverdraft</Policy>
         <Policy>AM-MockElectronicChannels</Policy>
-        <Policy>AM-MockPersonalAccountsProducts</Policy>
-        <Policy>AM-MockPersonalCreditCardProducts</Policy>
-        <Policy>AM-MockPersonalFinancingProducts</Policy>
-        <Policy>AM-MockPersonalInvoiceFinancingProducts</Policy>
-        <Policy>AM-MockPersonalLoansProducts</Policy>
-        <Policy>AM-MockPersonalUnarrangedAccountOverdraft</Policy>
         <Policy>AM-MockPhoneChannels</Policy>
+        <Policy>AM-Set-Meta-Link-Settings-For-Error-Response</Policy>
         <Policy>AM-Set-Pagination-Settings</Policy>
         <Policy>FC-AddFAPIInteractionId</Policy>
         <Policy>FC-AddResponseHeaders-Link-Meta</Policy>
@@ -37,7 +31,6 @@
         <Policy>FC-TrafficThresholds</Policy>
         <Policy>FC-ValidateRequestParams</Policy>
         <Policy>RF-NotFound</Policy>
-        <Policy>RF-TooManyRequests</Policy>
         <Policy>RF-UnsupportedMethod</Policy>
     </Policies>
     <ProxyEndpoints>

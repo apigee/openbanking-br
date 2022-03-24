@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetConsentResponse">
+    <DisplayName>AM-SetConsentResponse</DisplayName>
+    <Set>
+        <Payload contentType="application/json">{
+  "data": {
+    "consentId": "urn:openbank:{consentResponse.consent_id}",
+    "creationDateTime": "{consentResponse.created_at}",
+    "status": "{consentResponse.status}",
+    "statusUpdateDateTime": "{consentResponse.updated_at}",
+    "permissions": {consentResponse.permissions},
+    "expirationDateTime": "{consentResponse.expires_at}"
+  }
+    }</Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="resopnse"/>
+</AssignMessage>

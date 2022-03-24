@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetStateCacheValue">
+    <DisplayName>AM-SetStateCacheValue</DisplayName>
+    <!-- Values included in the private key jwt request supersede any values passed as query params to this request -->
+    <AssignVariable>
+        <Name>requested_scope</Name>
+        <Template>{firstnonnull(PKJwtAdditionalClaims.scope,request.queryparam.scope)}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>requested_redirect_uri</Name>
+        <Template>{firstnonnull(PKJwtAdditionalClaims.redirect_uri,request.queryparam.redirect_uri)}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>requested_nonce</Name>
+        <Template>{firstnonnull(PKJwtAdditionalClaims.nonce,request.queryparam.nonce)}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>cpfIsRequested</Name>
+        <Template>{firstnonnull(PKJwtAdditionalClaims.cpf_is_requested,'false')}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>expectedCPFValue</Name>
+        <Template>{firstnonnull(PKJwtAdditionalClaims.cpf_expected_value,'none')}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>cnpjIsRequested</Name>
+        <Template>{firstnonnull(PKJwtAdditionalClaims.cnpj_is_requested,'false')}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>expectedCNPJValue</Name>
+        <Template>{firstnonnull(PKJwtAdditionalClaims.cnpj_expected_value,'none')}</Template>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>stateCacheVal</Name>
+        <Template>{request.queryparam.client_id}||{requested_redirect_uri}||{requested_scope}||{requested_nonce}||{request.queryparam.response_type}||{verifyapikey.VAK-VerifyClientId.app.SectorIdentifier}||{cpfIsRequested}||{expectedCPFValue}||{cnpjIsRequested}||{expectedCNPJValue}</Template>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

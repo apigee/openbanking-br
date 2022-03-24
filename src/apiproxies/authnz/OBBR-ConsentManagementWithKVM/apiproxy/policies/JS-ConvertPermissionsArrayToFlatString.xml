@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JS-ConvertPermissionsArrayToFlatString">
+    <DisplayName>JS-ConvertPermissionsArrayToFlatString</DisplayName>
+    <Properties>
+        <Property name="arrayVar">existingConsentInfo.permissions</Property>
+        <Property name="flattenedArrayVar">permissionsAsString</Property>
+    </Properties>
+    <ResourceURL>jsc://convertArrayToFlatString.js</ResourceURL>
+</Javascript>

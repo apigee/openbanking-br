@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-GetInfoReqdForIssuingAccessToken">
+    <DisplayName>EV-GetInfoReqdForIssuingAccessToken</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="access_token">
+            <JSONPath>$.access_token</JSONPath>
+        </Variable>
+        <Variable name="expires_in">
+            <JSONPath>$.expires_in</JSONPath>
+        </Variable>
+        <Variable name="refresh_token">
+            <JSONPath>$.refresh_token</JSONPath>
+        </Variable>
+        <Variable name="scope">
+            <JSONPath>$.scope</JSONPath>
+        </Variable>
+        <Variable name="id_token">
+            <JSONPath>$.id_token</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">IdPTokenResponse</Source>
+    <VariablePrefix>OIDCTokenResponse</VariablePrefix>
+</ExtractVariables>
