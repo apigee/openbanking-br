@@ -4800,17 +4800,10 @@
 			]
 		},
 		{
-<<<<<<< HEAD
-			"name": "Mock ADR Client",
-			"item": [
-				{
-					"name": "Mock ADR Client Get JWKS Certs",
-=======
 			"name": "Mock OBBR Client",
 			"item": [
 				{
 					"name": "Mock OBBR Client Get JWKS Certs",
->>>>>>> origin/main
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -4831,11 +4824,7 @@
 					"response": []
 				},
 				{
-<<<<<<< HEAD
-					"name": "Mock ADR Client - Get Private Key JWT",
-=======
 					"name": "Mock OBBR Client - Get Private Key JWT",
->>>>>>> origin/main
 					"event": [
 						{
 							"listen": "test",
@@ -4879,11 +4868,7 @@
 					"response": []
 				},
 				{
-<<<<<<< HEAD
-					"name": "Mock ADR Client - Generate Auth request",
-=======
 					"name": "Mock OBBR Client - Generate Auth request",
->>>>>>> origin/main
 					"event": [
 						{
 							"listen": "test",
