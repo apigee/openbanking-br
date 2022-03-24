@@ -16,11 +16,28 @@
 # limitations under the License.
 #
 
+# Credentials settings helper function
+to_eval=""
+function set_cred(){
+    to_eval=$1
+    local apigee_user_cred="-u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG -e $APIGEE_ENV"
+    local apigee_token_cred="-t $APIGEE_TOKEN -o $APIGEE_ORG -e $APIGEE_ENV"
+    if [[ -z "${APIGEE_TOKEN}" ]]; then
+        to_eval="${to_eval} ${apigee_user_cred}"
+    else
+        to_eval="${to_eval} ${apigee_token_cred}"
+    fi
+}
+
 # Create Caches and dynamic KVM used by oidc proxy
 echo "--->"  Creating cache OIDCState...
-apigeetool createcache -u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG -e $APIGEE_ENV -z OIDCState --description "Holds state during authorization_code flow" --cacheExpiryInSecs 600
+set_cred "apigeetool createcache"
+to_eval="${to_eval} -z OIDCState --description \"Holds state during authorization_code flow\" --cacheExpiryInSecs 600"
+eval "$to_eval"
 echo "--->"  Creating cache PushedAuthReqs...
-apigeetool createcache -u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG -e $APIGEE_ENV -z PushedAuthReqs --description "Holds Pushed Authorisation Requests during authorization_code_flow" --cacheExpiryInSecs 600
+set_cred "apigeetool createcache"
+to_eval="${to_eval} -z PushedAuthReqs --description \"Holds Pushed Authorisation Requests during authorization_code_flow\" --cacheExpiryInSecs 600"
+eval "$to_eval"
 # echo "--->"  Creating dynamic KVM PPIDs...
 # apigeetool createKVMmap -u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG -e $APIGEE_ENV --mapName PPIDs --encrypted
 echo "--->"  Creating dynamic KVM TokensIssuedForConsent...
