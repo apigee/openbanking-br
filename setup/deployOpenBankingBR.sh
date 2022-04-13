@@ -20,6 +20,7 @@
 to_eval=""
 function set_cred(){
     to_eval=$1
+    local suffix=$2
     local apigee_user_cred="-u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG -e $APIGEE_ENV"
     local apigee_token_cred="-t $APIGEE_TOKEN -o $APIGEE_ORG -e $APIGEE_ENV"
     if [[ -z "${APIGEE_TOKEN}" ]]; then
@@ -27,29 +28,25 @@ function set_cred(){
     else
         to_eval="${to_eval} ${apigee_token_cred}"
     fi
+    to_eval="${to_eval} ${suffix}"
+    eval "$to_eval"
 }
 
 # Create Caches and dynamic KVM used by oidc proxy
 echo "--->"  Creating cache OIDCState...
-set_cred "apigeetool createcache"
-to_eval="${to_eval} -z OIDCState --description \"Holds state during authorization_code flow\" --cacheExpiryInSecs 600"
-eval "$to_eval"
+set_cred "apigeetool createcache" "-z OIDCState --description \"Holds state during authorization_code flow\" --cacheExpiryInSecs 600"
 echo "--->"  Creating cache PushedAuthReqs...
-set_cred "apigeetool createcache"
-to_eval="${to_eval} -z PushedAuthReqs --description \"Holds Pushed Authorisation Requests during authorization_code_flow\" --cacheExpiryInSecs 600"
-eval "$to_eval"
+set_cred "apigeetool createcache" "-z PushedAuthReqs --description \"Holds Pushed Authorisation Requests during authorization_code_flow\" --cacheExpiryInSecs 600"
 # echo "--->"  Creating dynamic KVM PPIDs...
 # apigeetool createKVMmap -u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG -e $APIGEE_ENV --mapName PPIDs --encrypted
 echo "--->"  Creating dynamic KVM TokensIssuedForConsent...
-apigeetool createKVMmap -u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG -e $APIGEE_ENV --mapName TokensIssuedForConsent --encrypted
-
+set_cred "apigeetool createKVMmap" "--mapName TokensIssuedForConsent --encrypted"
 # Create KVM that will hold consent information
 echo "--->"  Creating dynamic KVM Consents...
-apigeetool createKVMmap -u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG -e $APIGEE_ENV --mapName Consents --encrypted
-
+set_cred "apigeetool createKVMmap" "--mapName Consents --encrypted"
 # Create cache that will hold consent state (Used by basic consent management proxy)
 echo "--->"  Creating cache ConsentState...
-apigeetool createcache -u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG -e $APIGEE_ENV -z ConsentState --description "Holds state during consent flow" --cacheExpiryInSecs 600
+set_cred "apigeetool createcache" "-z ConsentState --description \"Holds state during consent flow\" --cacheExpiryInSecs 600"
 
 
 # KVM CDSConfig
@@ -57,12 +54,12 @@ apigeetool createcache -u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG -e $AP
 # KVM mockOBBRClient
 
  # Deploy Shared flows
-cd src/shared-flows
+cd ../src/shared-flows
 for sf in $(ls .) 
 do 
     echo "--->"  Deploying $sf Shared Flow 
     cd $sf
-    apigeetool deploySharedflow -o $APIGEE_ORG -e $APIGEE_ENV -u $APIGEE_USER -p $APIGEE_PASSWORD -n $sf 
+    set_cred "apigeetool deploySharedflow" "-n $sf"
     cd ..
  done
 
@@ -72,7 +69,7 @@ for ap in $(ls .)
 do 
     echo "--->"  Deploying $ap Apiproxy
     cd $ap
-    apigeetool deployproxy -o $APIGEE_ORG -e $APIGEE_ENV -u $APIGEE_USER -p $APIGEE_PASSWORD -n $ap
+    set_cred "apigeetool deployproxy" "-n $ap"
     cd ..
  done
 
@@ -82,20 +79,20 @@ for ap in $(ls .)
 do 
     echo "--->"  Deploying $ap Apiproxy
     cd $ap
-    apigeetool deployproxy -o $APIGEE_ORG -e $APIGEE_ENV -u $APIGEE_USER -p $APIGEE_PASSWORD -n $ap
+    set_cred "apigeetool deployproxy" "-n $ap"
     cd ..
  done
 
 # Deploy Admin Proxies
 cd ../admin/OBBR-Admin
 echo "--->"  Deploying OBBR-Admin Apiproxy
-apigeetool deployproxy -o $APIGEE_ORG -e $APIGEE_ENV -u $APIGEE_USER -p $APIGEE_PASSWORD -n OBBR-Admin
+set_cred "apigeetool deployproxy" "-n OBBR-Admin"
 cd ..
 
 # Deploy utils Proxies
 cd ../utils/mock-obbr-client
 echo "--->"  Deploying mock-obbr-client Apiproxy
-apigeetool deployproxy -o $APIGEE_ORG -e $APIGEE_ENV -u $APIGEE_USER -p $APIGEE_PASSWORD -n mock-obbr-client
+set_cred "apigeetool deployproxy" "-n mock-obbr-client"
 cd ..
 
 # Deploy authnz related Proxies
@@ -104,7 +101,7 @@ for ap in $(ls .)
 do 
     echo "--->"  Deploying $ap Apiproxy
     cd $ap
-    apigeetool deployproxy -o $APIGEE_ORG -e $APIGEE_ENV -u $APIGEE_USER -p $APIGEE_PASSWORD -n $ap
+    set_cred "apigeetool deployproxy" "-n $ap"
     cd ..
  done
 

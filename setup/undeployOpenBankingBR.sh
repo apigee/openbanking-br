@@ -17,16 +17,35 @@
 # limitations under the License.
 #
 
+# Credentials settings helper function
+to_eval=""
+function set_cred(){
+    to_eval=$1
+    local suffix=$2
+    local env=" -e $APIGEE_ENV"
+    if [[ "$1" == *"delete"* ]]; then
+    env=""
+    fi
+    local apigee_user_cred="-u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG"
+    local apigee_token_cred="-t $APIGEE_TOKEN -o $APIGEE_ORG"
+    if [[ -z "${APIGEE_TOKEN}" ]]; then
+        to_eval="${to_eval} ${apigee_user_cred}"
+    else
+        to_eval="${to_eval} ${apigee_token_cred}"
+    fi
+    to_eval="${to_eval}${env} ${suffix}"
+    eval "$to_eval"
+}
 
 # Undeploy banking apiproxies
-cd src/apiproxies/banking
+cd ../src/apiproxies/banking
 for ap in $(ls .) 
 do 
     echo "--->" Undeploying $ap Apiproxy
     cd $ap
-    apigeetool undeploy -o $APIGEE_ORG -e $APIGEE_ENV -u $APIGEE_USER -p $APIGEE_PASSWORD -n $ap
+    set_cred "apigeetool undeploy -o" "-n $ap"
     echo "--->" Deleting $ap Apiproxy
-    apigeetool delete -o $APIGEE_ORG -u $APIGEE_USER -p $APIGEE_PASSWORD -n $ap
+    set_cred "apigeetool delete" "-n $ap"
     cd ..
  done
 
@@ -36,18 +55,18 @@ for ap in $(ls .)
 do 
     echo "--->" Undeploying $ap Apiproxy
     cd $ap
-    apigeetool undeploy -o $APIGEE_ORG -e $APIGEE_ENV -u $APIGEE_USER -p $APIGEE_PASSWORD -n $ap
+    set_cred "apigeetool undeploy" "-n $ap"
     echo "--->" Deleting $ap Apiproxy
-    apigeetool delete -o $APIGEE_ORG -u $APIGEE_USER -p $APIGEE_PASSWORD -n $ap
+    set_cred "apigeetool delete" "-n $ap"
     cd ..
  done
 
 # Undeploy OBBR-Admin proxy
 cd ../admin/OBBR-Admin
 echo "--->" Undeploying OBBR-Admin Apiproxy
-apigeetool undeploy -o $APIGEE_ORG -e $APIGEE_ENV -u $APIGEE_USER -p $APIGEE_PASSWORD -n OBBR-Admin
+set_cred "apigeetool undeploy" "-n OBBR-Admin"
 echo "--->" Deleting OBBR-Admin Apiproxy
-apigeetool delete -o $APIGEE_ORG -u $APIGEE_USER -p $APIGEE_PASSWORD -n OBBR-Admin
+set_cred "apigeetool delete" "-n OBBR-Admin"
 
 # Undeploy Shared flows
 cd ../../../shared-flows
@@ -55,9 +74,9 @@ for sf in $(ls .)
 do 
     echo "--->" Undeploying $sf Shared Flow 
     cd $sf
-    apigeetool undeploySharedflow -o $APIGEE_ORG -e $APIGEE_ENV -u $APIGEE_USER -p $APIGEE_PASSWORD -n $sf 
+    set_cred "apigeetool undeploySharedflow" "-n $sf"
     echo "--->" Deleting $sf Shared Flow 
-    apigeetool deleteSharedflow -o $APIGEE_ORG -u $APIGEE_USER -p $APIGEE_PASSWORD -n $sf 
+    set_cred "apigeetool deleteSharedflow" "-n $sf"
     cd ..
 done
 
