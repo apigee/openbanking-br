@@ -37,17 +37,32 @@ function set_cred(){
     eval "$to_eval"
 }
 
-# Undeploy banking apiproxies
-cd ../src/apiproxies/banking
+# Deploy authnz related Proxies
+cd ../src/apiproxies/authnz
 for ap in $(ls .) 
 do 
     echo "--->" Undeploying $ap Apiproxy
     cd $ap
-    set_cred "apigeetool undeploy -o" "-n $ap"
+    set_cred "apigeetool undeploy" "-n $ap"
     echo "--->" Deleting $ap Apiproxy
     set_cred "apigeetool delete" "-n $ap"
     cd ..
  done
+
+# Uneploy utils Proxies
+cd ../utils/mock-obbr-client
+echo "--->"  Undeploying mock-obbr-client Apiproxy
+set_cred "apigeetool undeploy" "-n mock-obbr-client"
+echo "--->" Deleting mock-obbr-client Apiproxy
+set_cred "apigeetool delete" "-n mock-obbr-client"
+cd ..
+
+# Undeploy OBBR-Admin proxy
+cd ../admin/OBBR-Admin
+echo "--->" Undeploying OBBR-Admin Apiproxy
+set_cred "apigeetool undeploy" "-n OBBR-Admin"
+echo "--->" Deleting OBBR-Admin Apiproxy
+set_cred "apigeetool delete" "-n OBBR-Admin"
 
  # Undeploy common apiproxies
 cd ../common
@@ -61,12 +76,17 @@ do
     cd ..
  done
 
-# Undeploy OBBR-Admin proxy
-cd ../admin/OBBR-Admin
-echo "--->" Undeploying OBBR-Admin Apiproxy
-set_cred "apigeetool undeploy" "-n OBBR-Admin"
-echo "--->" Deleting OBBR-Admin Apiproxy
-set_cred "apigeetool delete" "-n OBBR-Admin"
+# Undeploy banking apiproxies
+cd ../banking
+for ap in $(ls .) 
+do 
+    echo "--->" Undeploying $ap Apiproxy
+    cd $ap
+    set_cred "apigeetool undeploy" "-n $ap"
+    echo "--->" Deleting $ap Apiproxy
+    set_cred "apigeetool delete" "-n $ap"
+    cd ..
+ done
 
 # Undeploy Shared flows
 cd ../../../shared-flows
