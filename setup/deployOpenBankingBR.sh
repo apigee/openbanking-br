@@ -104,7 +104,7 @@ set_cred "apigeetool createcache" "-z ConsentState --description \"Holds state d
 # KVM ConsentsConfig
 
 # Create KVM that will hold consent information
-echo "--->"  Creating dynamic KVM CDSConfig...
+echo "--->"  Creating dynamic KVM OBBRConfig...
 set_cred "apigeetool createKVMmap" "--mapName Consents --encrypted"
 
 # Create cache that will hold consent state (Used by basic consent management proxy)
@@ -165,7 +165,7 @@ do
     set_cred "apigeetool deployproxy" "-n $ap"
     cd ..
  done
-
+cd ../../../
 # Create products
 
 echo "--->"  Creating API Product: "Accounts"
@@ -208,7 +208,7 @@ APP_SECRET=$(echo $APP_CREDENTIALS | jq -r .consumerSecret)
 REG_INFO=$(sed -e "s/dummyorgname/$APIGEE_ORG/g" -e "s/dummyenvname/$APIGEE_ENV/g" ./setup/baseRegistrationInfoForOBBRTestApp.json)
 REQ_BODY='{ "callbackUrl": "https://httpbin.org/post", "attributes": [ { "name": "DisplayName", "value": "OBBRTestApp" }, { "name": "SectorIdentifier", "value": "httpbin.org" },'
 echo $REQ_BODY $REG_INFO "]}" >> ./tmpReqBody.json
-curl https://api.enterprise.apigee.com/v1/organizations/$APIGEE_ORG/developers/$OBBR_TEST_DEVELOPER_EMAIL/apps/CDSTestApp \
+curl https://api.enterprise.apigee.com/v1/organizations/$APIGEE_ORG/developers/$OBBR_TEST_DEVELOPER_EMAIL/apps/OBBRTestApp \
   -H "Authorization: Bearer $APIGEE_TOKEN" \
   -H 'Accept: */*' \
   -H 'Content-Type: application/json' \
@@ -221,34 +221,60 @@ mkdir setup/certs
 cd setup/certs
 
 # Generate RSA Private/public key pair for client app:
-generate_private_public_key_pair CDSTestApp "Test App"
+generate_private_public_key_pair OBBRTestApp "Test App"
 
 # Generate a public certificate based on the private key just generated
 echo "--->"  "Generating a public certificate for Test App..."
-openssl req -new -key CDSTestApp_rsa_private.pem -out CDSTestApp.csr -subj "/CN=CDS-TestApp" -outform PEM
-openssl x509 -req -days 365 -in CDSTestApp.csr -signkey CDSTestApp_rsa_private.pem -out CDSTestApp.crt
-echo Certificate CDSTestApp.crt generated and stored in ./setup/certs. You will need this certificate and private key when/if enabling mTLS and HoK verification
+openssl req -new -key OBBRTestApp_rsa_private.pem -out OBBRTestApp.csr -subj "/CN=OBBR-TestApp" -outform PEM
+openssl x509 -req -days 365 -in OBBRTestApp.csr -signkey OBBRTestApp_rsa_private.pem -out OBBRTestApp.crt
+echo Certificate OBBRTestApp.crt generated and stored in ./setup/certs. You will need this certificate and private key when/if enabling mTLS and HoK verification
 
 # Generate RSA Private/public key pair for the mock CDR Register:
-generate_private_public_key_pair MockCDRRegister "Mock CDR Register"
+generate_private_public_key_pair MockOBBRRegister "Mock OBBR Register"
 echo "Use private key when signing JWT tokens used for authentication in Admin API Endpoints"
 echo "----"
 
 # Generate RSA Private/public key pair to be used by Apigee when signing JWT ID Tokens
-generate_private_public_key_pair CDSRefImpl "CDS Reference Implementation to be used when signing JWT Tokens"
+generate_private_public_key_pair OBBRRefImpl "OBBR Reference Implementation to be used when signing JWT Tokens"
 
 # Create a new entry in the OIDC provider client configuration for Apigee,
 # so that it is recognised by the OIDC provider as a client
 echo "--->"  "Creating new entry in OIDC Provider configuration for Apigee"
 # Generate a random key and secret
-CDSREFIMPL_OIDC_CLIENT_ID=$(openssl rand -hex 16)
-CDSREFIMPL_OIDC_CLIENT_SECRET=$(openssl rand -hex 16)
-CDSREFIMPL_JWKS=`cat ./CDSRefImpl.jwks`
-APIGEE_CLIENT_ENTRY=$(echo '[{ "client_id": "'$CDSREFIMPL_OIDC_CLIENT_ID'", "client_secret": "'$CDSREFIMPL_OIDC_CLIENT_SECRET'", "redirect_uris": ["https://'$APIGEE_ORG'-'$APIGEE_ENV'.apigee.net/authorise-cb"], "response_modes": ["form_post"], "response_types": ["code id_token"], "grant_types": ["authorization_code", "client_credentials","refresh_token","implicit"], "token_endpoint_auth_method": "client_secret_basic","jwks": '$CDSREFIMPL_JWKS'}]')
+OBBRREFIMPL_OIDC_CLIENT_ID=$(openssl rand -hex 16)
+OBBRREFIMPL_OIDC_CLIENT_SECRET=$(openssl rand -hex 16)
+OBBRREFIMPL_JWKS=`cat ./OBBRRefImpl.jwks`
+APIGEE_CLIENT_ENTRY=$(echo '[{ "client_id": "'$OBBRREFIMPL_OIDC_CLIENT_ID'", "client_secret": "'$OBBRREFIMPL_OIDC_CLIENT_SECRET'", "redirect_uris": ["https://'$APIGEE_ORG'-'$APIGEE_ENV'.apigee.net/authorise-cb"], "response_modes": ["form_post"], "response_types": ["code id_token"], "grant_types": ["authorization_code", "client_credentials","refresh_token","implicit"], "token_endpoint_auth_method": "client_secret_basic","jwks": '$OBBRREFIMPL_JWKS'}]')
 OIDC_CLIENT_CONFIG=$(<../../src/apiproxies/authnz/oidc-mock-provider/apiproxy/resources/hosted/support/clients.json)
 echo $APIGEE_CLIENT_ENTRY > ../../src/apiproxies/authnz/oidc-mock-provider/apiproxy/resources/hosted/support/clients.json
 echo "----"
 
+# Create KVMs that will hold the JWKS and private Key for both the mock cdr register, and the mock adr client
+echo "--->"  Creating KVM mockOBBRRegister...
+set_cred "apigeetool createKVMmap" "--mapName mockOBBRRegister --encrypted"
+echo "--->"  Adding entries to mockOBBRRegister...
+MOCKREGISTER_JWK=`cat ./MockOBBRRegister.jwks`
+MOCKREGISTER_PRIVATE_KEY=`cat ./MockOBBRRegister_rsa_private.pem`
+set_cred "apigeetool addEntryToKVM" "--mapName mockOBBRRegister --entryName jwks --entryValue \"$MOCKREGISTER_JWK\" 1> /dev/null | echo Added entry for jwks"
+set_cred "apigeetool addEntryToKVM" "--mapName mockOBBRRegister --entryName privateKey --entryValue \"$MOCKREGISTER_PRIVATE_KEY\"  1> /dev/null | echo Added entry for private key"
 
-# Revert to original directory
-cd ../../../..
+echo "--->"  Creating KVM mockADRClient...
+set_cred "apigeetool createKVMmap" "--mapName mockADRClient --encrypted"
+echo "--->"  Adding entries to mockADRClient...
+MOCKCLIENT_JWKS=`cat ./OBBRTestApp.jwks`
+MOCKCLIENT_PRIVATE_KEY=`cat ./OBBRTestApp_rsa_private.pem`
+set_cred "apigeetool addEntryToKVM" "--mapName mockADRClient --entryName jwks --entryValue \"$MOCKCLIENT_JWKS\"  1> /dev/null | echo Added entry for jwks"
+set_cred "apigeetool addEntryToKVM" "--mapName mockADRClient --entryName privateKey --entryValue \"$MOCKCLIENT_PRIVATE_KEY\"   1> /dev/null | echo Added entry for private key"
+
+# Create KVM that will hold Apigee credentials (necessary for dynamic client registration operations), Apigee Private key and JWKS (Necessary for issuing JWT Tokens)
+echo "--->"  Creating KVM OBBRConfig...
+set_cred "apigeetool createKVMmap" "--mapName OBBRConfig --encrypted"
+echo "--->"  Adding entries to OBBRConfig...
+set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName ApigeeAPI_user --entryValue \"$APIGEE_USER\""
+set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName ApigeeAPI_password --entryValue \"$APIGEE_PASSWORD\" 1> /dev/null | echo Added entry for password"
+OBBRREFIMPL_JWKS=`cat ./OBBRRefImpl.jwks`
+OBBRREFIMPL_PRIVATE_KEY=`cat ./OBBRRefImpl_rsa_private.pem`
+set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName JWTSignKeys_jwks --entryValue \"$OBBRREFIMPL_JWKS\"  1> /dev/null | echo Added entry for OBBR Ref Impl jwks"
+set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName JWTSignKeys_privateKey --entryValue "$OBBRREFIMPL_PRIVATE_KEY"   1> /dev/null | echo Added entry for OBBR Ref Impl private key"
+set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName ApigeeIDPCredentials_clientId --entryValue \"$OBBRREFIMPL_OIDC_CLIENT_ID\"  1> /dev/null | echo Added entry for OBBR Ref Impl credentials: client id in OIDC Provider"
+set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName ApigeeIDPCredentials_clientSecret --entryValue "$OBBRREFIMPL_OIDC_CLIENT_SECRET"   1> /dev/null | echo Added entry for OBBR Ref Impl credentials: client secret in OIDC Provider"
