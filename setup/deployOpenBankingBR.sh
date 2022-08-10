@@ -32,6 +32,21 @@ function set_cred(){
     eval "$to_eval"
 }
 
+# Credentials settings helper function for org level config
+function set_cred_org(){
+    to_eval=$1
+    local suffix=$2
+    local apigee_user_cred="-u $APIGEE_USER -p $APIGEE_PASSWORD -o $APIGEE_ORG"
+    local apigee_token_cred="-t $APIGEE_TOKEN -o $APIGEE_ORG"
+    if [[ -z "${APIGEE_TOKEN}" ]]; then
+        to_eval="${to_eval} ${apigee_user_cred}"
+    else
+        to_eval="${to_eval} ${apigee_token_cred}"
+    fi
+    to_eval="${to_eval} ${suffix}"
+    eval "$to_eval"
+}
+
 #### Utility functions
 function replace_with_jwks_uri {
  POLICY_FILE=$1
@@ -154,21 +169,21 @@ do
 # Create products
 
 echo "--->"  Creating API Product: "Accounts"
-set_cred "apigeetool createProduct" "--productName \"CDSAccounts\" --displayName \"Accounts\" --approvalType \"auto\" --productDesc \"Get access to Accounts APIs\" --proxies CDS-Accounts --scopes \"bank:accounts.basic:read,bank:accounts.detail:read\""
+set_cred_org "apigeetool createProduct" "--productName \"OBBRAccounts\" --displayName \"Accounts\" --approvalType \"auto\" --productDesc \"Get access to Accounts APIs\" --proxies OBBR-Accounts --scopes \"bank:accounts.basic:read,bank:accounts.detail:read\""
 
-echo "--->"  Creating API Product: "Transactions"
-set_cred "apigeetool createProduct" "--productName \"CDSTransactions\" --displayName \"Transactions\" --approvalType \"auto\" --productDesc \"Get access to Transactions APIs\" --proxies CDS-Transactions --scopes \"bank:transactions:read\"" 
+#echo "--->"  Creating API Product: "Transactions"
+#set_cred_org "apigeetool createProduct" "--productName \"OBBRTransactions\" --displayName \"Transactions\" --approvalType \"auto\" --productDesc \"Get access to Transactions APIs\" --proxies OBBR-Transactions --scopes \"bank:transactions:read\"" 
 
 echo "--->"  Creating API Product: "OIDC"
-set_cred "apigeetool createProduct" "--productName \"CDSOIDC\" --displayName \"OIDC\" --approvalType \"auto\" --productDesc \"Get access to authentication and authorisation requests\" --proxies oidc --scopes \"openid, profile\""
+set_cred_org "apigeetool createProduct" "--productName \"OBBROIDC\" --displayName \"OIDC\" --approvalType \"auto\" --productDesc \"Get access to authentication and authorisation requests\" --proxies oidc --scopes \"openid, profile\""
 
 # Create product for dynamic client registration
-echo "--->"  Creating API Product: "DynamicClientRegistration"
-set_cred "apigeetool createProduct" "--productName \"CDSDynamicClientRegistration\" --displayName \"DynamicClientRegistration\" --approvalType \"auto\" --productDesc \"Dynamically register a client\" --proxies CDS-DynamicClientRegistration --scopes \"cdr:registration\""
+#echo "--->"  Creating API Product: "DynamicClientRegistration"
+#set_cred_org "apigeetool createProduct" "--productName \"OBBRDynamicClientRegistration\" --displayName \"DynamicClientRegistration\" --approvalType \"auto\" --productDesc \"Dynamically register a client\" --proxies OBBR-DynamicClientRegistration --scopes \"cdr:registration\""
 
 # Create product for Admin
 echo "--->"  Creating API Product: "Admin"
-set_cred "apigeetool createProduct" "--productName \"CDSAdmin\" --displayName \"Admin\" --approvalType \"auto\" --productDesc \"Get access to Admin APIs\" --proxies CDS-Admin --scopes \"admin:metadata:update,admin:metrics.basic:read\""
+set_cred_org "apigeetool createProduct" "--productName \"OBBRAdmin\" --displayName \"Admin\" --approvalType \"auto\" --productDesc \"Get access to Admin APIs\" --proxies OBBR-Admin --scopes \"admin:metadata:update,admin:metrics.basic:read\""
 
 
 # Create Dev
@@ -177,7 +192,7 @@ set_cred "apigeetool createProduct" "--productName \"CDSAdmin\" --displayName \"
 # If no developer name has been set, use a default
 if [ -z "$OBBR_TEST_DEVELOPER_EMAIL" ]; then  OBBR_TEST_DEVELOPER_EMAIL=OBBR-Test-Developer@somefictitioustestcompany.com; fi;
 echo "--->"  Creating Test Developer: $OBBR_TEST_DEVELOPER_EMAIL
-set_cred "apigeetool createDeveloper" "--email $OBBR_TEST_DEVELOPER_EMAIL --firstName \"OBBR Test\" --lastName \"Developer\"  --userName $OBBR_TEST_DEVELOPER_EMAIL"
+set_cred_org "apigeetool createDeveloper" "--email $OBBR_TEST_DEVELOPER_EMAIL --firstName \"OBBR Test\" --lastName \"Developer\"  --userName $OBBR_TEST_DEVELOPER_EMAIL"
 
 
 # Create app
@@ -185,9 +200,55 @@ set_cred "apigeetool createDeveloper" "--email $OBBR_TEST_DEVELOPER_EMAIL --firs
 # Create a test app - Store the client key and secret
 echo "--->"  Creating Test App: OOBRTestApp...
 
-APP_CREDENTIALS=$(set_cred "apigeetool createApp" "--name OBBRTestApp --apiProducts \"OBBRTransactions,OBBRAccounts,OBBROIDC\" --email $OBBR_TEST_DEVELOPER_EMAIL --json | jq .credentials[0]")
+APP_CREDENTIALS=$(set_cred_org "apigeetool createApp" "--name OBBRTestApp --apiProducts \"OBBRAccounts,OBBROIDC\" --email $OBBR_TEST_DEVELOPER_EMAIL --json | jq .credentials[0]")
 APP_KEY=$(echo $APP_CREDENTIALS | jq -r .consumerKey)
 APP_SECRET=$(echo $APP_CREDENTIALS | jq -r .consumerSecret)
+
+# Update app attributes
+REG_INFO=$(sed -e "s/dummyorgname/$APIGEE_ORG/g" -e "s/dummyenvname/$APIGEE_ENV/g" ./setup/baseRegistrationInfoForOBBRTestApp.json)
+REQ_BODY='{ "callbackUrl": "https://httpbin.org/post", "attributes": [ { "name": "DisplayName", "value": "OBBRTestApp" }, { "name": "SectorIdentifier", "value": "httpbin.org" },'
+echo $REQ_BODY $REG_INFO "]}" >> ./tmpReqBody.json
+curl https://api.enterprise.apigee.com/v1/organizations/$APIGEE_ORG/developers/$OBBR_TEST_DEVELOPER_EMAIL/apps/CDSTestApp \
+  -H "Authorization: Bearer $APIGEE_TOKEN" \
+  -H 'Accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d @./tmpReqBody.json
+rm ./tmpReqBody.json
+
+echo \n.. App created. When testing admin APIs use the following client_id: $APP_KEY
+
+mkdir setup/certs
+cd setup/certs
+
+# Generate RSA Private/public key pair for client app:
+generate_private_public_key_pair CDSTestApp "Test App"
+
+# Generate a public certificate based on the private key just generated
+echo "--->"  "Generating a public certificate for Test App..."
+openssl req -new -key CDSTestApp_rsa_private.pem -out CDSTestApp.csr -subj "/CN=CDS-TestApp" -outform PEM
+openssl x509 -req -days 365 -in CDSTestApp.csr -signkey CDSTestApp_rsa_private.pem -out CDSTestApp.crt
+echo Certificate CDSTestApp.crt generated and stored in ./setup/certs. You will need this certificate and private key when/if enabling mTLS and HoK verification
+
+# Generate RSA Private/public key pair for the mock CDR Register:
+generate_private_public_key_pair MockCDRRegister "Mock CDR Register"
+echo "Use private key when signing JWT tokens used for authentication in Admin API Endpoints"
+echo "----"
+
+# Generate RSA Private/public key pair to be used by Apigee when signing JWT ID Tokens
+generate_private_public_key_pair CDSRefImpl "CDS Reference Implementation to be used when signing JWT Tokens"
+
+# Create a new entry in the OIDC provider client configuration for Apigee,
+# so that it is recognised by the OIDC provider as a client
+echo "--->"  "Creating new entry in OIDC Provider configuration for Apigee"
+# Generate a random key and secret
+CDSREFIMPL_OIDC_CLIENT_ID=$(openssl rand -hex 16)
+CDSREFIMPL_OIDC_CLIENT_SECRET=$(openssl rand -hex 16)
+CDSREFIMPL_JWKS=`cat ./CDSRefImpl.jwks`
+APIGEE_CLIENT_ENTRY=$(echo '[{ "client_id": "'$CDSREFIMPL_OIDC_CLIENT_ID'", "client_secret": "'$CDSREFIMPL_OIDC_CLIENT_SECRET'", "redirect_uris": ["https://'$APIGEE_ORG'-'$APIGEE_ENV'.apigee.net/authorise-cb"], "response_modes": ["form_post"], "response_types": ["code id_token"], "grant_types": ["authorization_code", "client_credentials","refresh_token","implicit"], "token_endpoint_auth_method": "client_secret_basic","jwks": '$CDSREFIMPL_JWKS'}]')
+OIDC_CLIENT_CONFIG=$(<../../src/apiproxies/authnz/oidc-mock-provider/apiproxy/resources/hosted/support/clients.json)
+echo $APIGEE_CLIENT_ENTRY > ../../src/apiproxies/authnz/oidc-mock-provider/apiproxy/resources/hosted/support/clients.json
+echo "----"
+
 
 # Revert to original directory
 cd ../../../..
