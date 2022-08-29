@@ -100,13 +100,6 @@ set_cred "apigeetool createKVMmap" "--mapName Consents --encrypted"
 echo "--->"  Creating cache ConsentState...
 set_cred "apigeetool createcache" "-z ConsentState --description \"Holds state during consent flow\" --cacheExpiryInSecs 600"
 
-
-# KVM ConsentsConfig
-
-# Create KVM that will hold consent information
-echo "--->"  Creating dynamic KVM OBBRConfig...
-set_cred "apigeetool createKVMmap" "--mapName Consents --encrypted"
-
 # Create cache that will hold consent state (Used by basic consent management proxy)
 echo "--->"  Creating cache ConsentState...
 set_cred "apigeetool createcache" "-z ConsentState --description \"Holds state during consent flow\" --cacheExpiryInSecs 600"
@@ -115,14 +108,14 @@ set_cred "apigeetool createcache" "-z ConsentState --description \"Holds state d
 # KVM mockOBBRClient
 
  # Deploy Shared flows
-cd ../src/shared-flows
+cd src/shared-flows
 for sf in $(ls .) 
 do 
     echo "--->"  Deploying $sf Shared Flow 
     cd $sf
     set_cred "apigeetool deploySharedflow" "-n $sf"
     cd ..
- done
+done
 
  # Deploy banking apiproxies
 cd ../apiproxies/banking
@@ -132,7 +125,7 @@ do
     cd $ap
     set_cred "apigeetool deployproxy" "-n $ap"
     cd ..
- done
+done
 
  # Deploy Common Proxies
 cd ../common
@@ -142,7 +135,7 @@ do
     cd $ap
     set_cred "apigeetool deployproxy" "-n $ap"
     cd ..
- done
+done
 
 # Deploy Admin Proxies
 cd ../admin/OBBR-Admin
@@ -164,26 +157,34 @@ do
     cd $ap
     set_cred "apigeetool deployproxy" "-n $ap"
     cd ..
- done
+done
 cd ../../../
 # Create products
 
 echo "--->"  Creating API Product: "Accounts"
-set_cred_org "apigeetool createProduct" "--productName \"OBBRAccounts\" --displayName \"Accounts\" --approvalType \"auto\" --productDesc \"Get access to Accounts APIs\" --proxies OBBR-Accounts --scopes \"bank:accounts.basic:read,bank:accounts.detail:read\""
+set_cred_org "apigeetool createProduct" "--productName \"OBBRAccounts\" --displayName \"Accounts\" --approvalType \"auto\" --productDesc \"Get access to Accounts APIs\" --proxies OBBR-Accounts --scopes \"bank:accounts.basic:read,bank:accounts.detail:read\" -environments $APIGEE_ENV"
 
 #echo "--->"  Creating API Product: "Transactions"
-#set_cred_org "apigeetool createProduct" "--productName \"OBBRTransactions\" --displayName \"Transactions\" --approvalType \"auto\" --productDesc \"Get access to Transactions APIs\" --proxies OBBR-Transactions --scopes \"bank:transactions:read\"" 
+#set_cred_org "apigeetool createProduct" "--productName \"OBBRTransactions\" --displayName \"Transactions\" --approvalType \"auto\" --productDesc \"Get access to Transactions APIs\" --proxies OBBR-Transactions --scopes \"bank:transactions:read\" -environments $APIGEE_ENV" 
 
 echo "--->"  Creating API Product: "OIDC"
-set_cred_org "apigeetool createProduct" "--productName \"OBBROIDC\" --displayName \"OIDC\" --approvalType \"auto\" --productDesc \"Get access to authentication and authorisation requests\" --proxies oidc --scopes \"openid, profile\""
+set_cred_org "apigeetool createProduct" "--productName \"OBBROIDC\" --displayName \"OIDC\" --approvalType \"auto\" --productDesc \"Get access to authentication and authorisation requests\" --proxies oidc --scopes \"openid, profile\" -environments $APIGEE_ENV"
+
+# Create product for Consents
+echo "--->"  Creating API Product: "Consents"
+set_cred_org "apigeetool createProduct" "--productName \"OBBRConsents\" --displayName \"Consents\" --approvalType \"auto\" --productDesc \"Manage Consents\" --proxies OBBR-Consent --scopes \"consents\" -environments $APIGEE_ENV"
+
+# Create product for Resources
+echo "--->"  Creating API Product: "Resources"
+set_cred_org "apigeetool createProduct" "--productName \"OBBRResources\" --displayName \"Resources\" --approvalType \"auto\" --productDesc \"Get access to Resources APIs\" --proxies OBBR-Resources --scopes \"resources\" -environments $APIGEE_ENV"
 
 # Create product for dynamic client registration
 #echo "--->"  Creating API Product: "DynamicClientRegistration"
-#set_cred_org "apigeetool createProduct" "--productName \"OBBRDynamicClientRegistration\" --displayName \"DynamicClientRegistration\" --approvalType \"auto\" --productDesc \"Dynamically register a client\" --proxies OBBR-DynamicClientRegistration --scopes \"cdr:registration\""
+#set_cred_org "apigeetool createProduct" "--productName \"OBBRDynamicClientRegistration\" --displayName \"DynamicClientRegistration\" --approvalType \"auto\" --productDesc \"Dynamically register a client\" --proxies OBBR-DynamicClientRegistration --scopes \"cdr:registration\" -environments $APIGEE_ENV"
 
 # Create product for Admin
 echo "--->"  Creating API Product: "Admin"
-set_cred_org "apigeetool createProduct" "--productName \"OBBRAdmin\" --displayName \"Admin\" --approvalType \"auto\" --productDesc \"Get access to Admin APIs\" --proxies OBBR-Admin --scopes \"admin:metadata:update,admin:metrics.basic:read\""
+set_cred_org "apigeetool createProduct" "--productName \"OBBRAdmin\" --displayName \"Admin\" --approvalType \"auto\" --productDesc \"Get access to Admin APIs\" --proxies OBBR-Admin --scopes \"admin:metadata:update,admin:metrics.basic:read\" -environments $APIGEE_ENV"
 
 
 # Create Dev
@@ -229,7 +230,7 @@ openssl req -new -key OBBRTestApp_rsa_private.pem -out OBBRTestApp.csr -subj "/C
 openssl x509 -req -days 365 -in OBBRTestApp.csr -signkey OBBRTestApp_rsa_private.pem -out OBBRTestApp.crt
 echo Certificate OBBRTestApp.crt generated and stored in ./setup/certs. You will need this certificate and private key when/if enabling mTLS and HoK verification
 
-# Generate RSA Private/public key pair for the mock CDR Register:
+# Generate RSA Private/public key pair for the mock OBBR Register:
 generate_private_public_key_pair MockOBBRRegister "Mock OBBR Register"
 echo "Use private key when signing JWT tokens used for authentication in Admin API Endpoints"
 echo "----"
@@ -249,22 +250,22 @@ OIDC_CLIENT_CONFIG=$(<../../src/apiproxies/authnz/oidc-mock-provider/apiproxy/re
 echo $APIGEE_CLIENT_ENTRY > ../../src/apiproxies/authnz/oidc-mock-provider/apiproxy/resources/hosted/support/clients.json
 echo "----"
 
-# Create KVMs that will hold the JWKS and private Key for both the mock cdr register, and the mock adr client
-echo "--->"  Creating KVM mockOBBRRegister...
-set_cred "apigeetool createKVMmap" "--mapName mockOBBRRegister --encrypted"
-echo "--->"  Adding entries to mockOBBRRegister...
-MOCKREGISTER_JWK=`cat ./MockOBBRRegister.jwks`
-MOCKREGISTER_PRIVATE_KEY=`cat ./MockOBBRRegister_rsa_private.pem`
-set_cred "apigeetool addEntryToKVM" "--mapName mockOBBRRegister --entryName jwks --entryValue \"$MOCKREGISTER_JWK\" 1> /dev/null | echo Added entry for jwks"
-set_cred "apigeetool addEntryToKVM" "--mapName mockOBBRRegister --entryName privateKey --entryValue \"$MOCKREGISTER_PRIVATE_KEY\"  1> /dev/null | echo Added entry for private key"
+# Create KVMs that will hold the JWKS and private Key for both the mock OBBR register, and the mock adr client
+# echo "--->"  Creating KVM mockOBBRRegister...
+# set_cred "apigeetool createKVMmap" "--mapName mockOBBRRegister --encrypted"
+# echo "--->"  Adding entries to mockOBBRRegister...
+# MOCKREGISTER_JWK=`cat ./MockOBBRRegister.jwks`
+# MOCKREGISTER_PRIVATE_KEY=`cat ./MockOBBRRegister_rsa_private.pem`
+# set_cred "apigeetool addEntryToKVM" "--mapName mockOBBRRegister --entryName jwks --entryValue \"$MOCKREGISTER_JWK\" 1> /dev/null | echo Added entry for jwks"
+# set_cred "apigeetool addEntryToKVM" "--mapName mockOBBRRegister --entryName privateKey --entryValue \"$MOCKREGISTER_PRIVATE_KEY\"  1> /dev/null | echo Added entry for private key"
 
-echo "--->"  Creating KVM mockADRClient...
-set_cred "apigeetool createKVMmap" "--mapName mockADRClient --encrypted"
+echo "--->"  Creating KVM mockOBBRClient...
+set_cred "apigeetool createKVMmap" "--mapName mockOBBRClient --encrypted"
 echo "--->"  Adding entries to mockADRClient...
 MOCKCLIENT_JWKS=`cat ./OBBRTestApp.jwks`
 MOCKCLIENT_PRIVATE_KEY=`cat ./OBBRTestApp_rsa_private.pem`
-set_cred "apigeetool addEntryToKVM" "--mapName mockADRClient --entryName jwks --entryValue \"$MOCKCLIENT_JWKS\"  1> /dev/null | echo Added entry for jwks"
-set_cred "apigeetool addEntryToKVM" "--mapName mockADRClient --entryName privateKey --entryValue \"$MOCKCLIENT_PRIVATE_KEY\"   1> /dev/null | echo Added entry for private key"
+set_cred "apigeetool addEntryToKVM" "--mapName mockOBBRClient --entryName jwks --entryValue \"$MOCKCLIENT_JWKS\"  1> /dev/null | echo Added entry for jwks"
+set_cred "apigeetool addEntryToKVM" "--mapName mockOBBRClient --entryName privateKey --entryValue \"$MOCKCLIENT_PRIVATE_KEY\"   1> /dev/null | echo Added entry for private key"
 
 # Create KVM that will hold Apigee credentials (necessary for dynamic client registration operations), Apigee Private key and JWKS (Necessary for issuing JWT Tokens)
 echo "--->"  Creating KVM OBBRConfig...
