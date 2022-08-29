@@ -100,11 +100,6 @@ set_cred "apigeetool createKVMmap" "--mapName Consents --encrypted"
 echo "--->"  Creating cache ConsentState...
 set_cred "apigeetool createcache" "-z ConsentState --description \"Holds state during consent flow\" --cacheExpiryInSecs 600"
 
-# Create cache that will hold consent state (Used by basic consent management proxy)
-echo "--->"  Creating cache ConsentState...
-set_cred "apigeetool createcache" "-z ConsentState --description \"Holds state during consent flow\" --cacheExpiryInSecs 600"
-
-
 # KVM mockOBBRClient
 
  # Deploy Shared flows
