@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <Condition>(dummyVarWithNoValue = "some value") and (virtualhost.name != "secure-mtls")</Condition>
+        <FaultRules/>
+        <Name>RF-NonMTLS</Name>
+    </Step>
+    <Step>
+        <Condition>(verifyHok = "true") and (virtualhost.name = "secure-mtls") and (tls.client.cert.fingerprint != certFingerprintBoundToToken)</Condition>
+        <FaultRules/>
+        <Name>RF-CertificateFingerprintDoesNotMatch</Name>
+    </Step>
+</SharedFlow>
