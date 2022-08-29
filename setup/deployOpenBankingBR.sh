@@ -196,7 +196,7 @@ set_cred_org "apigeetool createDeveloper" "--email $OBBR_TEST_DEVELOPER_EMAIL --
 # Create a test app - Store the client key and secret
 echo "--->"  Creating Test App: OBBRTestApp...
 
-APP_CREDENTIALS=$(set_cred_org "apigeetool createApp" "--name OBBRTestApp --apiProducts \"OBBRAccounts,OBBROIDC\" --email $OBBR_TEST_DEVELOPER_EMAIL --json | jq .credentials[0]")
+APP_CREDENTIALS=$(set_cred_org "apigeetool createApp" "--name OBBRTestApp --apiProducts \"OBBRAccounts,OBBROIDC,OBBRConsents,OBBRResources\" --email $OBBR_TEST_DEVELOPER_EMAIL --json | jq .credentials[0]")
 APP_KEY=$(echo $APP_CREDENTIALS | jq -r .consumerKey)
 APP_SECRET=$(echo $APP_CREDENTIALS | jq -r .consumerSecret)
 
