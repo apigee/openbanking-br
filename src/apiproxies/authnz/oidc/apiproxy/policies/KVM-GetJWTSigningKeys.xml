@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KVM-GetJWTSigningKeys" mapIdentifier="CDSConfig">
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KVM-GetJWTSigningKeys" mapIdentifier="OBBRConfig">
     <DisplayName>KVM-GetJWTSigningKeys</DisplayName>
     <ExclusiveCache>false</ExclusiveCache>
     <ExpiryTimeInSecs>600</ExpiryTimeInSecs>
