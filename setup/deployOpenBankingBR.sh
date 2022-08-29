@@ -157,29 +157,29 @@ cd ../../../
 # Create products
 
 echo "--->"  Creating API Product: "Accounts"
-set_cred_org "apigeetool createProduct" "--productName \"OBBRAccounts\" --displayName \"Accounts\" --approvalType \"auto\" --productDesc \"Get access to Accounts APIs\" --proxies OBBR-Accounts --scopes \"bank:accounts.basic:read,bank:accounts.detail:read\" -environments $APIGEE_ENV"
+set_cred_org "apigeetool createProduct" "--productName \"OBBRAccounts\" --displayName \"Accounts\" --approvalType \"auto\" --productDesc \"Get access to Accounts APIs\" --proxies OBBR-Accounts --scopes \"bank:accounts.basic:read,bank:accounts.detail:read\" --environments $APIGEE_ENV"
 
 #echo "--->"  Creating API Product: "Transactions"
-#set_cred_org "apigeetool createProduct" "--productName \"OBBRTransactions\" --displayName \"Transactions\" --approvalType \"auto\" --productDesc \"Get access to Transactions APIs\" --proxies OBBR-Transactions --scopes \"bank:transactions:read\" -environments $APIGEE_ENV" 
+#set_cred_org "apigeetool createProduct" "--productName \"OBBRTransactions\" --displayName \"Transactions\" --approvalType \"auto\" --productDesc \"Get access to Transactions APIs\" --proxies OBBR-Transactions --scopes \"bank:transactions:read\" --environments $APIGEE_ENV" 
 
 echo "--->"  Creating API Product: "OIDC"
-set_cred_org "apigeetool createProduct" "--productName \"OBBROIDC\" --displayName \"OIDC\" --approvalType \"auto\" --productDesc \"Get access to authentication and authorisation requests\" --proxies oidc --scopes \"openid, profile\" -environments $APIGEE_ENV"
+set_cred_org "apigeetool createProduct" "--productName \"OBBROIDC\" --displayName \"OIDC\" --approvalType \"auto\" --productDesc \"Get access to authentication and authorisation requests\" --proxies oidc --scopes \"openid, profile\" --environments $APIGEE_ENV"
 
 # Create product for Consents
 echo "--->"  Creating API Product: "Consents"
-set_cred_org "apigeetool createProduct" "--productName \"OBBRConsents\" --displayName \"Consents\" --approvalType \"auto\" --productDesc \"Manage Consents\" --proxies OBBR-Consent --scopes \"consents\" -environments $APIGEE_ENV"
+set_cred_org "apigeetool createProduct" "--productName \"OBBRConsents\" --displayName \"Consents\" --approvalType \"auto\" --productDesc \"Manage Consents\" --proxies OBBR-Consent --scopes \"consents\" --environments $APIGEE_ENV"
 
 # Create product for Resources
 echo "--->"  Creating API Product: "Resources"
-set_cred_org "apigeetool createProduct" "--productName \"OBBRResources\" --displayName \"Resources\" --approvalType \"auto\" --productDesc \"Get access to Resources APIs\" --proxies OBBR-Resources --scopes \"resources\" -environments $APIGEE_ENV"
+set_cred_org "apigeetool createProduct" "--productName \"OBBRResources\" --displayName \"Resources\" --approvalType \"auto\" --productDesc \"Get access to Resources APIs\" --proxies OBBR-Resources --scopes \"resources\" --environments $APIGEE_ENV"
 
 # Create product for dynamic client registration
 #echo "--->"  Creating API Product: "DynamicClientRegistration"
-#set_cred_org "apigeetool createProduct" "--productName \"OBBRDynamicClientRegistration\" --displayName \"DynamicClientRegistration\" --approvalType \"auto\" --productDesc \"Dynamically register a client\" --proxies OBBR-DynamicClientRegistration --scopes \"cdr:registration\" -environments $APIGEE_ENV"
+#set_cred_org "apigeetool createProduct" "--productName \"OBBRDynamicClientRegistration\" --displayName \"DynamicClientRegistration\" --approvalType \"auto\" --productDesc \"Dynamically register a client\" --proxies OBBR-DynamicClientRegistration --scopes \"cdr:registration\" --environments $APIGEE_ENV"
 
 # Create product for Admin
 echo "--->"  Creating API Product: "Admin"
-set_cred_org "apigeetool createProduct" "--productName \"OBBRAdmin\" --displayName \"Admin\" --approvalType \"auto\" --productDesc \"Get access to Admin APIs\" --proxies OBBR-Admin --scopes \"admin:metadata:update,admin:metrics.basic:read\" -environments $APIGEE_ENV"
+set_cred_org "apigeetool createProduct" "--productName \"OBBRAdmin\" --displayName \"Admin\" --approvalType \"auto\" --productDesc \"Get access to Admin APIs\" --proxies OBBR-Admin --scopes \"admin:metadata:update,admin:metrics.basic:read\" --environments $APIGEE_ENV"
 
 
 # Create Dev
@@ -194,7 +194,7 @@ set_cred_org "apigeetool createDeveloper" "--email $OBBR_TEST_DEVELOPER_EMAIL --
 # Create app
 
 # Create a test app - Store the client key and secret
-echo "--->"  Creating Test App: OOBRTestApp...
+echo "--->"  Creating Test App: OBBRTestApp...
 
 APP_CREDENTIALS=$(set_cred_org "apigeetool createApp" "--name OBBRTestApp --apiProducts \"OBBRAccounts,OBBROIDC\" --email $OBBR_TEST_DEVELOPER_EMAIL --json | jq .credentials[0]")
 APP_KEY=$(echo $APP_CREDENTIALS | jq -r .consumerKey)

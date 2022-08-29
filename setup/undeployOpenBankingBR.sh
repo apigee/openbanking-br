@@ -56,7 +56,7 @@ function set_cred_org(){
 # Remove OBBR Test Client app
 # If no developer name has been set, use a default
 if [ -z "$OBBR_TEST_DEVELOPER_EMAIL" ]; then  OBBR_TEST_DEVELOPER_EMAIL=OBBR-Test-Developer@somefictitioustestcompany.com; fi;
-echo "--->"  Removing Test App: OOBRTestApp...
+echo "--->"  Removing Test App: OBBRTestApp...
 set_cred_org "apigeetool deleteApp" " --email $OBBR_TEST_DEVELOPER_EMAIL --name OBBRTestApp" 
 
 # Remove OBBR Test Developer
