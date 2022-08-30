@@ -100,9 +100,7 @@ set_cred "apigeetool createKVMmap" "--mapName Consents --encrypted"
 echo "--->"  Creating cache ConsentState...
 set_cred "apigeetool createcache" "-z ConsentState --description \"Holds state during consent flow\" --cacheExpiryInSecs 600"
 
-# KVM mockOBBRClient
-
- # Deploy Shared flows
+# Deploy Shared flows
 cd src/shared-flows
 for sf in $(ls .) 
 do 
@@ -112,7 +110,7 @@ do
     cd ..
 done
 
- # Deploy banking apiproxies
+# Deploy banking apiproxies
 cd ../apiproxies/banking
 for ap in $(ls .) 
 do 
@@ -144,14 +142,16 @@ echo "--->"  Deploying mock-obbr-client Apiproxy
 set_cred "apigeetool deployproxy" "-n mock-obbr-client"
 cd ..
 
-# Deploy authnz related Proxies
+# Deploy authnz related Proxies - Except oidc-mock-provider, this will be deployed at a later stage
 cd ../authnz
 for ap in $(ls .) 
 do 
-    echo "--->"  Deploying $ap Apiproxy
-    cd $ap
-    set_cred "apigeetool deployproxy" "-n $ap"
-    cd ..
+    if [ "$ap" != "oidc-mock-provider" ]; then
+       echo "--->"  Deploying $ap Apiproxy
+        cd $ap
+        set_cred "apigeetool deployproxy" "-n $ap"
+        cd ..
+    fi 
 done
 cd ../../../
 # Create products
@@ -211,7 +211,7 @@ curl https://api.enterprise.apigee.com/v1/organizations/$APIGEE_ORG/developers/$
   -d @./tmpReqBody.json
 rm ./tmpReqBody.json
 
-echo \n.. App created. When testing admin APIs use the following client_id: $APP_KEY
+echo \n.. App created. When testing OBBR APIs use the following client_id: $APP_KEY
 
 mkdir setup/certs
 cd setup/certs
@@ -245,7 +245,17 @@ OIDC_CLIENT_CONFIG=$(<../../src/apiproxies/authnz/oidc-mock-provider/apiproxy/re
 echo $APIGEE_CLIENT_ENTRY > ../../src/apiproxies/authnz/oidc-mock-provider/apiproxy/resources/hosted/support/clients.json
 echo "----"
 
+# Deploy oidc-mock-provider proxy now that the Apigee Client ID has been generated and added to the oidc-mock-provider configuration file
+pushd ../../src/apiproxies/authnz/
+ap=oidc-mock-provider
+echo "--->"  Deploying $ap Apiproxy
+cd $ap
+set_cred "apigeetool deployproxy" "-n $ap"
+cd ..
+popd
+
 # Create KVMs that will hold the JWKS and private Key for both the mock OBBR register, and the mock adr client
+# Not required for now...
 # echo "--->"  Creating KVM mockOBBRRegister...
 # set_cred "apigeetool createKVMmap" "--mapName mockOBBRRegister --encrypted"
 # echo "--->"  Adding entries to mockOBBRRegister...
@@ -271,6 +281,6 @@ set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName ApigeeAPI_
 OBBRREFIMPL_JWKS=`cat ./OBBRRefImpl.jwks`
 OBBRREFIMPL_PRIVATE_KEY=`cat ./OBBRRefImpl_rsa_private.pem`
 set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName JWTSignKeys_jwks --entryValue \"$OBBRREFIMPL_JWKS\"  1> /dev/null | echo Added entry for OBBR Ref Impl jwks"
-set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName JWTSignKeys_privateKey --entryValue "$OBBRREFIMPL_PRIVATE_KEY"   1> /dev/null | echo Added entry for OBBR Ref Impl private key"
+set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName JWTSignKeys_privateKey --entryValue \"$OBBRREFIMPL_PRIVATE_KEY\"   1> /dev/null | echo Added entry for OBBR Ref Impl private key"
 set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName ApigeeIDPCredentials_clientId --entryValue \"$OBBRREFIMPL_OIDC_CLIENT_ID\"  1> /dev/null | echo Added entry for OBBR Ref Impl credentials: client id in OIDC Provider"
 set_cred "apigeetool addEntryToKVM" "--mapName OBBRConfig --entryName ApigeeIDPCredentials_clientSecret --entryValue "$OBBRREFIMPL_OIDC_CLIENT_SECRET"   1> /dev/null | echo Added entry for OBBR Ref Impl credentials: client secret in OIDC Provider"
