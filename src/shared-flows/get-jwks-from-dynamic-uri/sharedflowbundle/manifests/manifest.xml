@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-ExtractJWKSFromResponse" version="SHA-512:f23506cb595b6622a751fd380035dd3c4f16a627a512378fbc9b74ef131592194a57fa0b1041663877e9a982312ceacc14c16da305e44ec3306b8c734f362346"/>
+        <VersionInfo resourceName="AM-RemoveProtocolFromJWKSURI" version="SHA-512:aa5c948443f6f36fc149026ca32d761b5052016707ebe72941e228368b7b5e0077b0b5d8f360ff791de5b9720f38fc273cdab1fcce56a8a9f56a0cd3a73bb606"/>
+        <VersionInfo resourceName="LC-RetrieveJWKSFromCache" version="SHA-512:70c698a7d90576ff816804cf873c7a05f11bdd6dc5b1d13a87246309bb5a5eb03eb18579c02a8c985ccfd9e46f40d1672b4335a12adfd400419c632214cca07b"/>
+        <VersionInfo resourceName="PC-StoreJWKS" version="SHA-512:a1b475d9492f9180981236f0b3951804ae2f25b32dfbe8c6b39b7da6ec8030b9a8cbf7c63046304670787484279dd2b2bc76ad38aa3ddf283865a7bf71645a24"/>
+        <VersionInfo resourceName="SC-RetrieveJWKSFromURI" version="SHA-512:9157e134e4a2073d2203ba418d166a2992e6c93af2ec4bc25bbd6599aa6ae0b8ac232f34fabd1869ff02d3f9a983e06511fb21f372d236bc588b159921a1dd0b"/>
+    </Policies>
+    <ProxyEndpoints/>
+    <Resources/>
+    <SharedFlows>
+        <VersionInfo resourceName="default" version="SHA-512:8ad2d8221bb2b7a1bd41c0b6191ba18645a34ac822cc8b2feda6c481d44df3cae84db225733b563664c083ae2751b0687beff6459919970bba68e1a4ed9cf18b"/>
+    </SharedFlows>
+    <TargetEndpoints/>
+</Manifest>
