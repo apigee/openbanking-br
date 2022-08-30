@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations encrypted="false" mapIdentifier="PPIDs" async="false" continueOnError="false" enabled="true" name="KVM-StoreNewPPId">
+    <DisplayName>KVM-StoreNewPPId</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+    <InitialEntries/>
+    <Put override="true">
+        <Key>
+            <Parameter ref="sectorId"></Parameter>
+            <Parameter ref="customerId"></Parameter>
+        </Key>
+        <Value ref="customerPPId"></Value>
+    </Put>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

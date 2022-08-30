@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations encrypted="false" mapIdentifier="PPIDs" async="false" continueOnError="false" enabled="true" name="KVM-LookupPPId">
+    <DisplayName>KVM-LookupPPId</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+    <InitialEntries/>
+    <Get assignTo="private.PPId">
+        <Key>
+            <Parameter ref="sectorId"></Parameter>
+            <Parameter ref="customerId"></Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

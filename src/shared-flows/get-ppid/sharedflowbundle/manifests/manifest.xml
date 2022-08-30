@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-CopyExistingPPId" version="SHA-512:ca769720ca4f7ec434accb7f8bc7e977d9b594098c26971179b14d0cc41c986c55c9c88629e4d6f70a531ff7089853fce6b97215b4fe666b40aa0e2acd9a59fb"/>
+        <VersionInfo resourceName="AM-GenerateNewPPId" version="SHA-512:236f142650539a143b7752a1f14d1dcd69ad5db2aa12d96ee3e72fc4c98e4cb71a7f77ff48586c044a57bcf764a92946d243d684267f611c25066524f75c49cf"/>
+        <VersionInfo resourceName="KVM-LookupPPId" version="SHA-512:9a36e027d11e0af9b11bda1f9d7f1ba6191ecc032470c8b4fd35c5fb9e775295b21d09c37fe2fd3327551dad1dec87a6b11fa6a318f3596f4996a8fd83a6e905"/>
+        <VersionInfo resourceName="KVM-StoreNewPPId" version="SHA-512:2938b297dfb66c42136d3b5035269fd77cce94f70c879ee4f100fe62c46482193bcc2cbdfa7c3f1be0241d84b68b189f15553a03e3bf7ba5da59185faaccff01"/>
+    </Policies>
+    <ProxyEndpoints/>
+    <Resources/>
+    <SharedFlows>
+        <VersionInfo resourceName="default" version="SHA-512:db08c95524a574eebed6dd00349025bb6c6371f6ee65a87303426d52a5bfdbdb90f320ef3e491fd2d8cd482d8132a05109347363d14f8b0d26dc70755dfc21cb"/>
+    </SharedFlows>
+    <TargetEndpoints/>
+</Manifest>
