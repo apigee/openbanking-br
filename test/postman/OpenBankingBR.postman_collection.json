@@ -3,7 +3,8 @@
 		"_postman_id": "416fe100-adae-4a49-aa33-0f36177cd390",
 		"name": "OpenBankingBR",
 		"description": "Test Collection for OpenBanking APIs (AU)",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3708908"
 	},
 	"item": [
 		{
@@ -126,7 +127,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"data\": {\n    \"loggedUser\": {\n      \"document\": {\n        \"identification\": \"11111111111\",\n        \"rel\": \"CPF\"\n      }\n    },\n    \"businessEntity\": {\n      \"document\": {\n        \"identification\": \"11111111111111\",\n        \"rel\": \"CNPJ\"\n      }\n    },\n    \"permissions\": {{permissions}},\n    \"expirationDateTime\": \"2022-05-21T08:30:00Z\"\n  }\n}",
+							"raw": "{\n  \"data\": {\n    \"loggedUser\": {\n      \"document\": {\n        \"identification\": \"11111111111\",\n        \"rel\": \"CPF\"\n      }\n    },\n    \"businessEntity\": {\n      \"document\": {\n        \"identification\": \"11111111111111\",\n        \"rel\": \"CNPJ\"\n      }\n    },\n    \"permissions\": {{permissions}},\n    \"expirationDateTime\": \"2024-05-21T08:30:00Z\"\n  }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -652,7 +653,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/mock-adr-client/privatekeyjwt?client_id={{client_id}}",
+							"raw": "https://{{org}}-{{env}}.apigee.net/mock-obbr-client/privatekeyjwt?client_id={{client_id}}",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -660,7 +661,7 @@
 								"net"
 							],
 							"path": [
-								"mock-adr-client",
+								"mock-obbr-client",
 								"privatekeyjwt"
 							],
 							"query": [
@@ -800,7 +801,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"data\": {\n    \"loggedUser\": {\n      \"document\": {\n        \"identification\": \"11111111111\",\n        \"rel\": \"CPF\"\n      }\n    },\n    \"businessEntity\": {\n      \"document\": {\n        \"identification\": \"11111111111111\",\n        \"rel\": \"CNPJ\"\n      }\n    },\n    \"permissions\": {{permissions}},\n    \"expirationDateTime\": \"2022-05-21T08:30:00Z\"\n  }\n}",
+							"raw": "{\n  \"data\": {\n    \"loggedUser\": {\n      \"document\": {\n        \"identification\": \"11111111111\",\n        \"rel\": \"CPF\"\n      }\n    },\n    \"businessEntity\": {\n      \"document\": {\n        \"identification\": \"11111111111111\",\n        \"rel\": \"CNPJ\"\n      }\n    },\n    \"permissions\": {{permissions}},\n    \"expirationDateTime\": \"2024-05-21T08:30:00Z\"\n  }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -842,7 +843,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/mock-adr-client/authrequest?aud=https://{{api_endpoint}}&client_id={{client_id}}&scope={{static_scope_escaped}}%20consent:{{consent_id}}&redirect_uri={{client_redirect_uri}}&requested_cpf=43908445778&is_cpf_essential=true&state=aaasdgaegeag",
+							"raw": "https://{{org}}-{{env}}.apigee.net/mock-obbr-client/authrequest?aud={{api_endpoint}}&client_id={{client_id}}&scope={{static_scope_escaped}}%20consent:{{consent_id}}&redirect_uri={{client_redirect_uri}}&requested_cpf=43908445778&is_cpf_essential=true&state=aaasdgaegeag",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -850,13 +851,13 @@
 								"net"
 							],
 							"path": [
-								"mock-adr-client",
+								"mock-obbr-client",
 								"authrequest"
 							],
 							"query": [
 								{
 									"key": "aud",
-									"value": "https://{{api_endpoint}}"
+									"value": "{{api_endpoint}}"
 								},
 								{
 									"key": "client_id",
@@ -1424,7 +1425,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/mock-adr-client/privatekeyjwt?client_id={{client_id}}",
+							"raw": "https://{{org}}-{{env}}.apigee.net/mock-obbr-client/privatekeyjwt?client_id={{client_id}}",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -1432,7 +1433,7 @@
 								"net"
 							],
 							"path": [
-								"mock-adr-client",
+								"mock-obbr-client",
 								"privatekeyjwt"
 							],
 							"query": [
@@ -1588,7 +1589,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/mock-adr-client/authrequest?aud=https://{{api_endpoint}}&client_id={{client_id}}&scope=consents&redirect_uri={{client_redirect_uri}}",
+							"raw": "https://{{org}}-{{env}}.apigee.net/mock-obbr-client/authrequest?aud={{api_endpoint}}&client_id={{client_id}}&scope=consents&redirect_uri={{client_redirect_uri}}",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -1596,13 +1597,13 @@
 								"net"
 							],
 							"path": [
-								"mock-adr-client",
+								"mock-obbr-client",
 								"authrequest"
 							],
 							"query": [
 								{
 									"key": "aud",
-									"value": "https://{{api_endpoint}}"
+									"value": "{{api_endpoint}}"
 								},
 								{
 									"key": "client_id",
@@ -1723,7 +1724,7 @@
 					"response": []
 				},
 				{
-					"name": "Consent - Step  0.5 Create Consent Copy 2",
+					"name": "Consent - Step  0.5 Create Consent",
 					"event": [
 						{
 							"listen": "test",
@@ -1758,7 +1759,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"data\": {\n    \"loggedUser\": {\n      \"document\": {\n        \"identification\": \"11111111111\",\n        \"rel\": \"CPF\"\n      }\n    },\n    \"businessEntity\": {\n      \"document\": {\n        \"identification\": \"11111111111111\",\n        \"rel\": \"CNPJ\"\n      }\n    },\n    \"permissions\": {{permissions}},\n    \"expirationDateTime\": \"2022-05-21T08:30:00Z\"\n  }\n}",
+							"raw": "{\n  \"data\": {\n    \"loggedUser\": {\n      \"document\": {\n        \"identification\": \"11111111111\",\n        \"rel\": \"CPF\"\n      }\n    },\n    \"businessEntity\": {\n      \"document\": {\n        \"identification\": \"11111111111111\",\n        \"rel\": \"CNPJ\"\n      }\n    },\n    \"permissions\": {{permissions}},\n    \"expirationDateTime\": \"2024-05-21T08:30:00Z\"\n  }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1800,7 +1801,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/mock-adr-client/authrequest?aud=https://{{api_endpoint}}&client_id={{client_id}}&scope={{static_scope_escaped}}%20consent:{{consent_id}}&redirect_uri={{client_redirect_uri}}&requested_cpf=43908445778&is_cpf_essential=true",
+							"raw": "https://{{org}}-{{env}}.apigee.net/mock-obbr-client/authrequest?aud={{api_endpoint}}&client_id={{client_id}}&scope={{static_scope_escaped}}%20consent:{{consent_id}}&redirect_uri={{client_redirect_uri}}&requested_cpf=43908445778&is_cpf_essential=true",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -1808,13 +1809,13 @@
 								"net"
 							],
 							"path": [
-								"mock-adr-client",
+								"mock-obbr-client",
 								"authrequest"
 							],
 							"query": [
 								{
 									"key": "aud",
-									"value": "https://{{api_endpoint}}"
+									"value": "{{api_endpoint}}"
 								},
 								{
 									"key": "client_id",
@@ -2215,7 +2216,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/mock-adr-client/privatekeyjwt?client_id={{client_id}}",
+							"raw": "https://{{org}}-{{env}}.apigee.net/mock-obbr-client/privatekeyjwt?client_id={{client_id}}",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -2223,7 +2224,7 @@
 								"net"
 							],
 							"path": [
-								"mock-adr-client",
+								"mock-obbr-client",
 								"privatekeyjwt"
 							],
 							"query": [
@@ -4808,7 +4809,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/mock-adr-client/jwks",
+							"raw": "https://{{org}}-{{env}}.apigee.net/mock-obbr-client/jwks",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4816,7 +4817,7 @@
 								"net"
 							],
 							"path": [
-								"mock-adr-client",
+								"mock-obbr-client",
 								"jwks"
 							]
 						}
@@ -4841,7 +4842,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/mock-adr-client/privatekeyjwt?client_id={{client_id}}",
+							"raw": "https://{{org}}-{{env}}.apigee.net/mock-obbr-client/privatekeyjwt?client_id={{client_id}}",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4849,7 +4850,7 @@
 								"net"
 							],
 							"path": [
-								"mock-adr-client",
+								"mock-obbr-client",
 								"privatekeyjwt"
 							],
 							"query": [
@@ -4885,7 +4886,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/mock-adr-client/authrequest?aud={{api_endpoint}}&client_id={{client_id}}&scope={{static_scope_escaped}}%20consent:urn:openbank:{{consent_id}}&redirect_uri={{client_redirect_uri}}&requested_cnpj=43908445778&is_cnpj_essential=true",
+							"raw": "https://{{org}}-{{env}}.apigee.net/mock-obbr-client/authrequest?aud={{api_endpoint}}&client_id={{client_id}}&scope={{static_scope_escaped}}%20consent:urn:openbank:{{consent_id}}&redirect_uri={{client_redirect_uri}}&requested_cnpj=43908445778&is_cnpj_essential=true",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4893,7 +4894,7 @@
 								"net"
 							],
 							"path": [
-								"mock-adr-client",
+								"mock-obbr-client",
 								"authrequest"
 							],
 							"query": [
