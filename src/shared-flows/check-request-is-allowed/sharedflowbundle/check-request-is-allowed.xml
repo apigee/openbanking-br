@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <SharedFlowBundle revision="3" name="check-request-is-allowed">
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1637808615289</CreatedAt>
-    <CreatedBy>deboraelkin@google.com</CreatedBy>
+    <CreatedAt>1631764993861</CreatedAt>
+    <CreatedBy>defaultUser</CreatedBy>
     <Description>Check whether an access token has sufficient permissions to execute a request, based on toekn validity and consent associated to the token</Description>
     <DisplayName>check-request-is-allowed</DisplayName>
-    <LastModifiedAt>1637808615289</LastModifiedAt>
+    <LastModifiedAt>1638332869439</LastModifiedAt>
     <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:088c1b42f3de05a0bf82ed58bfcd608027718ce90901307095f10feeb964d3ff84113be167effeb0bd90ff0852687fa89f79d1ffca5b0de5d9aa0d1b0dac497c:ap-southeast-2</ManifestVersion>
+    <ManifestVersion>SHA-512:3341a1a6537d3cd90ad3ac13ba1dbaa513c82956fc0e58da4d0dce06ef6e4f0e8e590ad359c72538a3cb1f798aacef80f2f0abe9d41d3cae85a5341df037534e:ap-southeast-2</ManifestVersion>
     <Policies>
+        <Policy>EV-ExtractConsentResources</Policy>
         <Policy>JS-checkScopeIsSufficient</Policy>
         <Policy>OA-VerifyToken</Policy>
         <Policy>RF-ConsentCheckFailed</Policy>
