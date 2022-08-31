@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <GenerateJWT async="false" continueOnError="false" enabled="true" name="JWT-GeneratePrivateKeyJWT">
     <DisplayName>JWT-GeneratePrivateKeyJWT</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Type>Signed</Type>
     <Algorithm>RS256</Algorithm>
     <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
     <PrivateKey>
         <Value ref="private.mockADRPrivateKey"/>
-        <Id>CDSTestApp</Id>
+        <Id>OBBRTestApp</Id>
     </PrivateKey>
-    <Issuer ref="request.queryparam.client_id"/>
-    <Subject ref="request.queryparam.client_id"/>
+    <OutputVariable>theJWT</OutputVariable>
+    <Audience ref="audVar"/>
+    <Compress>false</Compress>
     <ExpiresIn>30m</ExpiresIn>
     <Id/>
-    <Audience ref="audVar"/>
-    <OutputVariable>theJWT</OutputVariable>
+    <Issuer ref="request.queryparam.client_id"/>
+    <Subject ref="request.queryparam.client_id"/>
 </GenerateJWT>

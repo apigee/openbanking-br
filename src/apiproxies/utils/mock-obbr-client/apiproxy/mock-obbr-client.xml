@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <APIProxy revision="1" name="mock-obbr-client">
-    <Basepaths>/mock-cdr-register</Basepaths>
+    <Basepaths>/mock-obbr-client</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1647835724965</CreatedAt>
+    <CreatedAt>1661754702731</CreatedAt>
     <CreatedBy>deboraelkin@google.com</CreatedBy>
     <Description>Mock proxy that emulates endpoints an OBBR who wants to register a client needs to provide. Used to generate an authorization request</Description>
     <DisplayName>mock-obbr-client</DisplayName>
-    <LastModifiedAt>1647836023049</LastModifiedAt>
+    <LastModifiedAt>1661921286504</LastModifiedAt>
     <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:3b5e10d53a3e5cfe9733f264e11fe97aa95c25c11fa9b9163f45e694327c44421bf7b62504d4c703c768024bbc1076c6d12c96e0800293ad8a378cff1357276c:ap-southeast-2</ManifestVersion>
+    <ManifestVersion>SHA-512:a74b221339271f06d5875c19b94b942f13c60e2340b9e26850839bcd9279a58f40df660838820f59a02b6f48aa525bf50ba06f39bc994f845b4b488fe55c597c:ap-southeast-2</ManifestVersion>
     <Policies>
         <Policy>AM-AddSectorIdToSSARequest</Policy>
         <Policy>AM-SetMockJWKSInfo</Policy>

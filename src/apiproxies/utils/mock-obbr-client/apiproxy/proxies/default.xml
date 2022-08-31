@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
-    <PreFlow name="PreFlow">
-        <Request>
-            <Step>
-                <Name>KVM-GetMockADRKeys</Name>
-            </Step>
-        </Request>
-        <Response/>
-    </PreFlow>
+    <Description/>
     <Flows>
         <Flow name="Get JWKS">
             <Description>Return hardcoded JWKS info. Necessary for verifying request token in Dynamic Client registration request</Description>
@@ -91,7 +84,6 @@
             <Description>Method Not Allowed</Description>
             <Request>
                 <Step>
-                    <FaultRules/>
                     <Name>RF-UnsupportedMethod</Name>
                 </Step>
             </Request>
@@ -102,7 +94,6 @@
             <Description>Not Found</Description>
             <Request>
                 <Step>
-                    <FaultRules/>
                     <Name>RF-NotFound</Name>
                 </Step>
             </Request>
@@ -113,8 +104,18 @@
         <Request/>
         <Response/>
     </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                
+                <Name>KVM-GetMockADRKeys</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
     <HTTPProxyConnection>
-        <BasePath>/mock-adr-client</BasePath>
+        <BasePath>/mock-obbr-client</BasePath>
+        <Properties/>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
     <RouteRule name="noroute"/>
