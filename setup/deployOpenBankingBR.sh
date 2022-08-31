@@ -157,7 +157,7 @@ cd ../../../
 # Create products
 
 echo "--->"  Creating API Product: "Accounts"
-set_cred_org "apigeetool createProduct" "--productName \"OBBRAccounts\" --displayName \"Accounts\" --approvalType \"auto\" --productDesc \"Get access to Accounts APIs\" --proxies OBBR-Accounts --scopes \"bank:accounts.basic:read,bank:accounts.detail:read\" --environments $APIGEE_ENV"
+set_cred_org "apigeetool createProduct" "--productName \"OBBRAccounts\" --displayName \"Accounts\" --approvalType \"auto\" --productDesc \"Get access to Accounts APIs\" --proxies OBBR-Accounts --scopes \"accounts\" --environments $APIGEE_ENV"
 
 #echo "--->"  Creating API Product: "Transactions"
 #set_cred_org "apigeetool createProduct" "--productName \"OBBRTransactions\" --displayName \"Transactions\" --approvalType \"auto\" --productDesc \"Get access to Transactions APIs\" --proxies OBBR-Transactions --scopes \"bank:transactions:read\" --environments $APIGEE_ENV" 
