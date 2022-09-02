@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JS-CheckIfCNPJRequestedAndValueExpected">
-    <DisplayName>JS-CheckIfCNPJRequestedAndValueExpected</DisplayName>
-    <Properties>
-        <Property name="claimName">cnpj</Property>
-    </Properties>
-    <ResourceURL>jsc://checkIfClaimRequestedAndValueExpected.js</ResourceURL>
-</Javascript>
