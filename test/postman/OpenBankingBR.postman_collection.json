@@ -135,7 +135,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v1/consents",
+							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v2/consents",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -144,7 +144,7 @@
 							],
 							"path": [
 								"consents",
-								"v1",
+								"v2",
 								"consents"
 							]
 						}
@@ -809,7 +809,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v1/consents",
+							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v2/consents",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -818,7 +818,7 @@
 							],
 							"path": [
 								"consents",
-								"v1",
+								"v2",
 								"consents"
 							]
 						}
@@ -1767,7 +1767,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v1/consents",
+							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v2/consents",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -1776,7 +1776,7 @@
 							],
 							"path": [
 								"consents",
-								"v1",
+								"v2",
 								"consents"
 							]
 						}
@@ -4173,7 +4173,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v1/consents",
+							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v2/consents",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4182,7 +4182,7 @@
 							],
 							"path": [
 								"consents",
-								"v1",
+								"v2",
 								"consents"
 							]
 						}
@@ -4211,7 +4211,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v1/consents/{{consent_id}}",
+							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v2/consents/{{consent_id}}",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4220,7 +4220,7 @@
 							],
 							"path": [
 								"consents",
-								"v1",
+								"v2",
 								"consents",
 								"{{consent_id}}"
 							]
@@ -4250,7 +4250,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v1/consents/{{consent_id}}",
+							"raw": "https://{{org}}-{{env}}.apigee.net/consents/v2/consents/{{consent_id}}",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4259,7 +4259,7 @@
 							],
 							"path": [
 								"consents",
-								"v1",
+								"v2",
 								"consents",
 								"{{consent_id}}"
 							]
@@ -4309,7 +4309,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/resources/v1/resources",
+							"raw": "https://{{org}}-{{env}}.apigee.net/resources/v2/resources",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4318,7 +4318,7 @@
 							],
 							"path": [
 								"resources",
-								"v1",
+								"v2",
 								"resources"
 							],
 							"query": [
@@ -4374,7 +4374,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/resources/v1/resources",
+							"raw": "https://{{org}}-{{env}}.apigee.net/resources/v2/resources",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4383,7 +4383,7 @@
 							],
 							"path": [
 								"resources",
-								"v1",
+								"v2",
 								"resources"
 							],
 							"query": [
