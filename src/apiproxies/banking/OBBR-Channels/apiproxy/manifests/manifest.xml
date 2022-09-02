@@ -2,25 +2,25 @@
 <Manifest name="manifest">
     <Policies>
         <VersionInfo resourceName="AM-Add-CORS-Headers" version="SHA-512:137c9e693b4cf876950521cf5678622976ae5f993f37ae9980dde5c04fd360c729829f2cc97360c34e9044ca876001a8b7192b1a67a3b1580fbb1fa056389091"/>
-        <VersionInfo resourceName="AM-MockATMs" version="SHA-512:427ec9057876f7c122f14392ad52488514b5c2f61b086311f11770185e0be3cec81a957a602b37180f49fb85dd696b3e51a53d7c2ce711c417a88130c91ecc04"/>
-        <VersionInfo resourceName="AM-MockBankingAgents" version="SHA-512:4a011147136e9d77215dd7e52d50f1c26f71dd4c1fa0a6e95c5b68dbe29ddde3a503b08fa170689932cb473017ff756068c9e83e51a97f66055bef2e75e0ec31"/>
-        <VersionInfo resourceName="AM-MockBranches" version="SHA-512:b931d40df7a6e6cd04dfcf763a83e931b3fda51cebae979a29bbcb33a7d70a1d1c5cddd1750bf7ff956ce58a47168e69e6fb99989552aff46f2e36b946266c56"/>
-        <VersionInfo resourceName="AM-MockElectronicChannels" version="SHA-512:fccf3113163ea4aefcc599596fbe6a02b5ddd0dfc44ee477e0a059081025301ed7e24cf72bc17376654c2860e680f741b69b89f54604487a9a942585871d7b50"/>
-        <VersionInfo resourceName="AM-MockPhoneChannels" version="SHA-512:dbaf15b298a55b001e94625ff759f9c884f86962e470daa4cc7cc382ae348510d1085a6e0f09d6c03029da9e1891596b37b2dc0d2d8455de9bc44997627373c1"/>
-        <VersionInfo resourceName="AM-Set-Meta-Link-Settings-For-Error-Response" version="SHA-512:4155e4c8318748c3f992769b55f85a6b79a28e5a7e2f154fd47f5fd4308d2aec130cafdf602d76e7aa2ca6efdded7ec835620cb48edf2b7c5f751f9f5858be77"/>
-        <VersionInfo resourceName="AM-Set-Pagination-Settings" version="SHA-512:5106568ffc2b2c44de89e23d411ee103c1f1aa500e61c8cb334349489cbe7e7d6e7f5e3a35ce06ba3a7c32dbc522d417a3532f13e64b951a4562a008afd81c4d"/>
+        <VersionInfo resourceName="AM-MockATMs" version="SHA-512:f0c6217e05ad546ab765ca5b124fb6153aaf1bfe72df36fb138e71b0e01f0a781059432d6c559227da2868682bdbd2ddc9d40ad7c975d888fdb59a1a88105c09"/>
+        <VersionInfo resourceName="AM-MockBankingAgents" version="SHA-512:765b50d48a4b13e554d30602110c335eed4874582a2f97a9e8b01c6e0894a5bb654e06139e29b364c45c708b110451f8a3b06a14d33682dd64c6c6023a031f5c"/>
+        <VersionInfo resourceName="AM-MockBranches" version="SHA-512:159e4e341778b38226c288e6b0458da64e6f617e0cc2a7abb0b454176326c7c5291d007bdbb4a100e4c01c3a9702d5deb6a62c7f01c18e38a9173f886af47667"/>
+        <VersionInfo resourceName="AM-MockElectronicChannels" version="SHA-512:ea660b1245b8c7cc803d42874695e6db20d55d6060f0a5d68c3966ff010119e900595d55af7ad7473d76168a0ae7595ce7746ad86d113011a0cca0473ed68894"/>
+        <VersionInfo resourceName="AM-MockPhoneChannels" version="SHA-512:874d909757d57238db517654a586effe73ea7710c4a666921d59c0f8dd02f774428c309496f8759a453ae6fd3d93f1cfe0206f2a9524de06a1cc5db345f53635"/>
+        <VersionInfo resourceName="AM-Set-Meta-Link-Settings-For-Error-Response" version="SHA-512:8abab8d8fe5660c60918e725a21c21740f8214b6fda38f0321d7f790e5d3539cf78ef9481ecf133735732f6efb10073d14340559f98280c5f5110ee42cd6b722"/>
+        <VersionInfo resourceName="AM-Set-Pagination-Settings" version="SHA-512:f54aad61493563be03e4ff083b27233e294270c07e68c874e796aa2ed2bc648e9ad58a9688de09c1b8f20596aef3dfa9d805775a5efe5370917a766dc9359d0f"/>
         <VersionInfo resourceName="FC-AddFAPIInteractionId" version="SHA-512:cac97c501811601f3305b67997dbb38b2e5d7631b0372cf4ba2622ea28459810fedb798b657f5f2407bf2c3af7ca9c24403e7620cecef3bd8ea6a1b8e68c7b43"/>
         <VersionInfo resourceName="FC-AddResponseHeaders-Link-Meta" version="SHA-512:78f3541fc8a112fc73bb0d09d5b767a554d34dfdfed6962232388e454a15f6d18499aa6f158e74ab4895fbe53f098aecc92f6c1e29750e2caaa61724343bc612"/>
         <VersionInfo resourceName="FC-CheckRequestHeaders" version="SHA-512:5b2ad6beed370945c3f80cbbfe381ba5f4210637a358598c032049cd2c9f360c133b64ded5be5f9be5b5b7272af3ed743abbcedbb324e5a406e81140680bebb6"/>
         <VersionInfo resourceName="FC-CollectPerformanceSLO" version="SHA-512:a9b222146542fbfaf60ca59259f4e95151124f18a64d2f4f10cafdeb80166773c3d8ed29c40125ff4dc347e9f63a9e9dba2e14563f50cb5956821a6598411229"/>
         <VersionInfo resourceName="FC-PaginateResponse" version="SHA-512:8c19e55d5eb9514aa0990d2e5dce46d944880ddd89c6339f9d76270a6800a2ca8255e9ea062e3910e8ffb51d8bf68fce49f14042d78be7dfa2ff39eb532a5406"/>
-        <VersionInfo resourceName="FC-TrafficThresholds" version="SHA-512:e455afc8efb7834fc23670b78fa9b555369ad612c3386a781b1cf0d872d73bac4c9d97ae6aa5faa358317998edbc56f8639249aa5cb229f10fea682f37ff507a"/>
-        <VersionInfo resourceName="FC-ValidateRequestParams" version="SHA-512:33ff31c43ffc0e0c647aa16351049d46cbe1bf6691de871f9434c7b59c5221b0befea8555a86944d75b5046079053ca9f9b6ea451fb1e3956483f4375cbca61f"/>
+        <VersionInfo resourceName="FC-TrafficThresholds" version="SHA-512:208ac9c068b489fbe560ef1c19d842016de8ba73415eb42ee4ad7515de78dc2f6111a72b348ecbb83d46f55dc2d3eff71fb580c31a58ba7aadc1e6064767d31c"/>
+        <VersionInfo resourceName="FC-ValidateRequestParams" version="SHA-512:d2cb522faa1bfd3d0328d3600c1fa33d3c1de330f11eda0ee677b589126b3d10ba9a455fca48eaf54f7fe4b392f2878a2b314c114ae7f104058c4977d50d7ffa"/>
         <VersionInfo resourceName="RF-NotFound" version="SHA-512:dd8c233ed6dd3ee535323424b9a23a9814a67b806688179cb68f1f6d05a7269489074030dccccbc8cbba1504fb41d01b2bd68ca4df314d0ff07472df82f58d42"/>
         <VersionInfo resourceName="RF-UnsupportedMethod" version="SHA-512:07e6655bc3c0a7514fbce38ead742f8fb8a069a0aa4f18fe65a3c24490e7e0664a24f2714ebe5e4f733eda7a076ee049a67f3a028f2892d766b49d5db849d36f"/>
     </Policies>
     <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:bf73008206e15e6a7703d76bd12cef239fc623b8ad1c94540883631f99330b3226ce01a8cea5c8e01f81ecec5b5db672dd02f6e8f2cdff16cb11fbb9a8591ef7"/>
+        <VersionInfo resourceName="default" version="SHA-512:56d851cbe77dcc8c846abdcfb644703fba01023cd62d3aeddd92d9b44991d3f2311c3b9c5d91ca3dcedfd5f877c9296ed6063465cffd3386d876dc5f11a907a6"/>
     </ProxyEndpoints>
     <Resources/>
     <SharedFlows/>

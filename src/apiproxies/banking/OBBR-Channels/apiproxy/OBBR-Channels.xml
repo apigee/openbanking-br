@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="3" name="OBBR-Channels">
+<APIProxy revision="2" name="OBBR-Channels">
     <Basepaths>/channels/v1</Basepaths>
-    <Basepaths></Basepaths>
-    <Basepaths></Basepaths>
-    <Basepaths></Basepaths>
-    <Basepaths></Basepaths>
-    <Basepaths></Basepaths>
+    <Basepaths>/channels/v1</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1623045665825</CreatedAt>
-    <CreatedBy>defaultUser</CreatedBy>
+    <CreatedAt>1662089381886</CreatedAt>
+    <CreatedBy>deboraelkin@google.com</CreatedBy>
     <Description>Channels APIs - Open Banking BR Phase 1</Description>
     <DisplayName>OBBR-Channels</DisplayName>
-    <LastModifiedAt>1637885622810</LastModifiedAt>
+    <LastModifiedAt>1662089381886</LastModifiedAt>
     <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:63c90b5479426422aa4dc82669bbbbfab6276b0bbe487c6445ec4580f8366cb527851c4640c9afa37a7c00d096609640a02f03c4c18b3655adbb7c12634bf844:ap-southeast-2</ManifestVersion>
+    <ManifestVersion>SHA-512:7e0f1c5a9bf1964cf25ce0b6f6a1c42e55aa6ad8c2f31b042446464aab724d354155a3e090939fb7c31f8734f2ae9606560762b585a3aae515abedcae827156a</ManifestVersion>
     <Policies>
         <Policy>AM-Add-CORS-Headers</Policy>
         <Policy>AM-MockATMs</Policy>
