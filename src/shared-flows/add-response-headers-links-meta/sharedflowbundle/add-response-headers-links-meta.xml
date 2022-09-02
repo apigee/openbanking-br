@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<SharedFlowBundle revision="3" name="add-response-headers-links-meta">
+<SharedFlowBundle revision="2" name="add-response-headers-links-meta">
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1622008065908</CreatedAt>
-    <CreatedBy>deboraelkin+cdsadmin@gmail.com</CreatedBy>
+    <CreatedAt>1661925398724</CreatedAt>
+    <CreatedBy>deboraelkin@google.com</CreatedBy>
     <Description>Add mandatory headers to response - Meta Information - Links (If applicable)</Description>
     <DisplayName>add-response-headers-links-meta</DisplayName>
-    <LastModifiedAt>1637813109566</LastModifiedAt>
+    <LastModifiedAt>1662094931776</LastModifiedAt>
     <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:ee0a81d8e5cc1a3efaeeba1e989942ce47586db24c6b5f3a94b40229cde25c08764ab775d9b75ae9609ac3c795eb2ed37cde66ca533cb6cf0e2a66a64c0669e6:ap-southeast-2</ManifestVersion>
+    <ManifestVersion>SHA-512:900a6ab79f34bcdee5662107dbb6d0ab37f231445c4297ce50b4d4953ce5170a7ab8f83669632fd5c9dfc05b61d116357afd12340990c02b545796d31caa6f6b:ap-southeast-2</ManifestVersion>
     <Policies>
         <Policy>AM-Add-CORS-Headers</Policy>
         <Policy>AM-Set-Content-Type-And-Version-Headers</Policy>
-        <Policy>AM-SetAPIVersionTo1-0-2</Policy>
-        <Policy>AM-SetAPIVersionTo1-0-3</Policy>
+        <Policy>AM-SetAPIVersionTo1</Policy>
+        <Policy>AM-SetAPIVersionTo2</Policy>
         <Policy>AM-SetRequestDateTime</Policy>
         <Policy>FC-AddFAPIInteractionId</Policy>
         <Policy>JS-Add-Links-Meta-To-Response</Policy>

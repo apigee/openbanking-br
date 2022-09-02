@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <SharedFlow name="default">
     <Step>
-        <Name>AM-SetAPIVersionTo1-0-2</Name>
-        <Condition>(proxy.basepath != "/consents/v1") and (proxy.basepath != "/accounts/v1/accounts")</Condition>
+        <Condition>(proxy.basepath != "/consents/v2") and (proxy.basepath != "/accounts/v2") and (proxy.basepath != "/resources/v2")</Condition>
+        <FaultRules/>
+        <Name>AM-SetAPIVersionTo1</Name>
     </Step>
     <Step>
-        <Name>AM-SetAPIVersionTo1-0-3</Name>
-        <Condition>(proxy.basepath = "/consents/v1") or (proxy.basepath = "/accounts/v1/accounts")</Condition>
+        <Condition>(proxy.basepath = "/consents/v2") or (proxy.basepath = "/accounts/v2") or (proxy.basepath = "/resources/v2")</Condition>
+        <FaultRules/>
+        <Name>AM-SetAPIVersionTo2</Name>
     </Step>
     <Step>
+        <FaultRules/>
         <Name>AM-Set-Content-Type-And-Version-Headers</Name>
     </Step>
     <Step>
@@ -20,10 +23,12 @@
         <Name>AM-Add-CORS-Headers</Name>
     </Step>
     <Step>
+        <FaultRules/>
         <Name>AM-SetRequestDateTime</Name>
     </Step>
     <Step>
-        <Name>JS-Add-Links-Meta-To-Response</Name>
         <Condition>(message.content != null) and (message.content != "") </Condition>
+        <FaultRules/>
+        <Name>JS-Add-Links-Meta-To-Response</Name>
     </Step>
 </SharedFlow>
