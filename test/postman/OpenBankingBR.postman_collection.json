@@ -4449,7 +4449,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v1/accounts",
+							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v2/accounts",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4458,7 +4458,7 @@
 							],
 							"path": [
 								"accounts",
-								"v1",
+								"v2",
 								"accounts"
 							],
 							"query": [
@@ -4519,7 +4519,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v1/accounts",
+							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v2/accounts",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4528,7 +4528,7 @@
 							],
 							"path": [
 								"accounts",
-								"v1",
+								"v2",
 								"accounts"
 							],
 							"query": [
@@ -4589,7 +4589,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v1/accounts/{{account_id}}",
+							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v2/accounts/{{account_id}}",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4598,7 +4598,7 @@
 							],
 							"path": [
 								"accounts",
-								"v1",
+								"v2",
 								"accounts",
 								"{{account_id}}"
 							]
@@ -4643,7 +4643,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v1/accounts/{{account_id}}/balances",
+							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v2/accounts/{{account_id}}/balances",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4652,7 +4652,7 @@
 							],
 							"path": [
 								"accounts",
-								"v1",
+								"v2",
 								"accounts",
 								"{{account_id}}",
 								"balances"
@@ -4698,7 +4698,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v1/accounts/{{account_id}}/transactions",
+							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v2/accounts/{{account_id}}/transactions",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4707,7 +4707,7 @@
 							],
 							"path": [
 								"accounts",
-								"v1",
+								"v2",
 								"accounts",
 								"{{account_id}}",
 								"transactions"
@@ -4731,6 +4731,73 @@
 								{
 									"key": "page",
 									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page-size",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Current Transactions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-fapi-auth-date",
+								"value": "2021-09-22",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-customer-ip-address",
+								"value": "168.0.0.1",
+								"type": "text"
+							},
+							{
+								"key": "x-fapi-interaction-id",
+								"value": "sadjgojg2",
+								"type": "text"
+							},
+							{
+								"key": "x-customer-user-agent",
+								"value": "theAgent",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v2/accounts/{{account_id}}/transactions-current",
+							"protocol": "https",
+							"host": [
+								"{{org}}-{{env}}",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"accounts",
+								"v2",
+								"accounts",
+								"{{account_id}}",
+								"transactions-current"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
 									"disabled": true
 								},
 								{
@@ -4780,7 +4847,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v1/accounts/{{account_id}}/overdraft-limits",
+							"raw": "https://{{org}}-{{env}}.apigee.net/accounts/v2/accounts/{{account_id}}/overdraft-limits",
 							"protocol": "https",
 							"host": [
 								"{{org}}-{{env}}",
@@ -4789,7 +4856,7 @@
 							],
 							"path": [
 								"accounts",
-								"v1",
+								"v2",
 								"accounts",
 								"{{account_id}}",
 								"overdraft-limits"

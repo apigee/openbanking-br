@@ -11,9 +11,11 @@
             <Name>FC-AddFAPIInteractionId</Name>
         </Step>
         <Step>
+            <FaultRules/>
             <Name>AM-Set-Meta-Link-Settings-For-Error-Response</Name>
         </Step>
         <Step>
+            <FaultRules/>
             <Name>FC-AddResponseHeaders-Link-Meta</Name>
         </Step>
         <Step>
@@ -84,6 +86,7 @@
                     <Name>AM-CopyListOfAllAccountsToAllResults</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>AM-Set-Pagination-Settings-AccountDetails</Name>
                 </Step>
             </Request>
@@ -103,6 +106,7 @@
             <Description>Obtém os saldos da conta identificada por accountId.</Description>
             <Request>
                 <Step>
+                    <FaultRules/>
                     <Name>AM-MockFullListOfBalances</Name>
                 </Step>
                 <Step>
@@ -110,6 +114,7 @@
                     <Name>EV-GetAllBalancesForCustomer</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>AM-Set-Pagination-Settings-AccountDetails</Name>
                 </Step>
             </Request>
@@ -129,41 +134,92 @@
             <Description>Obtém a lista de transações da conta identificada por accountId.</Description>
             <Request>
                 <Step>
+                    <FaultRules/>
                     <Name>FC-ValidateTxRequestParams</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>AM-MockFullListOfTransactionsAndValidAccounts</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>EV-GetAllTransactionsForCustomer</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>JS-ModifyDatesInMockTransactions</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>EV-GetTransactionsFilterCriteria</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>AM-Set-Pagination-Settings</Name>
                 </Step>
             </Request>
             <Response>
                 <Step>
+                    <FaultRules/>
                     <Name>JS-FilterTransactionsListBasedOnRequestFilters</Name>
                 </Step>
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/transactions") and (request.verb = "GET")</Condition>
         </Flow>
+        <Flow name="Get Account current transactions">
+            <Description>Obtém a lista de transações recentes (ultimos 7 dias) da conta identificada por accountId.</Description>
+            <!-- Since the mock transactions are artificially generated for the last 3 days, this implementation is identical to get transactions
+                 except it makes sure to remove any transaction search parameters, to make sure they are ignored -->
+            <Request>
+                <Step>
+                    <Name>AM-RemoveTxSearchParams</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>FC-ValidateTxRequestParams</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-MockFullListOfTransactionsAndValidAccounts</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-GetAllTransactionsForCustomer</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-ModifyDatesInMockTransactions</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>EV-GetTransactionsFilterCriteria</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>AM-Set-Pagination-Settings</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>JS-FilterTransactionsListBasedOnRequestFilters</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/transactions-current") and (request.verb = "GET")</Condition>
+        </Flow>
         <Flow name="Get Account limits">
             <Description>Obtém os limites da conta identificada por accountId.</Description>
             <Request>
                 <Step>
+                    <FaultRules/>
                     <Name>AM-MockFullListOfLimits</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>EV-GetAllLimitsForCustomer</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>AM-Set-Pagination-Settings-AccountDetails</Name>
                 </Step>
             </Request>
@@ -205,6 +261,7 @@
         <Request/>
         <Response>
             <Step>
+                <FaultRules/>
                 <Name>FC-PaginateResponse</Name>
             </Step>
             <Step>
@@ -232,27 +289,33 @@
                 <Name>FC-VerifyHoK</Name>
             </Step>
             <Step>
-                <Name>AM-SetReqPermissionToRead</Name>
                 <Condition>((proxy.pathsuffix = "/accounts") or (proxy.pathsuffix MatchesPath "/accounts/{theAccountId}") ) and (request.verb = "GET")</Condition>
+                <FaultRules/>
+                <Name>AM-SetReqPermissionToRead</Name>
             </Step>
             <Step>
-                <Name>AM-SetReqPermissionToBalancesRead</Name>
                 <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/balances") and (request.verb = "GET")</Condition>
+                <FaultRules/>
+                <Name>AM-SetReqPermissionToBalancesRead</Name>
             </Step>
             <Step>
+                <Condition>( (proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/transactions") or (proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/transactions-current") ) and (request.verb = "GET")</Condition>
+                <FaultRules/>
                 <Name>AM-SetReqPermissionToTransactionsRead</Name>
-                <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/transactions") and (request.verb = "GET")</Condition>
             </Step>
             <Step>
-                <Name>AM-SetReqPermissionToLimitsRead</Name>
                 <Condition>(proxy.pathsuffix MatchesPath "/accounts/{theAccountId}/overdraft-limits") and (request.verb = "GET")</Condition>
+                <FaultRules/>
+                <Name>AM-SetReqPermissionToLimitsRead</Name>
             </Step>
             <Step>
-                <Name>EV-AccountIdFromURL</Name>
                 <Condition>(proxy.pathsuffix != "/accounts")</Condition>
+                <FaultRules/>
+                <Name>EV-AccountIdFromURL</Name>
             </Step>
             <Step>
-                <Name>FC-CheckRequesIsAllowed</Name>
+                <FaultRules/>
+                <Name>FC-CheckRequestIsAllowed</Name>
             </Step>
             <Step>
                 <FaultRules/>
@@ -270,7 +333,7 @@
         <Response/>
     </PreFlow>
     <HTTPProxyConnection>
-        <BasePath>/accounts/v1</BasePath>
+        <BasePath>/accounts/v2</BasePath>
         <Properties/>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>

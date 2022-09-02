@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<FlowCallout async="false" continueOnError="false" enabled="true" name="FC-CheckRequesIsAllowed">
-    <DisplayName>FC-CheckRequesIsAllowed</DisplayName>
+<FlowCallout async="false" continueOnError="false" enabled="true" name="FC-CheckRequestIsAllowed">
+    <DisplayName>FC-CheckRequestIsAllowed</DisplayName>
     <FaultRules/>
     <Properties/>
-    <SharedFlowBundle>check-request-is-allowed</SharedFlowBundle>
     <Parameters ignoreUnresolvedVariables="true">
         <Parameter name="theRequiredScope">accounts</Parameter>
         <Parameter name="theRequiredPermission" ref="requiredPermission"/>
         <Parameter name="theRequiredResource" ref="theAccountId"/>
     </Parameters>
+    <SharedFlowBundle>check-request-is-allowed</SharedFlowBundle>
 </FlowCallout>

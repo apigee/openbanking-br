@@ -16,8 +16,10 @@
                 "creditDebitType": "CREDITO",
                 "transactionName": "Salario",
                 "type": "PORTABILIDADE_SALARIO",
-                "amount": "3000.00",
-                "transactionCurrency": "BRL",
+                "transactionAmount": {
+                  "amount": "3000.00",
+                  "currency": "BRL"
+                 },
                 "transactionDate": "2018-12-12",
                 "partieCnpjCpf": "43908445778",
                 "partiePersonType": "PESSOA_NATURAL",
@@ -33,8 +35,10 @@
                 "creditDebitType": "DEBITO",
                 "transactionName": "Pago emprestimo",
                 "type": "TRANSFERENCIA_MESMA_INSTITUICAO",
-                "amount": "-1000.00",
-                "transactionCurrency": "BRL",
+                "transactionAmount": {
+                  "amount": "-1000.00",
+                  "currency": "BRL"
+                 },
                 "transactionDate": "2018-12-12",
                 "partieCnpjCpf": "43908445778",
                 "partiePersonType": "PESSOA_NATURAL",
@@ -50,8 +54,10 @@
                 "creditDebitType": "DEBITO",
                 "transactionName": "Pago cena Joao",
                 "type": "PIX",
-                "amount": "-100.00",
-                "transactionCurrency": "BRL",
+                "transactionAmount": {
+                  "amount": "-100.00",
+                  "currency": "BRL"
+                 },
                 "transactionDate": "2018-12-13",
                 "partieCnpjCpf": "43908445778",
                 "partiePersonType": "PESSOA_NATURAL",
@@ -67,8 +73,10 @@
                 "creditDebitType": "DEBITO",
                 "transactionName": "Pago servico gas",
                 "type": "PIX",
-                "amount": "-50.00",
-                "transactionCurrency": "BRL",
+                "transactionAmount": {
+                  "amount": "-50.00",
+                  "currency": "BRL"
+                 },
                 "transactionDate": "2018-12-14",
                 "partieCnpjCpf": "43908445778",
                 "partiePersonType": "PESSOA_NATURAL",
@@ -84,8 +92,10 @@
                 "completedAuthorisedPaymentType": "TRANSACAO_EFETIVADA",
                 "transactionName": "Salario",
                 "type": "PORTABILIDADE_SALARIO",
-                "amount": "3000.00",
-                "transactionCurrency": "BRL",
+                "transactionAmount": {
+                  "amount": "3000.00",
+                  "currency": "BRL"
+                 },
                 "transactionDate": "2018-12-12",
                 "partieCnpjCpf": "43908445778",
                 "partiePersonType": "PESSOA_NATURAL",
@@ -101,8 +111,10 @@
                 "creditDebitType": "DEBITO",
                 "transactionName": "Pago a Marcela",
                 "type": "PIX",
-                "amount": "-20.00",
-                "transactionCurrency": "BRL",
+                "transactionAmount": {
+                  "amount": "-20.00",
+                  "currency": "BRL"
+                 },
                 "transactionDate": "2018-12-13",
                 "partieCnpjCpf": "43908445778",
                 "partiePersonType": "PESSOA_NATURAL",
@@ -118,8 +130,10 @@
                 "creditDebitType": "DEBITO",
                 "transactionName": "Retiro dinheiro",
                 "type": "SAQUE",
-                "amount": "-1900.00",
-                "transactionCurrency": "BRL",
+                "transactionAmount": {
+                  "amount": "-1900.00",
+                  "currency": "BRL"
+                 },
                 "transactionDate": "2018-12-14",
                 "partieCnpjCpf": "43908445778",
                 "partiePersonType": "PESSOA_NATURAL",
@@ -132,8 +146,6 @@
     }
 ]</Template>
     </AssignVariable>
-    <!-- The next variable holds the list of all valid accounts by customer. Note that an account could be valid, but have no transactions (So it's not enough to check in the list of transactions to determine
-         if an account is valid -->
     <AssignVariable>
         <Name>listOfAllAccountsByCustomer</Name>
         <Template>[{

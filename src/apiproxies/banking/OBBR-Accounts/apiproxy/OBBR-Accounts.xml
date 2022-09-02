@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <APIProxy revision="3" name="OBBR-Accounts">
-    <Basepaths>/accounts/v1</Basepaths>
-    <Basepaths></Basepaths>
-    <Basepaths></Basepaths>
-    <Basepaths></Basepaths>
-    <Basepaths></Basepaths>
-    <Basepaths></Basepaths>
-    <Basepaths></Basepaths>
-    <Basepaths></Basepaths>
-    <Basepaths></Basepaths>
+    <Basepaths>/accounts/v2</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1632284144293</CreatedAt>
-    <CreatedBy>defaultUser</CreatedBy>
+    <CreatedAt>1661925518100</CreatedAt>
+    <CreatedBy>deboraelkin@google.com</CreatedBy>
     <Description>API de contas de depósito à vista, contas de poupança e contas pré-pagas do Open Banking Brasil – Fase 2.</Description>
     <DisplayName>OBBR-Accounts</DisplayName>
-    <LastModifiedAt>1637887683215</LastModifiedAt>
+    <LastModifiedAt>1662093189534</LastModifiedAt>
     <LastModifiedBy>deboraelkin@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:7cee077d0f1a95080e60010e3c775f273462e4a9a6b500e51ed5f83c4dd59ba3257bbe43ad6ed8180c9e9e840c7c0238268382d1cb7b44da249e95f94be020c2:ap-southeast-2</ManifestVersion>
+    <ManifestVersion>SHA-512:3c521650098b2db25c0ba48208069649b00cd0c514581acb1b6425169526d76ad172be9a4c26f1cbde8bddcaf98b7f4b5a531717f82125b2b53760bf82e37aaf:ap-southeast-2</ManifestVersion>
     <Policies>
         <Policy>AM-Add-CORS-Headers</Policy>
         <Policy>AM-CopyListOfAllAccountsToAllResults</Policy>
@@ -25,6 +17,7 @@
         <Policy>AM-MockFullListOfBalances</Policy>
         <Policy>AM-MockFullListOfLimits</Policy>
         <Policy>AM-MockFullListOfTransactionsAndValidAccounts</Policy>
+        <Policy>AM-RemoveTxSearchParams</Policy>
         <Policy>AM-Set-Meta-Link-Settings-For-Error-Response</Policy>
         <Policy>AM-Set-Pagination-Settings-AccountDetails</Policy>
         <Policy>AM-Set-Pagination-Settings</Policy>
@@ -45,8 +38,8 @@
         <Policy>EV-ResultsForAccountId</Policy>
         <Policy>FC-AddFAPIInteractionId</Policy>
         <Policy>FC-AddResponseHeaders-Link-Meta</Policy>
-        <Policy>FC-CheckRequesIsAllowed</Policy>
         <Policy>FC-CheckRequestHeaders</Policy>
+        <Policy>FC-CheckRequestIsAllowed</Policy>
         <Policy>FC-CollectPerformanceSLO</Policy>
         <Policy>FC-PaginateResponse</Policy>
         <Policy>FC-TrafficThresholds</Policy>
@@ -65,7 +58,6 @@
         <ProxyEndpoint>default</ProxyEndpoint>
     </ProxyEndpoints>
     <Resources>
-        <Resource>openapi://association.json</Resource>
         <Resource>jsc://buildDetailsResponse.js</Resource>
         <Resource>jsc://filterAccountsListBasedOnRequestFilters.js</Resource>
         <Resource>jsc://filterResults.js</Resource>
