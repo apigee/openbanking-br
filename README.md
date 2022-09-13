@@ -8,7 +8,7 @@ The regulation establishes different phases for introducing Open Banking APIs. [
 
 This is a reference implementation of *Open Banking Brazil*, using the Google Cloud Apigee API Management platform.
 
-This implementation is based on **2.01* of the standards and currently supports the following Banking APIs
+This implementation is based on version **2.0.1** of the standards and currently supports the following Banking APIs
 
 - Phase 1
   - Channels
@@ -27,10 +27,10 @@ as well as the required security endpoints:
 - OpenID Provider Configuration
 - Pushed Authorisation Requests (PARs)
 
-consent endpoints
+consent endpoints:
  - Create, get, delete consent
 
-resources endpoints
+resources endpoints:
  - Get resources included in consent
 
 administration endpoints:
