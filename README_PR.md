@@ -10,7 +10,7 @@ O regulamento estabelece diferentes fases para a introdução de Open Banking AP
 
 Esta é uma implementação de referência do Open Banking Brasil, utilizando a plataforma de gerenciamento de APIs Apigee do Google Cloud.
 
-Esta implementação é baseada nas versões v1.0.1-rc1.0 dos padrões e atualmente suporta as seguintes APIs:
+Esta implementação é baseada nas versaõ **2.0.1** dos padrões e atualmente suporta as seguintes APIs:
 
 - Fase 1
    - Canais de atendimento
@@ -31,13 +31,13 @@ Os seguintes recursos de segurança também estão incluídos:
 endpoints de consentimento:
    - Criar, obter, excluir consentimento
 
-terminais de recursos:
+endpoints de recursos:
    - Obtenha recursos incluídos no consentimento
 
 endpoints de administração:
    - Obter Métricas
 
-e pontos de extremidade comuns:
+e endpoints comuns:
    - Obter status do serviço
    - Obter interrupções de serviço
 
@@ -89,7 +89,7 @@ Este script instala todos os artefatos necessários. Uma coleção do Postman in
 
 ## Fluxos Compartilhados (Shared Flows)
 
-Existem 7 fluxos compartilhados que implementam a funcionalidade comum exigida pelo Open Banking, Admin e APIs de registro de cliente dinâmico.
+Existem 17 fluxos compartilhados que implementam a funcionalidade comum exigida pelo Open Banking, Admin e APIs de registro de cliente dinâmico.
 
 1. *add-response-fapi-interaction-id*: Inclui cabeçalho *x-fapi-interaction-id* em respostas e mensagens de erro
 2. *add-response-headers-links-meta*: Se aplicável, inclui na resposta os cabeçalhos obrigatórios e a "meta" estrutura na carga útil, incluindo links próprios, links de paginação e informações de paginação.
